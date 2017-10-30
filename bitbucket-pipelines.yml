@@ -12,9 +12,9 @@ pipelines:
           - bundler
         script:
           - bundle install
-          - rake db:setup
-          - rake db:test:prepare
-          - rake test
+          - bundle exec rake db:setup
+          - bundle exec rake db:test:prepare
+          - bundle exec rake test
 
 definitions:
   services:
