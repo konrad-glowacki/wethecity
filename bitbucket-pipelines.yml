@@ -15,10 +15,16 @@ pipelines:
           - bundle exec rake db:setup
           - bundle exec rake db:test:prepare
           - bundle exec rake test
+        services:
+          - postgres
 
 definitions:
   services:
     postgres:
       image: postgres
+      environment:
+        POSTGRES_DB: 'pipelines'
+        POSTGRES_USER: 'test_user'
+        POSTGRES_PASSWORD: 'test_user_password'
   caches:
     bundler: ./vendor
