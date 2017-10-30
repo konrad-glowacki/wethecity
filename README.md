@@ -1,29 +1,27 @@
-# README #
+# README
 
-This README would normally document whatever steps are necessary to get your application up and running.
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-### What is this repository for? ###
+Things you may want to cover:
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* Ruby version
+ruby 2.4.2
 
-### How do I get set up? ###
+* System dependencies
+postgres 9.4
 
-* Summary of set up
 * Configuration
-* Dependencies
-* Database configuration
-* How to run tests
+bundle install
+
+* Database creation
+rake db:create
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
 * Deployment instructions
 
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+* Run application
+`foreman start`
