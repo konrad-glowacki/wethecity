@@ -3,16 +3,22 @@
 # Only use spaces to indent your .yml configuration.
 # -----
 # You can specify a custom docker image from Docker Hub as your build environment.
-image: ruby:2.4.0
+image: ruby:2.4.2
 
 pipelines:
   default:
     - step:
         caches:
           - bundler
-        script: # Modify the commands below to build your repository.
+        script:
           - bundle install
+          - rake db:setup
+          - rake db:test:prepare
+          - rake test
 
 definitions:
+  services:
+    postgres:
+      image: postgres
   caches:
     bundler: ./vendor
