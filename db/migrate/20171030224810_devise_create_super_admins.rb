@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class DeviseCreateSuperAdmins < ActiveRecord::Migration[5.1]
   def change
     create_table :super_admins do |t|
       ## Database authenticatable
       t.string :name,               null: false
-      t.string :email,              null: false, default: ""
-      t.string :encrypted_password, null: false, default: ""
+      t.string :email,              null: false, default: ''
+      t.string :encrypted_password, null: false, default: ''
 
       ## Recoverable
       t.string   :reset_password_token
