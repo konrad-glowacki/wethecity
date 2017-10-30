@@ -16,11 +16,14 @@ pipelines:
           - bundle exec rake db:test:prepare
           - bundle exec rake test
         services:
-          - postgres
+          - database
+          - node
 
 definitions:
   services:
-    postgres:
+    node:
+      image: node
+    database:
       image: postgres
       environment:
         POSTGRES_DB: 'pipelines'
