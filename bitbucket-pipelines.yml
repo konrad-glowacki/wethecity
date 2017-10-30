@@ -6,6 +6,7 @@ pipelines:
         caches:
           - bundler
         script:
+          - export DATABASE_URL=postgresql://test_user:test_user_password@localhost/pipelines
           - bundle install
           - bundle exec rake db:setup
           - bundle exec rake db:test:prepare
