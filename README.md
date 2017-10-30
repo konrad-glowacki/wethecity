@@ -6,14 +6,16 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
+ruby 2.4.2
 
 * System dependencies
+postgres 9.4
 
 * Configuration
+bundle install
 
 * Database creation
-
-* Database initialization
+rake db:create
 
 * How to run the test suite
 
@@ -21,4 +23,5 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* Run application
+`foreman start`
