@@ -1,6 +1,15 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :users
+    resources :super_admins
+    resources :accounts
+    resources :resources
+
+    root to: 'users#index'
+  end
+
   devise_for :users
   devise_for :super_admins
 
