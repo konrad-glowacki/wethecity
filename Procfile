@@ -1,2 +1,4 @@
-rails: bundle exec rails server -b 127.0.0.1
-postgres: postgres -D /usr/local/var/postgres
+web: bundle exec bin/rails server -p $PORT -e $RAILS_ENV
+worker: QUEUE=* bundle exec rake resque:work
+
+# postgres: postgres -D /usr/local/var/postgres

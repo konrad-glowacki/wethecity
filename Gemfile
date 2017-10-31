@@ -46,6 +46,9 @@ gem 'omniauth-linkedin'
 # Panel Admin
 gem 'administrate', '~> 0.8'
 
+# Background jobs
+gem 'resque'
+
 group :development, :test do
   # Load environment variables from .env
   gem 'dotenv-rails'
