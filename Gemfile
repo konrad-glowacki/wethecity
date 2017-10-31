@@ -37,6 +37,11 @@ gem 'jbuilder', '~> 2.5'
 # Authentication
 gem 'devise', '~> 4.3'
 
+# OmniAuth authentication system
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-linkedin'
+
 # Panel Admin
 gem 'administrate', '~> 0.8'
 
