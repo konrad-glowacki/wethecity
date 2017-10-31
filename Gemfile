@@ -49,6 +49,9 @@ group :development, :test do
 end
 
 group :development do
+  # Git hook manager
+  gem 'overcommit', '~> 0.41.0', require: false
+
   # Ruby static code analyzer
   gem 'rubocop', '~> 0.51.0', require: false
 
