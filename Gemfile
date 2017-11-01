@@ -50,6 +50,9 @@ gem 'administrate', '~> 0.8'
 gem 'resque'
 
 group :development, :test do
+  # Shell for ruby
+  gem 'pry'
+
   # Load environment variables from .env
   gem 'dotenv-rails'
 
