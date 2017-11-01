@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :confirmable, :lockable, :timeoutable, :omniauthable
 
   has_and_belongs_to_many :accounts
+  has_and_belongs_to_many :projects
 
   validates :first_name, presence: true
   validates :last_name, presence: true
