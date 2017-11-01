@@ -46,6 +46,9 @@ gem 'omniauth-linkedin'
 # Panel Admin
 gem 'administrate', '~> 0.8'
 
+# Project location geocoding helper
+gem 'geocoder'
+
 # Background jobs
 gem 'resque'
 
