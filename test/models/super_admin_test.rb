@@ -3,7 +3,8 @@
 require 'test_helper'
 
 class SuperAdminTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test 'initialize' do
+    admin = SuperAdmin.new
+    assert_not admin.save
+  end
 end
