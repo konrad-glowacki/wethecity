@@ -6,4 +6,11 @@ class Project < ApplicationRecord
 
   geocoded_by :location
   after_validation :geocode
+
+  validates :name, presence: true
+  validates :active, presence: true, inclusion: { in: [true, false] }
+  validates :description_html, presence: true
+  validates :finish_on, presence: true
+  validates :location, presence: true
+  validates :city, presence: true
 end
