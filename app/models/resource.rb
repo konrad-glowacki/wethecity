@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Resource < ApplicationRecord
+  acts_as_paranoid
+
   enum kind: %i[skill asset]
 
   belongs_to :provider, polymorphic: true

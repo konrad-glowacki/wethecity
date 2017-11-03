@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171101211045) do
+ActiveRecord::Schema.define(version: 20171103111645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20171101211045) do
     t.string "email", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_accounts_on_deleted_at"
   end
 
   create_table "accounts_projects", id: false, force: :cascade do |t|
@@ -45,7 +47,7 @@ ActiveRecord::Schema.define(version: 20171101211045) do
     t.boolean "active", default: false, null: false
     t.string "video_url"
     t.text "description_html", null: false
-    t.json "images"
+    t.jsonb "images"
     t.date "finish_on", null: false
     t.string "location", null: false
     t.float "latitude"
@@ -55,6 +57,22 @@ ActiveRecord::Schema.define(version: 20171101211045) do
     t.float "collected_budget"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_projects_on_deleted_at"
+  end
+
+  create_table "projects_resources", id: false, force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.bigint "resource_id", null: false
+    t.text "description"
+    t.float "quantity"
+    t.string "provider_type", null: false
+    t.bigint "provider_id", null: false
+    t.datetime "provided_at", null: false
+    t.index ["project_id", "resource_id", "provider_id", "provider_type"], name: "index_projects_resources_unique_provider", unique: true
+    t.index ["project_id"], name: "index_projects_resources_on_project_id"
+    t.index ["provider_type", "provider_id"], name: "index_projects_resources_on_provider_type_and_provider_id"
+    t.index ["resource_id"], name: "index_projects_resources_on_resource_id"
   end
 
   create_table "projects_users", id: false, force: :cascade do |t|
@@ -70,6 +88,8 @@ ActiveRecord::Schema.define(version: 20171101211045) do
     t.integer "kind", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_resources_on_deleted_at"
     t.index ["name"], name: "index_resources_on_name"
   end
 
@@ -121,7 +141,11 @@ ActiveRecord::Schema.define(version: 20171101211045) do
     t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "provider"
+    t.string "uid"
+    t.datetime "deleted_at"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+    t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["location"], name: "index_users_on_location"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

@@ -49,6 +49,9 @@ gem 'administrate', '~> 0.8'
 # Project location geocoding helper
 gem 'geocoder'
 
+# A Rails plugin to hide records instead of deleting them, making them recoverable later.
+gem 'paranoia', '~> 2.2'
+
 # Background jobs
 gem 'resque'
 
