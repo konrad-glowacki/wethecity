@@ -4,17 +4,6 @@ require 'resque/server'
 
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-
-  namespace :admin do
-    resources :users
-    resources :super_admins
-    resources :accounts
-    resources :projects
-    resources :resources
-
-    root to: 'users#index'
-  end
-
   devise_for :users
   devise_for :super_admins, path: 'admin'
 
@@ -22,6 +11,7 @@ Rails.application.routes.draw do
     resources :users
     resources :super_admins
     resources :accounts
+    resources :projects
     resources :resources
     resources :super_admins
 
