@@ -7,6 +7,8 @@ class User < ApplicationRecord
          omniauth_providers: [:facebook]
 
   has_and_belongs_to_many :accounts
+  has_and_belongs_to_many :projects
+  enum role: %i[leader member ambassador]
 
   validates :first_name, presence: true
   validates :last_name, presence: true

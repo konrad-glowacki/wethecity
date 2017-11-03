@@ -27,10 +27,42 @@ ActiveRecord::Schema.define(version: 20171101211045) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "accounts_projects", id: false, force: :cascade do |t|
+    t.integer "account_id", null: false
+    t.integer "project_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["account_id", "project_id"], name: "index_accounts_projects_on_account_id_and_project_id", unique: true
+  end
+
   create_table "accounts_users", id: false, force: :cascade do |t|
     t.integer "account_id", null: false
     t.integer "user_id", null: false
     t.index ["account_id", "user_id"], name: "index_accounts_users_on_account_id_and_user_id", unique: true
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "name", null: false
+    t.boolean "active", default: false, null: false
+    t.string "video_url"
+    t.text "description_html", null: false
+    t.json "images"
+    t.date "finish_on", null: false
+    t.string "location", null: false
+    t.float "latitude"
+    t.float "longitude"
+    t.string "city", default: "krakow", null: false
+    t.float "required_budget"
+    t.float "collected_budget"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "projects_users", id: false, force: :cascade do |t|
+    t.integer "project_id", null: false
+    t.integer "user_id", null: false
+    t.string "role", null: false
+    t.datetime "created_at", null: false
+    t.index ["project_id", "user_id"], name: "index_projects_users_on_project_id_and_user_id", unique: true
   end
 
   create_table "resources", force: :cascade do |t|
@@ -89,8 +121,6 @@ ActiveRecord::Schema.define(version: 20171101211045) do
     t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "provider"
-    t.string "uid"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["location"], name: "index_users_on_location"
