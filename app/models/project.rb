@@ -12,5 +12,4 @@ class Project < ApplicationRecord
   validates :description_html, presence: true
   validates :finish_on, presence: true
   validates :location, presence: true
-  validates :city, presence: true
 end
