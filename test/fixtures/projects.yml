@@ -7,6 +7,7 @@ one:
   description_html: MyText
   images:
   finish_on: 2017-11-01
+  location: MyString
   latitude: 1.5
   longitude: 1.5
   city: MyString
@@ -20,6 +21,7 @@ two:
   description_html: MyText
   images:
   finish_on: 2017-11-01
+  location: MyString2
   latitude: 1.5
   longitude: 1.5
   city: MyString
