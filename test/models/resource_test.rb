@@ -3,7 +3,8 @@
 require 'test_helper'
 
 class ResourceTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test 'initialize' do
+    resource = Resource.new
+    assert_not resource.save
+  end
 end

@@ -1,18 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  avatar: MyString
-  type: 1
+fundation:
+  name: Fundation
+  type: Organisation
   websites:
   address: MyString
   phone_number: MyString
   email: MyString
 
-two:
-  name: MyString
-  avatar: MyString
-  type: 1
+krakow_city:
+  name: Krakow UMK
+  type: CityOffice
   websites:
   address: MyString
   phone_number: MyString
