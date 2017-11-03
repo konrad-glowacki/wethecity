@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171103111645) do
+ActiveRecord::Schema.define(version: 20171103114610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 20171103111645) do
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_resources_on_deleted_at"
-    t.index ["name"], name: "index_resources_on_name"
+    t.index ["name"], name: "index_resources_on_name", where: "(deleted_at IS NULL)"
   end
 
   create_table "super_admins", force: :cascade do |t|
@@ -144,12 +144,12 @@ ActiveRecord::Schema.define(version: 20171103111645) do
     t.string "provider"
     t.string "uid"
     t.datetime "deleted_at"
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, where: "(deleted_at IS NULL)"
     t.index ["deleted_at"], name: "index_users_on_deleted_at"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["location"], name: "index_users_on_location"
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, where: "(deleted_at IS NULL)"
+    t.index ["location"], name: "index_users_on_location", where: "(deleted_at IS NULL)"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, where: "(deleted_at IS NULL)"
+    t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true, where: "(deleted_at IS NULL)"
   end
 
 end
