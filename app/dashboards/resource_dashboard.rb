@@ -12,7 +12,7 @@ class ResourceDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     name: Field::String,
-    kind: Field::String.with_options(searchable: false),
+    kind: Field::Select.with_options(collection: Resource.kinds.keys),
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
