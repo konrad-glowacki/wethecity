@@ -11,32 +11,33 @@ class UserDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     accounts: Field::HasMany,
-    id: Field::Number,
-    avatar: Field::String,
+    # id: Field::Number,
+    # avatar: Field::String,
     email: Field::String,
-    encrypted_password: Field::String,
-    volunteer: Field::Boolean,
+    # encrypted_password: Field::String,
+    password: Field::String,
     first_name: Field::String,
     last_name: Field::String,
     biography: Field::String,
-    location: Field::String,
-    reset_password_token: Field::String,
-    reset_password_sent_at: Field::DateTime,
-    remember_created_at: Field::DateTime,
-    sign_in_count: Field::Number,
-    current_sign_in_at: Field::DateTime,
-    last_sign_in_at: Field::DateTime,
-    current_sign_in_ip: Field::String.with_options(searchable: false),
-    last_sign_in_ip: Field::String.with_options(searchable: false),
-    confirmation_token: Field::String,
-    confirmed_at: Field::DateTime,
-    confirmation_sent_at: Field::DateTime,
-    unconfirmed_email: Field::String,
-    failed_attempts: Field::Number,
-    unlock_token: Field::String,
-    locked_at: Field::DateTime,
-    created_at: Field::DateTime,
-    updated_at: Field::DateTime
+    volunteer: Field::Boolean,
+    # location: Field::String,
+    # reset_password_token: Field::String,
+    # reset_password_sent_at: Field::DateTime,
+    # remember_created_at: Field::DateTime,
+    # sign_in_count: Field::Number,
+    # current_sign_in_at: Field::DateTime,
+    # last_sign_in_at: Field::DateTime,
+    # current_sign_in_ip: Field::String.with_options(searchable: false),
+    # last_sign_in_ip: Field::String.with_options(searchable: false),
+    # confirmation_token: Field::String,
+    # confirmed_at: Field::DateTime,
+    # confirmation_sent_at: Field::DateTime,
+    # unconfirmed_email: Field::String,
+    # failed_attempts: Field::Number,
+    # unlock_token: Field::String,
+    # locked_at: Field::DateTime,
+    # created_at: Field::DateTime,
+    # updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -45,72 +46,38 @@ class UserDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    accounts
-    id
-    avatar
     email
+    first_name
+    last_name
+    biography
+    volunteer
+    accounts
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
+  # accounts
   SHOW_PAGE_ATTRIBUTES = %i[
-    accounts
-    id
-    avatar
     email
-    encrypted_password
-    volunteer
     first_name
     last_name
     biography
-    location
-    reset_password_token
-    reset_password_sent_at
-    remember_created_at
-    sign_in_count
-    current_sign_in_at
-    last_sign_in_at
-    current_sign_in_ip
-    last_sign_in_ip
-    confirmation_token
-    confirmed_at
-    confirmation_sent_at
-    unconfirmed_email
-    failed_attempts
-    unlock_token
-    locked_at
-    created_at
-    updated_at
+    volunteer
+    accounts
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
+  # accounts
   FORM_ATTRIBUTES = %i[
-    accounts
-    avatar
     email
-    encrypted_password
-    volunteer
+    password
     first_name
     last_name
     biography
-    location
-    reset_password_token
-    reset_password_sent_at
-    remember_created_at
-    sign_in_count
-    current_sign_in_at
-    last_sign_in_at
-    current_sign_in_ip
-    last_sign_in_ip
-    confirmation_token
-    confirmed_at
-    confirmation_sent_at
-    unconfirmed_email
-    failed_attempts
-    unlock_token
-    locked_at
+    volunteer
+    accounts
   ].freeze
 
   # Overwrite this method to customize how users are displayed
