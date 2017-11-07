@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171107214010) do
+ActiveRecord::Schema.define(version: 20171107230225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,16 +42,22 @@ ActiveRecord::Schema.define(version: 20171107214010) do
     t.index ["account_id", "user_id"], name: "index_accounts_users_on_account_id_and_user_id", unique: true
   end
 
-  create_table "project_categories", force: :cascade do |t|
+  create_table "categories", force: :cascade do |t|
     t.string "name", null: false
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "ancestry"
     t.datetime "deleted_at"
-    t.index ["ancestry"], name: "index_project_categories_on_ancestry"
-    t.index ["deleted_at"], name: "index_project_categories_on_deleted_at"
-    t.index ["name"], name: "index_project_categories_on_name", unique: true, where: "(deleted_at IS NULL)"
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
+    t.index ["deleted_at"], name: "index_categories_on_deleted_at"
+    t.index ["name"], name: "index_categories_on_name", unique: true, where: "(deleted_at IS NULL)"
+  end
+
+  create_table "categories_projects", id: false, force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.bigint "project_id", null: false
+    t.index ["category_id", "project_id"], name: "index_categories_projects_on_category_id_and_project_id", unique: true
   end
 
   create_table "projects", force: :cascade do |t|

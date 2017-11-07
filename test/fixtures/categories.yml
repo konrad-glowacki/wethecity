@@ -1,9 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: Common
+general:
+  name: General
   description: MyText
 
-two:
+events:
   name: Events
   description: MyText
+
+parent:
+  name: Parent
+  description: Some description
+
+children:
+  name: Children
+  description: Some description

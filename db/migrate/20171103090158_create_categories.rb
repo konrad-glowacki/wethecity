@@ -1,6 +1,6 @@
-class CreateProjectCategories < ActiveRecord::Migration[5.1]
+class CreateCategories < ActiveRecord::Migration[5.1]
   def change
-    create_table :project_categories do |t|
+    create_table :categories do |t|
       t.string :name, null: false
       t.text :description
       t.timestamps
