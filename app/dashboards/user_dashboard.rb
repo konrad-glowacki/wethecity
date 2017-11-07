@@ -16,6 +16,7 @@ class UserDashboard < Administrate::BaseDashboard
       multiple: false,
       image_on_index: true
     ),
+    remove_avatar: Field::Boolean,
     email: Field::String,
     password: Field::String,
     first_name: Field::String,
@@ -56,6 +57,7 @@ class UserDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     avatar
+    remove_avatar
     email
     password
     first_name
