@@ -10,30 +10,46 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
+
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
 
 # Use CoffeeScript for .cofffee assets and views
 gem 'coffee-rails', '~> 4.2'
+
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+# File uploads
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
+
+# Amazon service library
+gem 'fog-aws'
 
 # Authentication
 gem 'devise', '~> 4.3'
@@ -49,9 +65,16 @@ gem 'administrate', '~> 0.8'
 # Check ancestry
 gem 'ancestry'
 
+# A Rails plugin to hide records instead of deleting them, making them recoverable later.
+gem 'paranoia', '~> 2.2'
+
 # Background jobs
 gem 'resque'
+
 group :development, :test do
+  # Shell for ruby
+  gem 'pry'
+
   # Load environment variables from .env
   gem 'dotenv-rails'
 
@@ -63,6 +86,10 @@ group :development, :test do
 end
 
 group :development do
+  # Automatically run tests
+  gem 'guard'
+  gem 'guard-minitest'
+
   # Git hook manager
   gem 'overcommit', '~> 0.41.0', require: false
 
@@ -78,4 +105,4 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+# gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

@@ -19,4 +19,7 @@
 .byebug_history
 .idea/
 
+# Uploaded files
+/public/uploads
+
 /.env
