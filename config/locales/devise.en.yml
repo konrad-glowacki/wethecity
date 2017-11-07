@@ -1,6 +1,16 @@
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 
 en:
+  admins:
+    sessions:
+      new:
+        sign_in: "Sign In"
+    passwords:
+      new:
+        send_me_reset_password_instructions: "Send Me Reset Password Instructions"
+    unlocks:
+      new:
+        resend_unlock_instructions: "Resend Unlock Instructions"
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."

@@ -4,7 +4,13 @@ require 'resque/server'
 
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  devise_for :super_admins, path: 'admin'
+  devise_for :super_admins, path: 'admin', controllers: { 
+                                                          confirmations: 'admins/confirmations',
+                                                          passwords: 'admins/passwords',
+                                                          registrations: 'admins/registrations',
+                                                          sessions: 'admins/sessions',
+                                                          unlocks: 'admins/unlocks'
+                                                        }
 
   namespace :admin do
     resources :users

@@ -53,9 +53,13 @@ gem 'geocoder'
 gem 'resque'
 
 # Style
-gem 'bootstrap', '~> 4.0.0.beta2.1'
-gem 'sprockets-rails'
-gem 'jquery-rails'
+gem 'rails-assets-bootstrap-sass', source: 'https://rails-assets.org'
+
+# i18n
+gem 'devise-i18n'
+
+# Javascript
+gem 'rails-assets-jquery', source: 'https://rails-assets.org'
 
 group :development, :test do
   # Shell for ruby
