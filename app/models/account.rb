@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Account < ApplicationRecord
+  acts_as_paranoid
+
   mount_uploader :avatar, AvatarUploader
 
   has_many :resources, as: :provider

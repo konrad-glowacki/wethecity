@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  acts_as_paranoid
+
   mount_uploader :avatar, AvatarUploader
 
   devise :database_authenticatable, :registerable,
