@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20171103114610) do
     t.datetime "updated_at", null: false
     t.string "ancestry"
     t.index ["ancestry"], name: "index_project_categories_on_ancestry"
+    t.index ["name"], name: "index_project_categories_on_name", unique: true
   end
 
   create_table "projects", force: :cascade do |t|
