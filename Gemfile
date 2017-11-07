@@ -62,6 +62,9 @@ gem 'omniauth-linkedin'
 # Panel Admin
 gem 'administrate', '~> 0.8'
 
+# Project location geocoding helper
+gem 'geocoder'
+
 # Check ancestry
 gem 'ancestry'
 
