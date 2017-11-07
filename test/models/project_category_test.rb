@@ -13,6 +13,6 @@ class ProjectCategoryTest < ActiveSupport::TestCase
   project_category_child = ProjectCategoryChild.new
 
   # Check if child object has ancestry
-  expected = project_category_child.has_ancestry
+  expected = project_category_child.ancestry
   assert_equal(expected)
 end

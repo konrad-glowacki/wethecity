@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
 class ProjectCategory < ActiveRecord::Base
-  has_ancestry
+  def ancestry
+    has_ancestry
+  end
 end
