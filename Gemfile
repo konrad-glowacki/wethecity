@@ -61,6 +61,7 @@ gem 'omniauth-linkedin'
 
 # Panel Admin
 gem 'administrate', '~> 0.8'
+gem 'administrate-field-carrierwave', '~> 0.2.0'
 
 # Project location geocoding helper
 gem 'geocoder'

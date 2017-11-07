@@ -11,33 +11,17 @@ class UserDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     accounts: Field::HasMany,
-    # id: Field::Number,
-    # avatar: Field::String,
+    avatar: Field::Carrierwave.with_options(
+      image: :thumb,
+      multiple: false,
+      image_on_index: true
+    ),
     email: Field::String,
-    # encrypted_password: Field::String,
     password: Field::String,
     first_name: Field::String,
     last_name: Field::String,
     biography: Field::String,
-    volunteer: Field::Boolean,
-    # location: Field::String,
-    # reset_password_token: Field::String,
-    # reset_password_sent_at: Field::DateTime,
-    # remember_created_at: Field::DateTime,
-    # sign_in_count: Field::Number,
-    # current_sign_in_at: Field::DateTime,
-    # last_sign_in_at: Field::DateTime,
-    # current_sign_in_ip: Field::String.with_options(searchable: false),
-    # last_sign_in_ip: Field::String.with_options(searchable: false),
-    # confirmation_token: Field::String,
-    # confirmed_at: Field::DateTime,
-    # confirmation_sent_at: Field::DateTime,
-    # unconfirmed_email: Field::String,
-    # failed_attempts: Field::Number,
-    # unlock_token: Field::String,
-    # locked_at: Field::DateTime,
-    # created_at: Field::DateTime,
-    # updated_at: Field::DateTime
+    volunteer: Field::Boolean
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -46,6 +30,7 @@ class UserDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
+    avatar
     email
     first_name
     last_name
@@ -56,8 +41,8 @@ class UserDashboard < Administrate::BaseDashboard
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  # accounts
   SHOW_PAGE_ATTRIBUTES = %i[
+    avatar
     email
     first_name
     last_name
@@ -69,8 +54,8 @@ class UserDashboard < Administrate::BaseDashboard
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
-  # accounts
   FORM_ATTRIBUTES = %i[
+    avatar
     email
     password
     first_name
