@@ -11,7 +11,6 @@ class Project < ApplicationRecord
   after_validation :geocode
 
   validates :name, presence: true
-  validates :active, presence: true, inclusion: { in: [true, false] }
   validates :description_html, presence: true
   validates :finish_on, presence: true
   validates :location, presence: true
