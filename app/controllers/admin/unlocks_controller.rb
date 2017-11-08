@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Admins
+module Admin
   class UnlocksController < Devise::UnlocksController
     # GET /resource/unlock/new
     # def new
