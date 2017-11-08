@@ -1,13 +1,4 @@
 /*
-*= require bootstrap-sass
 *= require_tree .
 *= require_self
 */
-
-.devis-admin-panel {
-	max-width: 350px;
-}
-
-.devis-admin-panel .checkbox input[type="checkbox"] {
-	margin-left: 4px;
-}
