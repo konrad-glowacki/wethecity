@@ -1,0 +1,17 @@
+/*
+*= require bootstrap-sass
+*= require_tree .
+*= require_self
+*/
+
+.devise-admin-panel {
+  max-width: 350px;
+
+  .checkbox input[type="checkbox"] {
+    margin-left: 4px;
+  }
+
+  .radio label, .checkbox label {
+    padding-left: 25px;
+  }
+}

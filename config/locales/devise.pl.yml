@@ -1,5 +1,5 @@
 pl:
-  admins:
+  admin:
     sessions:
       new:
         sign_in: "Zaloguj się"
