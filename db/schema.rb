@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171103085619) do
+ActiveRecord::Schema.define(version: 20171107230225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20171103085619) do
     t.string "email", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_accounts_on_deleted_at"
   end
 
   create_table "accounts_projects", id: false, force: :cascade do |t|
@@ -38,6 +40,24 @@ ActiveRecord::Schema.define(version: 20171103085619) do
     t.integer "account_id", null: false
     t.integer "user_id", null: false
     t.index ["account_id", "user_id"], name: "index_accounts_users_on_account_id_and_user_id", unique: true
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "ancestry"
+    t.datetime "deleted_at"
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
+    t.index ["deleted_at"], name: "index_categories_on_deleted_at"
+    t.index ["name"], name: "index_categories_on_name", unique: true, where: "(deleted_at IS NULL)"
+  end
+
+  create_table "categories_projects", id: false, force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.bigint "project_id", null: false
+    t.index ["category_id", "project_id"], name: "index_categories_projects_on_category_id_and_project_id", unique: true
   end
 
   create_table "projects", force: :cascade do |t|
@@ -55,6 +75,8 @@ ActiveRecord::Schema.define(version: 20171103085619) do
     t.float "collected_budget"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_projects_on_deleted_at"
   end
 
   create_table "projects_resources", id: false, force: :cascade do |t|
@@ -84,7 +106,9 @@ ActiveRecord::Schema.define(version: 20171103085619) do
     t.integer "kind", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_resources_on_name"
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_resources_on_deleted_at"
+    t.index ["name"], name: "index_resources_on_name", unique: true, where: "(deleted_at IS NULL)"
   end
 
   create_table "super_admins", force: :cascade do |t|
@@ -136,10 +160,12 @@ ActiveRecord::Schema.define(version: 20171103085619) do
     t.datetime "updated_at", null: false
     t.string "provider"
     t.string "uid"
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
+    t.datetime "deleted_at"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, where: "(deleted_at IS NULL)"
+    t.index ["deleted_at"], name: "index_users_on_deleted_at"
+    t.index ["email"], name: "index_users_on_email", unique: true, where: "(deleted_at IS NULL)"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, where: "(deleted_at IS NULL)"
+    t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true, where: "(deleted_at IS NULL)"
   end
 
 end

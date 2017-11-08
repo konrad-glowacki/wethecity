@@ -10,7 +10,7 @@ class ProjectDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    accounts: Field::HasMany,
+    accounts: Field::MultipleSelectField,
     users: Field::HasMany,
     id: Field::Number,
     name: Field::String,
@@ -83,10 +83,7 @@ class ProjectDashboard < Administrate::BaseDashboard
     collected_budget
   ].freeze
 
-  # Overwrite this method to customize how projects are displayed
-  # across all pages of the admin dashboard.
-  #
-  # def display_resource(project)
-  #   "Project ##{project.id}"
-  # end
+  def display_resource(project)
+    "Project ##{project.name}"
+  end
 end
