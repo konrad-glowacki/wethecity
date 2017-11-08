@@ -53,6 +53,7 @@ gem 'fog-aws'
 
 # Authentication
 gem 'devise', '~> 4.3'
+gem 'devise-i18n'
 
 # OmniAuth authentication system
 gem 'omniauth'
@@ -73,6 +74,11 @@ gem 'paranoia', '~> 2.2'
 
 # Background jobs
 gem 'resque'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap-sass'
+  gem 'rails-assets-jquery'
+end
 
 group :development, :test do
   # Shell for ruby
