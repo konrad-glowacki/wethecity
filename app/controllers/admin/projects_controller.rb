@@ -2,15 +2,30 @@
 
 module Admin
   class ProjectsController < Admin::ApplicationController
-    before_action :set_project, only: [:create, :edit, :delete]
+    before_action :set_project, only: [:edit, :delete]
     
     def create
+      @project = Project.new(resource_params)
+      if @project.save
+        redirect_back
+      else
+        redirect_to @project
+      end
     end
 
     def edit
+      if @project.update_attributes(resource_params)
+        redirect_back
+      else
+        redirect_to @project
+      end
     end
 
-    def delete
+    def destroy
+      @project.destroy
+      unless @project
+        flash[:success]  = "Project deleted"
+      end
     end
 
     def set_project
