@@ -26,9 +26,11 @@ class User < ApplicationRecord
   end
 
   def self.create_from_facebook(auth)
+
     name = auth.info.name.split(' ')
     user = new(
       last_name: name[-1], first_name: name[0], email: auth.info.email,
+      remote_avatar_url: auth.info.image.gsub('http://','https://'),
       password: Devise.friendly_token[0, 20], provider: auth.provider, uid: auth.uid
     )
     user.skip_confirmation!
