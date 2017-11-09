@@ -2,20 +2,20 @@
 
 module Admin
   class ProjectsController < Admin::ApplicationController
-    # To customize the behavior of this controller,
-    # you can overwrite any of the RESTful actions. For example:
-    #
-    # def index
-    #   super
-    #   @resources = Project.
-    #     page(params[:page]).
-    #     per(10)
-    # end
+    before_action :set_project, only: [:create, :edit, :delete]
+    
+    def create
+    end
 
-    # Define a custom finder by overriding the `find_resource` method:
-    # def find_resource(param)
-    #   Project.find_by!(id: param)
-    # end
+    def edit
+    end
+
+    def delete
+    end
+
+    def set_project
+      @project = Project.find(params[:id])
+    end
 
     def resource_params
       permitted_attributes = dashboard.permitted_attributes + [{ account_ids: [] }]
