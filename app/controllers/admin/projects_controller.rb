@@ -2,22 +2,22 @@
 
 module Admin
   class ProjectsController < Admin::ApplicationController
-    before_action :set_project, only: [:edit, :delete]
+    before_action :set_project, only: [:edit, :destroy]
     
     def create
       @project = Project.new(resource_params)
       if @project.save
-        redirect_back
         flash[:success] = "Project successfully added"
+        redirect_back(fallback_location: admin_projects_path)
       else
-        redirect_to @project
         flash[:notice] = "Something went wrong"
+        redirect_back(fallback_location: admin_projects_path)
       end
     end
 
     def edit
       if @project.update_attributes(resource_params)
-        redirect_back
+        redirect_back(fallback_location: admin_projects_path)
         flash[:success] = "Project successfully updated"
       else
         redirect_to @project
@@ -27,9 +27,8 @@ module Admin
 
     def destroy
       @project.destroy
-      unless @project
-        flash[:success]  = "Project deleted"
-      end
+      redirect_back(fallback_location: admin_projects_path)
+      flash[:notice] = "Project deleted"
     end
 
     def set_project
