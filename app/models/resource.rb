@@ -7,6 +7,6 @@ class Resource < ApplicationRecord
 
   belongs_to :provider, polymorphic: true
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
   validates :kind, presence: true
 end

@@ -8,7 +8,10 @@ as defined by the routes in the `admin/` namespace
 %>
 
 <nav class="navigation" role="navigation">
-  <% Administrate::Namespace.new(namespace).resources.each do |resource| %>
+  <% skip_resources = ['passwords', 'confirmations', 'sessions', 'unlocks'] %>
+  <% resources = Administrate::Namespace.new(namespace).resources.reject { |r| skip_resources.include?(r.resource) } %>
+
+  <% resources.each do |resource| %>
     <%= link_to(
       display_resource_name(resource),
       [namespace, resource.path],

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+general:
+  name: General
+  description: MyText
+
+events:
+  name: Events
+  description: MyText
+
+parent:
+  name: Parent
+  description: Some description
+
+children:
+  name: Children
+  description: Some description
