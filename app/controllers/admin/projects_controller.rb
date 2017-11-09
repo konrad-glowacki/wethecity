@@ -8,16 +8,20 @@ module Admin
       @project = Project.new(resource_params)
       if @project.save
         redirect_back
+        flash[:success] = "Project successfully added"
       else
         redirect_to @project
+        flash[:notice] = "Something went wrong"
       end
     end
 
     def edit
       if @project.update_attributes(resource_params)
         redirect_back
+        flash[:success] = "Project successfully updated"
       else
         redirect_to @project
+        flash[:notice] = "Something went wrong"
       end
     end
 
