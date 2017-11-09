@@ -26,7 +26,6 @@ class User < ApplicationRecord
   end
 
   def self.create_from_facebook(auth)
-
     name = auth.info.name.split(' ')
     user = new(
       last_name: name[-1], first_name: name[0], email: auth.info.email,
