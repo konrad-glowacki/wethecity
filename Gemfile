@@ -38,9 +38,6 @@ gem 'jbuilder', '~> 2.5'
 # gmaps4rails needs underscore.js lib
 gem 'underscore-rails'
 
-# Bootstrap DatePicker
-gem 'bootstrap-datepicker-rails'
-
 gem 'jquery-rails'
 
 # Use Redis adapter to run Action Cable in production
