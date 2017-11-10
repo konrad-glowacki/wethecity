@@ -2,6 +2,7 @@ AllCops:
   Exclude:
     - db/**
     - db/migrate/**
+    - lib/splitter/full_name.rb
 
 Metrics/LineLength:
   Max: 120
