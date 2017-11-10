@@ -19,5 +19,12 @@ module Admin
 
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
     # for more information
+    def resource_params
+      custom_params = params.require(resource_class.model_name.param_key)
+                            .permit(dashboard.permitted_attributes)
+
+      custom_params.delete(:password) if custom_params[:password].empty?
+      custom_params
+    end
   end
 end
