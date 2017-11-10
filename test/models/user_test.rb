@@ -9,7 +9,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'User can have one Account' do
-    user = users(:user)
+    user = users(:user1)
     account = accounts(:fundation)
     user.accounts << account
 
@@ -17,7 +17,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'User can have more Accounts' do
-    user = users(:user)
+    user = users(:user1)
     account1 = accounts(:fundation)
     account2 = accounts(:krakow_city)
     user.accounts << account1 << account2
@@ -26,7 +26,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'User can have more Accounts but not related to the same Account' do
-    user = users(:user)
+    user = users(:user1)
     account1 = accounts(:fundation)
     account2 = accounts(:krakow_city)
     user.accounts << account1 << account2
