@@ -13,6 +13,7 @@ and renders all form fields for a resource's editable attributes.
 
 [1]: http://www.rubydoc.info/gems/administrate/Administrate/Page/Form
 %>
+ <input type="text" data-provide='datepicker' >
 
 <%= form_for([namespace, page.resource], html: { class: "form" }) do |f| %>
   <% if page.resource.errors.any? %>
@@ -36,6 +37,8 @@ and renders all form fields for a resource's editable attributes.
     </div>
   <% end -%>
 
+ 
+
   <div style='width: 800px;'>
     <div id="map" style='width: 800px; height: 400px;'></div>
   </div>
@@ -46,3 +49,5 @@ and renders all form fields for a resource's editable attributes.
 <% end %>
 
 <%= javascript_include_tag "admin/form/map.js" %>
+
+

@@ -35,11 +35,13 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
-# Google Maps
-gem 'gmaps4rails'
-
 # gmaps4rails needs underscore.js lib
 gem 'underscore-rails'
+
+# Bootstrap DatePicker
+gem 'bootstrap-datepicker-rails'
+
+gem 'jquery-rails'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'

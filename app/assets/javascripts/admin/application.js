@@ -9,8 +9,11 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
+//= require jquery3
+//= require jquery_ujs
 //= require rails-ujs
 //= require turbolinks
 //= require underscore
 //= require gmaps/google
+//= require bootstrap-datepicker
 //= require_tree .
