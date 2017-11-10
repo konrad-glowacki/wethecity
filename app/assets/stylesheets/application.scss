@@ -1,3 +1,8 @@
 /*
 *= require_tree .
 */
+@import "shared/fonts";
+
+html, body {
+  font: $font-size $font-family;
+}
