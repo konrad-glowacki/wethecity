@@ -5,7 +5,6 @@ require 'administrate/base_dashboard'
 class UserDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     accounts: Field::HasMany,
-    remove_avatar: Field::Boolean,
     email: Field::String,
     password: Field::String,
     full_name: Field::String,
@@ -13,11 +12,14 @@ class UserDashboard < Administrate::BaseDashboard
     last_name: Field::String,
     biography: Field::String,
     volunteer: Field::Boolean,
+    remove_avatar: Field::Boolean,
     avatar: Field::Carrierwave.with_options(
       image: :thumb,
       multiple: false,
       image_on_index: true
-    )
+    ),
+    created_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   COLLECTION_ATTRIBUTES = %i[
@@ -34,6 +36,8 @@ class UserDashboard < Administrate::BaseDashboard
     last_name
     biography
     volunteer
+    created_at
+    updated_at
     accounts
   ].freeze
 
