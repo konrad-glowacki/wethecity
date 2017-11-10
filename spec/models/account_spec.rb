@@ -1,36 +1,37 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+require 'rails_helper'
 
-class AccountTest < ActiveSupport::TestCase
-  test 'websites json' do
+RSpec.describe Account, type: :model do
+  fixtures :projects, :accounts
+
+  it 'websites json' do
     websites = { home: 'some-home.com', additional: 'some-additional.com' }
 
     account = Organisation.new(
       websites: websites, name: 'test', address: 'some address 11', email: 'official@email.com'
     )
 
-    assert account.save
-    assert_equal account.websites['home'], websites[:home]
-    assert_equal account.websites['additional'], websites[:additional]
+    expect(account.save).to be_truthy
+    expect(account.websites['home']).to eq(websites[:home])
+    expect(account.websites['additional']).to eq(websites[:additional])
   end
 
-  test 'Account can have multiple Projects' do
+  it 'Account can have multiple Projects' do
     account = accounts(:fundation)
     project1 = projects(:project1)
     project2 = projects(:project2)
     account.projects << project1 << project2
 
-    assert_equal account.projects.count, 2
+    expect(account.projects.count).to eq(2)
   end
 
-  test 'Account can have more Projects but not related to the same Project' do
+  it 'Account can have more Projects but not related to the same Project' do
     account = accounts(:fundation)
     project1 = projects(:project1)
     project2 = projects(:project2)
     account.projects << project1 << project2
 
-    error = assert_raises(ActiveRecord::RecordNotUnique) { account.projects << project1 }
-    assert_match(/PG::UniqueViolation/, error.message)
+    expect { account.projects << project1 }.to raise_error(ActiveRecord::RecordNotUnique, /PG::UniqueViolation/)
   end
 end
