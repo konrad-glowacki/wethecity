@@ -93,12 +93,20 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+
+  # Pretty print your Ruby objects with style
+  gem 'awesome_print'
 end
 
 group :development do
   # Automatically run tests
   gem 'guard'
-  gem 'guard-minitest'
+  gem 'guard-bundler', require: false
+  gem 'guard-rspec', '~> 4.7', require: false
+
+  # Testing framework
+  gem 'rspec-rails', '~> 3.7.0'
+  gem 'spring-commands-rspec'
 
   # Git hook manager
   gem 'overcommit', '~> 0.41.0', require: false
@@ -109,6 +117,7 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'web-console', '>= 3.3.0'
+
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
