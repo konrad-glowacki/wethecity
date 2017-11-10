@@ -76,9 +76,6 @@ class ProjectDashboard < Administrate::BaseDashboard
     images
     finish_on
     location
-    latitude
-    longitude
-    city
     required_budget
     collected_budget
   ].freeze
