@@ -23,7 +23,7 @@ By default, it renders:
   </title>
   <%= render "stylesheet" %>
   <%= csrf_meta_tags %>
-  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" %>
+  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_KEY'] }&callback=initMap", defer: true, async: true %>
   <%= render "map_scripts" %>
 </head>
 <body>
