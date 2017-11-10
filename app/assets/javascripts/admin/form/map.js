@@ -1,6 +1,3 @@
-//= require underscore
-//= require gmaps/google
-
 handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
   markers = handler.addMarkers([

@@ -23,6 +23,7 @@ By default, it renders:
   </title>
   <%= render "stylesheet" %>
   <%= csrf_meta_tags %>
+  <%= render "map_scripts" %>
 </head>
 <body>
   <%= render "icons" %>
@@ -37,5 +38,6 @@ By default, it renders:
   </div>
 
   <%= render "javascript" %>
+  <%= yield :javascripts %>
 </body>
 </html>

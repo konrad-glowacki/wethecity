@@ -38,6 +38,9 @@ gem 'jbuilder', '~> 2.5'
 # Google Maps
 gem 'gmaps4rails'
 
+# gmaps4rails needs underscore.js lib
+gem 'underscore-rails'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 
