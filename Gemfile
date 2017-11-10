@@ -100,7 +100,8 @@ end
 group :development do
   # Automatically run tests
   gem 'guard'
-  gem 'guard-rspec', '~> 4.7'
+  gem 'guard-bundler', require: false
+  gem 'guard-rspec', '~> 4.7', require: false
 
   # Testing framework
   gem 'rspec-rails', '~> 3.7.0'
