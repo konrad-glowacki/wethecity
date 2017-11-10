@@ -3,8 +3,7 @@
 module Admin
   class ProjectsController < Admin::ApplicationController
 
-    
-    
+
     def resource_params
       permitted_attributes = dashboard.permitted_attributes + [{ account_ids: [] }]
       custom_params = params.require(:project).permit(permitted_attributes)
