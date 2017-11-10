@@ -59,10 +59,7 @@ class AccountDashboard < Administrate::BaseDashboard
     phone_number
   ].freeze
 
-  # Overwrite this method to customize how accounts are displayed
-  # across all pages of the admin dashboard.
-  #
-  # def display_resource(account)
-  #   "Account ##{account.id}"
-  # end
+  def display_resource(account)
+    "#{account.class.name} ##{account.name}"
+  end
 end
