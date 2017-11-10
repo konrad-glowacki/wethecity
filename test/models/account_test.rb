@@ -14,4 +14,23 @@ class AccountTest < ActiveSupport::TestCase
     assert_equal account.websites['home'], websites[:home]
     assert_equal account.websites['additional'], websites[:additional]
   end
+
+  test 'Account can have multiple Projects' do
+    account = accounts(:fundation)
+    project1 = projects(:project1)
+    project2 = projects(:project2)
+    account.projects << project1 << project2
+
+    assert_equal account.projects.count, 2
+  end
+
+  test 'Account can have more Projects but not related to the same Project' do
+    account = accounts(:fundation)
+    project1 = projects(:project1)
+    project2 = projects(:project2)
+    account.projects << project1 << project2
+
+    error = assert_raises(ActiveRecord::RecordNotUnique) { account.projects << project1 }
+    assert_match(/PG::UniqueViolation/, error.message)
+  end
 end
