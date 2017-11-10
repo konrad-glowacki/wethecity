@@ -9,5 +9,3 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 SuperAdmin.create!(name: 'Test Admin', email: 'admin@wethe.city', password: 'konrad123')
-
-User.create!(first_name: 'Test', last_name: 'User',  email: 'ranom@wethe.city', password: 'password', volunteer: true)
