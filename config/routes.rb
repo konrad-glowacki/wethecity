@@ -6,9 +6,10 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   namespace :admin do
+    resources :projects
     resources :users
     resources :accounts
-    resources :projects
+    resources :categories
     resources :resources
     resources :super_admins
 
