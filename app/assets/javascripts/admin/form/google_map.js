@@ -11,4 +11,9 @@
   });
 }
 
-var googleMap;
+var googleMap = $("#google-map");
+
+if (googleMap) {
+	let latitude = googleMap.data("latitude");
+	let longitude = googleMap.data("longitude");
+}
