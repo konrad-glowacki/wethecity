@@ -10,14 +10,13 @@ class CategoryDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    projects: Field::HasMany,
     id: Field::Number,
+    ancestry: Field::String,
+    projects: Field::HasMany,
     name: Field::String,
     description: Field::Text,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
-    ancestry: Field::String,
-    deleted_at: Field::DateTime
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -42,7 +41,6 @@ class CategoryDashboard < Administrate::BaseDashboard
     created_at
     updated_at
     ancestry
-    deleted_at
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -52,7 +50,6 @@ class CategoryDashboard < Administrate::BaseDashboard
     name
     description
     ancestry
-    deleted_at
   ].freeze
 
   def display_resource(category)

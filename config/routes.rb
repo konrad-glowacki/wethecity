@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :resources
     resources :super_admins
 
-    root to: 'users#index'
+    root to: 'projects#index'
 
     authenticate :super_admin do
       mount Resque::Server, at: '/jobs'
