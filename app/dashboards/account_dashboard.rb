@@ -19,8 +19,6 @@ class AccountDashboard < Administrate::BaseDashboard
     phone_number: Field::String,
     remove_avatar: Field::Boolean,
     avatar: Field::Carrierwave.with_options(
-      image: :thumb,
-      multiple: false,
       image_on_index: true
     ),
     created_at: Field::DateTime,

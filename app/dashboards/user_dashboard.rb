@@ -14,8 +14,6 @@ class UserDashboard < Administrate::BaseDashboard
     volunteer: Field::Boolean,
     remove_avatar: Field::Boolean,
     avatar: Field::Carrierwave.with_options(
-      image: :thumb,
-      multiple: false,
       image_on_index: true
     ),
     created_at: Field::DateTime,
