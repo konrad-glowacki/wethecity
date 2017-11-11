@@ -14,5 +14,8 @@
 //= require rails-ujs
 //= require turbolinks
 //= require underscore
-//= require ./form/google_map.js
 //= require_tree .
+
+
+$('.datetimepicker').datepicker();
+

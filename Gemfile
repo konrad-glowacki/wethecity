@@ -37,8 +37,6 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'underscore-rails'
 
-gem 'jquery-rails'
-
 gem 'bootstrap-sass', '~> 2.3.1.0'
 
 # Bootstrap datepicker assets
