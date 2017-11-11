@@ -60,8 +60,6 @@ GEM
       execjs
     bcrypt (3.1.11)
     bindex (0.5.0)
-    bootstrap-datepicker-rails (1.7.1.1)
-      railties (>= 3.0)
     builder (3.2.3)
     byebug (9.1.0)
     capybara (2.15.4)
@@ -126,7 +124,6 @@ GEM
     geocoder (1.4.4)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    gmaps4rails (2.1.2)
     guard (2.14.1)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
@@ -363,7 +360,6 @@ PLATFORMS
 DEPENDENCIES
   administrate (~> 0.8)
   ancestry
-  bootstrap-datepicker-rails
   byebug
   capybara (~> 2.13)
   carrierwave (~> 1.0)
@@ -373,11 +369,9 @@ DEPENDENCIES
   dotenv-rails
   fog-aws
   geocoder
-  gmaps4rails
   guard
   guard-minitest
   jbuilder (~> 2.5)
-  jquery-rails
   listen (>= 3.0.5, < 3.2)
   mini_magick
   omniauth

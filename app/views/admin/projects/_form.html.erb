@@ -35,7 +35,12 @@ and renders all form fields for a resource's editable attributes.
     </div>
   <% end -%>
 
- 
+  <div class="input-group date" data-provide="datepicker">
+    <input type="text" class="form-control">
+    <div class="input-group-addon">
+        <span class="glyphicon glyphicon-th"></span>
+    </div>
+  </div>
 
   <div id="google-maps"style='width: 800px;'>
     <div id="map" style='width: 800px; height: 400px;'></div>
@@ -47,6 +52,3 @@ and renders all form fields for a resource's editable attributes.
 <% end %>
 
 <%= javascript_include_tag "admin/form/google_map.js" %>
-
-
-

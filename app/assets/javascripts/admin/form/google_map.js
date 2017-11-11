@@ -1,6 +1,6 @@
 function initMap() {
   
-}
+};
 
 handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
@@ -19,6 +19,3 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
   handler.bounds.extendWith(markers);
   handler.fitMapToBounds();
 });
-
-
-initMap();

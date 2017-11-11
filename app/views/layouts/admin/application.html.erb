@@ -23,8 +23,11 @@ By default, it renders:
   </title>
   <%= render "stylesheet" %>
   <%= csrf_meta_tags %>
-  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_KEY'] }&callback=initMap", defer: true, async: true %>
   <%= render "map_scripts" %>
+  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_KEY'] }&callback=initMap", defer: true, async: true %>
+  <%= javascript_include_tag "https://code.jquery.com/jquery-2.2.4.min.js" %>
+  <%= javascript_include_tag "admin/form/google_map.js" %>
+
 </head>
 <body>
   <%= render "icons" %>
@@ -39,6 +42,5 @@ By default, it renders:
   </div>
 
   <%= render "javascript" %>
-  <%= yield :javascripts %>
 </body>
 </html>
