@@ -4,6 +4,9 @@
 *= ./require bootstrap-datepicker
 */
 
+@import 'bootstrap';
+@import 'bootstrap-datetimepicker';
+
 .devise-admin-panel {
   max-width: 350px;
 

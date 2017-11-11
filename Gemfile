@@ -39,6 +39,11 @@ gem 'underscore-rails'
 
 gem 'jquery-rails'
 
+gem 'bootstrap-sass', '~> 2.3.1.0'
+
+# Bootstrap datepicker assets
+gem 'rails-assets-bootstrap-datepicker', source: 'https://rails-assets.org'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 
