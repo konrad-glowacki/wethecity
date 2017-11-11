@@ -17,7 +17,6 @@ class EngagementDashboard < Administrate::BaseDashboard
     quantity: Field::Number.with_options(decimals: 2),
     provider_type: Field::String,
     provider_id: Field::Number,
-    provided_at: Field::DateTime,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -44,7 +43,6 @@ class EngagementDashboard < Administrate::BaseDashboard
     quantity
     provider_type
     provider_id
-    provided_at
     created_at
     updated_at
   ].freeze
@@ -59,7 +57,6 @@ class EngagementDashboard < Administrate::BaseDashboard
     quantity
     provider_type
     provider_id
-    provided_at
   ].freeze
 
   # Overwrite this method to customize how engagements are displayed
