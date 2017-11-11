@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171107230225) do
+ActiveRecord::Schema.define(version: 20171111142658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,13 +27,6 @@ ActiveRecord::Schema.define(version: 20171107230225) do
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_accounts_on_deleted_at"
-  end
-
-  create_table "accounts_projects", id: false, force: :cascade do |t|
-    t.integer "account_id", null: false
-    t.integer "project_id", null: false
-    t.datetime "created_at", null: false
-    t.index ["account_id", "project_id"], name: "index_accounts_projects_on_account_id_and_project_id", unique: true
   end
 
   create_table "accounts_users", id: false, force: :cascade do |t|
@@ -91,14 +84,6 @@ ActiveRecord::Schema.define(version: 20171107230225) do
     t.index ["project_id"], name: "index_projects_resources_on_project_id"
     t.index ["provider_type", "provider_id"], name: "index_projects_resources_on_provider_type_and_provider_id"
     t.index ["resource_id"], name: "index_projects_resources_on_resource_id"
-  end
-
-  create_table "projects_users", id: false, force: :cascade do |t|
-    t.integer "project_id", null: false
-    t.integer "user_id", null: false
-    t.string "role", null: false
-    t.datetime "created_at", null: false
-    t.index ["project_id", "user_id"], name: "index_projects_users_on_project_id_and_user_id", unique: true
   end
 
   create_table "resources", force: :cascade do |t|

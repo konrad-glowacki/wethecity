@@ -18,9 +18,8 @@ module Admin
     # end
 
     def resource_params
-      permitted_attributes = dashboard.permitted_attributes + [{ account_ids: [] }]
+      permitted_attributes = dashboard.permitted_attributes
       custom_params = params.require(:project).permit(permitted_attributes)
-      custom_params[:account_ids].delete('') if custom_params[:account_ids].size > 1
       custom_params
     end
 
