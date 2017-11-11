@@ -10,3 +10,5 @@
     map: map
   });
 }
+
+var googleMap;
