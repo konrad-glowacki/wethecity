@@ -13,8 +13,8 @@ Rails.application.routes.draw do
     resources :companies
     resources :categories
     resources :resources
-    resources :super_admins
     resources :engagements
+    resources :super_admins
 
     root to: 'projects#index'
 

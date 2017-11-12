@@ -11,7 +11,10 @@ class CategoryDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    ancestry: Field::String,
+    ancestry: Field::Select.with_options(
+      collection: Category.pluck(:id) + [nil],
+      searchable: false
+    ),
     projects: Field::HasMany,
     name: Field::String,
     description: Field::Text,
