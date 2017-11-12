@@ -425,6 +425,7 @@ DEPENDENCIES
   ancestry
   awesome_print
   bootstrap (~> 4.0.0.beta2.1)
+  bundler (~> 1.16)
   byebug
   capybara (~> 2.13)
   carrierwave (~> 1.2)
