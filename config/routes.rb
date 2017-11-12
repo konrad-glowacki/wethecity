@@ -8,10 +8,13 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :projects
     resources :users
-    resources :accounts
+    resources :organisations
+    resources :city_offices
+    resources :companies
     resources :categories
     resources :resources
     resources :super_admins
+    resources :engagements
 
     root to: 'projects#index'
 
