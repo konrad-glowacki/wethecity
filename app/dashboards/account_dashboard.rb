@@ -14,7 +14,8 @@ class AccountDashboard < Administrate::BaseDashboard
     name: Field::String,
     email: Field::String,
     type: Field::Select.with_options(collection: Account.types),
-    websites: Field::String.with_options(searchable: false),
+    facebook_website: Field::String.with_options(searchable: false),
+    homepage_website: Field::String.with_options(searchable: false),
     address: Field::String,
     phone_number: Field::String,
     remove_avatar: Field::Boolean,
@@ -46,7 +47,8 @@ class AccountDashboard < Administrate::BaseDashboard
     avatar
     email
     type
-    websites
+    facebook_website
+    homepage_website
     address
     phone_number
     users
@@ -62,7 +64,8 @@ class AccountDashboard < Administrate::BaseDashboard
     name
     email
     type
-    websites
+    facebook_website
+    homepage_website
     address
     phone_number
     avatar
