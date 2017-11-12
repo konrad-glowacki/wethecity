@@ -1,5 +1,6 @@
 AllCops:
   Exclude:
+    - Guardfile
     - db/**
     - db/migrate/**
     - lib/splitter/full_name.rb

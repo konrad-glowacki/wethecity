@@ -2,7 +2,7 @@
 
 require 'administrate/base_dashboard'
 
-class AccountDashboard < Administrate::BaseDashboard
+class CategoryDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -10,18 +10,11 @@ class AccountDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    users: Field::HasMany,
+    id: Field::Number,
+    ancestry: Field::String,
+    projects: Field::HasMany,
     name: Field::String,
-    email: Field::String,
-    type: Field::Select.with_options(collection: Account.types),
-    facebook_website: Field::String.with_options(searchable: false),
-    homepage_website: Field::String.with_options(searchable: false),
-    address: Field::String,
-    phone_number: Field::String,
-    remove_avatar: Field::Boolean,
-    avatar: Field::Carrierwave.with_options(
-      image_on_index: true
-    ),
+    description: Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -32,47 +25,34 @@ class AccountDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    avatar
+    id
+    ancestry
+    projects
     name
-    type
-    address
-    users
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
+    id
+    projects
     name
-    address
-    avatar
-    email
-    type
-    facebook_website
-    homepage_website
-    address
-    phone_number
-    users
+    description
     created_at
     updated_at
+    ancestry
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    users
     name
-    email
-    type
-    facebook_website
-    homepage_website
-    address
-    phone_number
-    avatar
-    remove_avatar
+    description
+    ancestry
   ].freeze
 
-  def display_resource(account)
-    "#{account.class.name} ##{account.name}"
+  def display_resource(category)
+    "Category ##{category.name}"
   end
 end

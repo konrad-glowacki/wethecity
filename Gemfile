@@ -62,6 +62,7 @@ gem 'omniauth-linkedin'
 
 # Panel Admin
 gem 'administrate', '~> 0.8'
+gem 'administrate-field-carrierwave', '~> 0.2.0'
 
 # Project location geocoding helper
 gem 'geocoder'
@@ -75,8 +76,10 @@ gem 'paranoia', '~> 2.2'
 # Background jobs
 gem 'resque'
 
+# Assets
+gem 'bootstrap', '~> 4.0.0.beta2.1'
+
 source 'https://rails-assets.org' do
-  gem 'rails-assets-bootstrap-sass'
   gem 'rails-assets-jquery'
 end
 
@@ -100,7 +103,12 @@ end
 group :development do
   # Automatically run tests
   gem 'guard'
-  gem 'guard-minitest'
+  gem 'guard-bundler', require: false
+  gem 'guard-rspec', '~> 4.7', require: false
+
+  # Testing framework
+  gem 'rspec-rails', '~> 3.7.0'
+  gem 'spring-commands-rspec'
 
   # Git hook manager
   gem 'overcommit', '~> 0.41.0', require: false
@@ -111,6 +119,7 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'web-console', '>= 3.3.0'
+
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
