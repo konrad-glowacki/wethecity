@@ -427,7 +427,7 @@ DEPENDENCIES
   bootstrap (~> 4.0.0.beta2.1)
   byebug
   capybara (~> 2.13)
-  carrierwave (~> 1.0)
+  carrierwave (~> 1.2)
   coffee-rails (~> 4.2)
   devise (~> 4.3)
   devise-i18n

@@ -45,7 +45,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # File uploads
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.2'
 gem 'mini_magick'
 
 # Amazon service library
