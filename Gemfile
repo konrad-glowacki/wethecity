@@ -101,6 +101,9 @@ group :development, :test do
 end
 
 group :development do
+  # Simple SMTP server
+  gem 'mailcatcher'
+
   # Automatically run tests
   gem 'guard'
   gem 'guard-bundler', require: false
