@@ -15,6 +15,7 @@ class EngagementDashboard < Administrate::BaseDashboard
     id: Field::Number,
     description: Field::Text,
     quantity: Field::Number.with_options(decimals: 2),
+    provider: Field::Polymorphic,
     provider_type: Field::String,
     provider_id: Field::Number,
     created_at: Field::DateTime,
@@ -29,8 +30,7 @@ class EngagementDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     project
     resource
-    id
-    description
+    provider
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -41,8 +41,7 @@ class EngagementDashboard < Administrate::BaseDashboard
     id
     description
     quantity
-    provider_type
-    provider_id
+    provider
     created_at
     updated_at
   ].freeze

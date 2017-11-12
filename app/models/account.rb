@@ -17,11 +17,4 @@ class Account < ApplicationRecord
   def self.types
     %w[CityOffice Company Organisation]
   end
-
-  # Administrate STI issue
-  # https://github.com/thoughtbot/administrate/issues/703
-  def self.model_name
-    return super if self == Account
-    Account.model_name
-  end
 end
