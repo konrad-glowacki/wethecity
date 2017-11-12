@@ -14,33 +14,31 @@ By default, it renders:
 
 <!DOCTYPE html>
 <html lang="<%= I18n.locale %>">
-<head>
-  <meta charset="utf-8">
-  <meta name="ROBOTS" content="NOODP">
-  <meta name="viewport" content="initial-scale=1">
-  <title>
-    <%= content_for(:title) %> - <%= Rails.application.class.parent_name.titlecase %>
-  </title>
-  <%= render "stylesheet" %>
-  <%= csrf_meta_tags %>
-  <%= render "map_scripts" %>
-  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_KEY'] }&callback=initMap", defer: true, async: true %>
-  <%= render "jquery" %>
-  <%= javascript_include_tag "admin/form/google_map.js" %>
+  <head>
+    <meta charset="utf-8">
+    <meta name="ROBOTS" content="NOODP">
+    <meta name="viewport" content="initial-scale=1">
 
-</head>
-<body>
-  <%= render "icons" %>
+    <title>
+      <%= content_for(:title) %> - <%= Rails.application.class.parent_name.titlecase %>
+    </title>
 
-  <div class="app-container">
-    <%= render "navigation" -%>
+    <%= render "stylesheet" %>
+    <%= csrf_meta_tags %>
+  </head>
 
-    <main class="main-content" role="main">
-      <%= render "flashes" -%>
-      <%= yield %>
-    </main>
-  </div>
+  <body>
+    <%= render "icons" %>
 
-  <%= render "javascript" %>
-</body>
+    <div class="app-container">
+      <%= render "navigation" -%>
+
+      <main class="main-content" role="main">
+        <%= render "flashes" -%>
+        <%= yield %>
+      </main>
+    </div>
+
+    <%= render 'javascript' %>
+  </body>
 </html>

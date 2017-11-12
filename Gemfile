@@ -35,11 +35,6 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
-gem 'underscore-rails'
-
-# Bootstrap datepicker assets
-gem 'rails-assets-bootstrap-datepicker', source: 'https://rails-assets.org'
-
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 
@@ -81,8 +76,10 @@ gem 'paranoia', '~> 2.2'
 # Background jobs
 gem 'resque'
 
+# Assets
+gem 'bootstrap', '~> 4.0.0.beta2.1'
+
 source 'https://rails-assets.org' do
-  gem 'rails-assets-bootstrap-sass'
   gem 'rails-assets-jquery'
 end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171107230225) do
+ActiveRecord::Schema.define(version: 20171112104217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,13 +19,14 @@ ActiveRecord::Schema.define(version: 20171107230225) do
     t.string "name", null: false
     t.string "avatar"
     t.string "type", null: false
-    t.json "websites"
     t.string "address", null: false
     t.string "phone_number"
     t.string "email", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
+    t.string "facebook_website"
+    t.string "homepage_website"
     t.index ["deleted_at"], name: "index_accounts_on_deleted_at"
   end
 

@@ -2,6 +2,7 @@
 
 class Project < ApplicationRecord
   acts_as_paranoid
+  mount_uploaders :images, ImageUploader
 
   has_and_belongs_to_many :users
   has_and_belongs_to_many :accounts
