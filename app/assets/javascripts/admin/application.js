@@ -9,23 +9,13 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-<<<<<<< HEAD
-//= require bootstrap-datepicker
-//= require jquery
+
 //= require rails-ujs
 //= require turbolinks
 //= require underscore
-//= require_tree .
-
-
-$('.datetimepicker').datepicker();
-
-=======
-
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= require_tree .
 
-//= require rails-ujs
-//= require turbolinks
->>>>>>> dc987ece45e7c230bec1b091f141273c9cf996e1
+

@@ -1,11 +1,9 @@
-<<<<<<< HEAD
 /*
 *= require bootstrap-sass
 *= require_self
 */
 
 
-@import 'bootstrap-datepicker';
 
 .devise-admin-panel {
   max-width: 350px;
@@ -18,7 +16,7 @@
     padding-left: 25px;
   }
 }
-=======
+
 @import 'bootstrap';
 @import 'devise';
->>>>>>> dc987ece45e7c230bec1b091f141273c9cf996e1
+
