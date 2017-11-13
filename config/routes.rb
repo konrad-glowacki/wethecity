@@ -5,17 +5,13 @@ require 'resque/server'
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  resources :projects
+  resources :projects, constraints: { id: /([0-9]+)/ }
 
   namespace :admin do
-    resources :projects
     resources :users
-    resources :organisations
-    resources :city_offices
-    resources :companies
-    resources :categories
+    resources :accounts
+    resources :projects
     resources :resources
-    resources :engagements
     resources :super_admins
 
     root to: 'projects#index'
