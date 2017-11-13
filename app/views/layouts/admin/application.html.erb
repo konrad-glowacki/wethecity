@@ -25,7 +25,6 @@ By default, it renders:
   <%= csrf_meta_tags %>
   <%= render "map_scripts" %>
   <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_KEY'] }&callback=initMap", defer: true, async: true %>
-  <%= render "jquery" %>
   <%= javascript_include_tag "admin/form/google_map.js" %>
 
 </head>
