@@ -2,17 +2,27 @@
   <h1><%= @project.name %></h1>
   <p>CATEGORY | <%= link_to 'Location (stub)', @project.location %></p>
 </div>
-<div class="project-info-content">
-  <div class="project-info-multimedia">
-    <!--video and pics-->
+<div class="project-info-grid">
+  <div class="project-info-content">
+    <!--Left side-->
+    <div class="project-info-multimedia">
+      <!--Videos and pics-->
+    </div>
+    <div class="project-info-description">
+      <%= @project.description_html %>
+    </div>
   </div>
-  <div class="project-info-description">
-    <!--Content-->
-    <%= @project.description_html %>
-  </div>
-  <div class="project-info-panel">
-    <!--Right panel-->
-    <div class="project-statistics"></div>
+  <div class="project-info-sidebar">
+    <!--Right side-->
+    <div class="project-statistics">
+      <span class="project-popularity"><span class="popularity-highlight">#16</span> Top Growing Project</span>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar"></div>
+      </div>
+      <h6><%= number_to_currency @project.collected_budget %></h6>
+      <p>of <%= number_to_currency @project.required_budget %> goal</p>
+      <h6><%= @project.users.count %> people backed this up</h6>
+    </div>
     <div class="project-actions"></div>
     <div class="project-social-info"></div>
     <div class="project-organisers"></div>
