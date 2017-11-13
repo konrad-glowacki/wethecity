@@ -3,7 +3,8 @@
 fundation:
   name: Fundation
   type: Organisation
-  websites:
+  facebook_website: www.some-url.com/facebook
+  homepage_website: www.some-url.com/homepage
   address: MyString
   phone_number: MyString
   email: MyString
@@ -11,7 +12,8 @@ fundation:
 krakow_city:
   name: Krakow UMK
   type: CityOffice
-  websites:
+  facebook_website: www.some-url.com/facebook
+  homepage_website: www.some-url.com/homepage
   address: MyString
   phone_number: MyString
   email: MyString

@@ -13,4 +13,8 @@ class Account < ApplicationRecord
   validates :type, presence: true
   validates :address, presence: true
   validates :email, presence: true
+
+  def self.types
+    %w[CityOffice Company Organisation]
+  end
 end
