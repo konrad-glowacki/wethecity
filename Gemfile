@@ -104,8 +104,8 @@ group :development, :test do
 end
 
 group :development do
-  # Simple SMTP server
-  gem 'mailcatcher'
+  # Manage applications
+  gem 'foreman'
 
   # Automatically run tests
   gem 'guard'
