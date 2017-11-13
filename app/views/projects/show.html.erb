@@ -1,12 +1,20 @@
-<div>
-  <h1>Here Comes Project Title</h1>
-  <p>CATEGORY | Location</p>
+<div class="project-info-header">
+  <h1><%= @project.name %></h1>
+  <p>CATEGORY | <%= link_to 'Location (stub)', @project.location %></p>
 </div>
-<div>
-  <div>
-    <!--Content-->
+<div class="project-info-content">
+  <div class="project-info-multimedia">
+    <!--video and pics-->
   </div>
-  <div>
+  <div class="project-info-description">
+    <!--Content-->
+    <%= @project.description_html %>
+  </div>
+  <div class="project-info-panel">
     <!--Right panel-->
+    <div class="project-statistics"></div>
+    <div class="project-actions"></div>
+    <div class="project-social-info"></div>
+    <div class="project-organisers"></div>
   </div>
 </div>
