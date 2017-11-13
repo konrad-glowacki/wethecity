@@ -6,13 +6,17 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   namespace :admin do
-    resources :users
-    resources :accounts
     resources :projects
+    resources :users
+    resources :organisations
+    resources :city_offices
+    resources :companies
+    resources :categories
     resources :resources
+    resources :engagements
     resources :super_admins
 
-    root to: 'users#index'
+    root to: 'projects#index'
 
     authenticate :super_admin do
       mount Resque::Server, at: '/jobs'

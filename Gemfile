@@ -8,6 +8,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Bundler
+gem 'bundler', '~> 1.16'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 
@@ -50,7 +53,7 @@ gem 'rails-assets-bootstrap-datepicker', source: 'https://rails-assets.org'
 # gem 'capistrano-rails', group: :development
 
 # File uploads
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.2'
 gem 'mini_magick'
 
 # Amazon service library
@@ -81,8 +84,10 @@ gem 'paranoia', '~> 2.2'
 # Background jobs
 gem 'resque'
 
+# Assets
+gem 'bootstrap', '~> 4.0.0.beta2.1'
+
 source 'https://rails-assets.org' do
-  gem 'rails-assets-bootstrap-sass'
   gem 'rails-assets-jquery'
 end
 
@@ -104,6 +109,9 @@ group :development, :test do
 end
 
 group :development do
+  # Manage applications
+  gem 'foreman'
+
   # Automatically run tests
   gem 'guard'
   gem 'guard-bundler', require: false

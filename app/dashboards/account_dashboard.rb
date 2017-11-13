@@ -3,28 +3,21 @@
 require 'administrate/base_dashboard'
 
 class AccountDashboard < Administrate::BaseDashboard
-  # ATTRIBUTE_TYPES
-  # a hash that describes the type of each of the model's fields.
-  #
-  # Each different type represents an Administrate::Field object,
-  # which determines how the attribute is displayed
-  # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    users: Field::HasMany,
-    name: Field::String,
-    email: Field::String,
-    type: Field::Select.with_options(collection: Account.types),
-    websites: Field::String.with_options(searchable: false),
-    address: Field::String,
-    phone_number: Field::String,
-    remove_avatar: Field::Boolean,
-    avatar: Field::Carrierwave.with_options(
-      image: :thumb,
-      multiple: false,
+    id: Administrate::Field::Number,
+    users: Administrate::Field::HasMany,
+    name: Administrate::Field::String,
+    email: Administrate::Field::String,
+    facebook_website: Administrate::Field::String.with_options(searchable: false),
+    homepage_website: Administrate::Field::String.with_options(searchable: false),
+    address: Administrate::Field::String,
+    phone_number: Administrate::Field::String,
+    remove_avatar: Administrate::Field::Boolean,
+    avatar: Administrate::Field::Carrierwave.with_options(
       image_on_index: true
     ),
-    created_at: Field::DateTime,
-    updated_at: Field::DateTime
+    created_at: Administrate::Field::DateTime,
+    updated_at: Administrate::Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -35,7 +28,6 @@ class AccountDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     avatar
     name
-    type
     address
     users
   ].freeze
@@ -43,12 +35,13 @@ class AccountDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
+    id
     name
     address
     avatar
     email
-    type
-    websites
+    facebook_website
+    homepage_website
     address
     phone_number
     users
@@ -63,8 +56,8 @@ class AccountDashboard < Administrate::BaseDashboard
     users
     name
     email
-    type
-    websites
+    facebook_website
+    homepage_website
     address
     phone_number
     avatar

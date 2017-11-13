@@ -10,7 +10,7 @@ pipelines:
           - export DATABASE_URL=postgresql://test_user:test_user_password@localhost/pipelines
           - bundle install
           - bundle exec rake db:test:prepare
-          - bundle exec rake test
+          - bundle exec rspec
         services:
           - database
 

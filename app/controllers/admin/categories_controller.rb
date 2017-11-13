@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Admin
-  class SuperAdminsController < Admin::ApplicationController
+  class CategoriesController < Admin::ApplicationController
     include AdministrateHelpers
 
     # To customize the behavior of this controller,
@@ -9,20 +9,20 @@ module Admin
     #
     # def index
     #   super
-    #   @resources = SuperAdmin.
+    #   @resources = Category.
     #     page(params[:page]).
     #     per(10)
     # end
 
     # Define a custom finder by overriding the `find_resource` method:
     # def find_resource(param)
-    #   SuperAdmin.find_by!(slug: param)
+    #   Category.find_by!(slug: param)
     # end
 
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
     # for more information
     def resource_params
-      delete_empty_param(super, [:password])
+      delete_empty_param(super, [:ancestry])
     end
   end
 end

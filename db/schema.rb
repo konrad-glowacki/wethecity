@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171107230225) do
+ActiveRecord::Schema.define(version: 20171112104217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,13 +19,14 @@ ActiveRecord::Schema.define(version: 20171107230225) do
     t.string "name", null: false
     t.string "avatar"
     t.string "type", null: false
-    t.json "websites"
     t.string "address", null: false
     t.string "phone_number"
     t.string "email", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
+    t.string "facebook_website"
+    t.string "homepage_website"
     t.index ["deleted_at"], name: "index_accounts_on_deleted_at"
   end
 
@@ -60,6 +61,21 @@ ActiveRecord::Schema.define(version: 20171107230225) do
     t.index ["category_id", "project_id"], name: "index_categories_projects_on_category_id_and_project_id", unique: true
   end
 
+  create_table "engagements", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.bigint "resource_id", null: false
+    t.text "description"
+    t.float "quantity"
+    t.string "provider_type", null: false
+    t.bigint "provider_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id", "provider_type"], name: "index_engagements_on_project_id_and_provider_type"
+    t.index ["project_id", "resource_id", "provider_id", "provider_type"], name: "index_projects_resources_unique_provider", unique: true
+    t.index ["project_id"], name: "index_engagements_on_project_id"
+    t.index ["resource_id"], name: "index_engagements_on_resource_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "name", null: false
     t.boolean "active", default: false, null: false
@@ -77,20 +93,6 @@ ActiveRecord::Schema.define(version: 20171107230225) do
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_projects_on_deleted_at"
-  end
-
-  create_table "projects_resources", id: false, force: :cascade do |t|
-    t.bigint "project_id", null: false
-    t.bigint "resource_id", null: false
-    t.text "description"
-    t.float "quantity"
-    t.string "provider_type", null: false
-    t.bigint "provider_id", null: false
-    t.datetime "provided_at", null: false
-    t.index ["project_id", "resource_id", "provider_id", "provider_type"], name: "index_projects_resources_unique_provider", unique: true
-    t.index ["project_id"], name: "index_projects_resources_on_project_id"
-    t.index ["provider_type", "provider_id"], name: "index_projects_resources_on_provider_type_and_provider_id"
-    t.index ["resource_id"], name: "index_projects_resources_on_resource_id"
   end
 
   create_table "projects_users", id: false, force: :cascade do |t|
@@ -168,4 +170,6 @@ ActiveRecord::Schema.define(version: 20171107230225) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true, where: "(deleted_at IS NULL)"
   end
 
+  add_foreign_key "engagements", "projects"
+  add_foreign_key "engagements", "resources"
 end
