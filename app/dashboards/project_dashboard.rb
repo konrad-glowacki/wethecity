@@ -60,6 +60,8 @@ class ProjectDashboard < Administrate::BaseDashboard
     collected_budget
     created_at
     updated_at
+    latitude
+    longitude
   ].freeze
 
   # FORM_ATTRIBUTES

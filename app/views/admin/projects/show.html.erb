@@ -42,8 +42,16 @@ as well as a link to its edit page.
       ) %>
       </dt>
 
-      <dd class="attribute-data attribute-data--<%=attribute.html_class%>"
+      <dd class="attribute-data attribute-data--<%=attribute.html_class%>" id="<%= attribute.name %>"
           ><%= render_field attribute %></dd>
     <% end %>
   </dl>
+
+  <div id="google-map" data-latitude data-longitude style='width: 800px; height: 400px;'></div>
 </section>
+
+<%= javascript_include_tag "admin/form/google_map.js" %>
+
+<script>
+  hideCordinates();
+</script>
