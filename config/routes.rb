@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :projects
     resources :resources
     resources :super_admins
+    resources :founders
 
     root to: 'users#index'
 

@@ -13,6 +13,7 @@ class User < ApplicationRecord
 
   has_many :resources, as: :provider
   has_and_belongs_to_many :accounts
+  has_many :founders, as: :member
 
   enum role: %i[leader member ambassador]
 

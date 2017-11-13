@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+require 'models/concerns/member_spec'
 
 RSpec.describe User, type: :model do
   fixtures :users, :accounts
+  it_behaves_like 'member'
 
   it 'initialize' do
     user = described_class.new

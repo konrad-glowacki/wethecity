@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171111142658) do
+ActiveRecord::Schema.define(version: 20171113191943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,19 @@ ActiveRecord::Schema.define(version: 20171111142658) do
     t.bigint "category_id", null: false
     t.bigint "project_id", null: false
     t.index ["category_id", "project_id"], name: "index_categories_projects_on_category_id_and_project_id", unique: true
+  end
+
+  create_table "founders", force: :cascade do |t|
+    t.integer "project_id", null: false
+    t.string "member_type"
+    t.bigint "member_id"
+    t.integer "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["member_id"], name: "index_founders_on_member_id", unique: true
+    t.index ["member_type", "member_id"], name: "index_founders_on_member_type_and_member_id"
+    t.index ["member_type"], name: "index_founders_on_member_type", unique: true
+    t.index ["project_id"], name: "index_founders_on_project_id", unique: true
   end
 
   create_table "projects", force: :cascade do |t|

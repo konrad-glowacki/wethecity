@@ -106,6 +106,7 @@ group :development do
 
   # Testing framework
   gem 'rspec-rails', '~> 3.7.0'
+  gem 'shoulda-matchers', '~> 3.0', require: false
   gem 'spring-commands-rspec'
 
   # Git hook manager

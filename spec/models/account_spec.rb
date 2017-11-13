@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+require 'models/concerns/member_spec'
 
 RSpec.describe Account, type: :model do
   fixtures :accounts
+
+  it_behaves_like 'member'
 
   it 'websites json' do
     websites = { home: 'some-home.com', additional: 'some-additional.com' }
