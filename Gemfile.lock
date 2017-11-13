@@ -402,15 +402,8 @@ DEPENDENCIES
   administrate-field-carrierwave (~> 0.2.0)
   ancestry
   awesome_print
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 95d8eaa574b9dc215a7f3fb1f95ea93406f5719a
-=======
   bootstrap (~> 4.0.0.beta2.1)
   bundler (~> 1.16)
->>>>>>> dc987ece45e7c230bec1b091f141273c9cf996e1
-=======
->>>>>>> admin/google_maps
   byebug
   capybara (~> 2.13)
   carrierwave (~> 1.2)
@@ -436,11 +429,6 @@ DEPENDENCIES
   pry
   puma (~> 3.7)
   rails (~> 5.1.4)
-<<<<<<< HEAD
-  rails-assets-bootstrap-datepicker!
-  rails-assets-bootstrap-sass!
-=======
->>>>>>> dc987ece45e7c230bec1b091f141273c9cf996e1
   rails-assets-jquery!
   resque
   rspec-rails (~> 3.7.0)
