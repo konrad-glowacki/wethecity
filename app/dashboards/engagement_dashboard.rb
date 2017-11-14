@@ -18,7 +18,7 @@ class EngagementDashboard < Administrate::BaseDashboard
     provider: Field::Polymorphic,
     provider_type: Field::String,
     provider_id: Field::Number,
-    confirmed: Field::Boolean,
+    state: Field::Select.with_options(collection: Engagement.states.keys),
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -32,7 +32,7 @@ class EngagementDashboard < Administrate::BaseDashboard
     project
     resource
     provider
-    confirmed
+    state
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -44,7 +44,7 @@ class EngagementDashboard < Administrate::BaseDashboard
     description
     quantity
     provider
-    confirmed
+    state
     created_at
     updated_at
   ].freeze
@@ -57,7 +57,7 @@ class EngagementDashboard < Administrate::BaseDashboard
     resource
     description
     quantity
-    confirmed
+    state
     provider_type
     provider_id
   ].freeze
