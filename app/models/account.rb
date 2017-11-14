@@ -15,6 +15,6 @@ class Account < ApplicationRecord
   validates :email, presence: true
 
   def self.types
-    %w[CityOffice Company Organisation]
+    %w[AdministrationOffice Company Organisation]
   end
 end
