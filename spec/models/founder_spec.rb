@@ -3,13 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe Founder, type: :model do
-  it { should belong_to(:member) }
-  it { should belong_to(:project) }
-
-  it { is_expected.to have_db_column(:member_id).of_type(:integer) }
-  it { is_expected.to have_db_column(:member_type).of_type(:string) }
-
-
   fixtures :projects, :users, :accounts
 
   describe 'Founder' do
@@ -20,7 +13,7 @@ RSpec.describe Founder, type: :model do
     let(:valid_data_with_user) do
       {
         project: project,
-        role: "leader",
+        role: 'leader',
         member_type: User,
         member_id: user.id
       }
@@ -29,11 +22,19 @@ RSpec.describe Founder, type: :model do
     let(:valid_data_with_account) do
       {
         project: project,
-        role: "ambassador",
+        role: 'ambassador',
         member_type: Account,
         member_id: account.id
       }
     end
+
+    it { should belong_to(:member) }
+
+    it { should belong_to(:project) }
+
+    it { is_expected.to have_db_column(:member_id).of_type(:integer) }
+
+    it { is_expected.to have_db_column(:member_type).of_type(:string) }
 
     it 'can be created with valid data using User as member' do
       founder = Founder.new(valid_data_with_user)
@@ -49,7 +50,7 @@ RSpec.describe Founder, type: :model do
       expect(founder.errors.messages[:role].first).to eq("can't be blank")
     end
 
-     it 'can not be created with invalid data (no project)' do
+    it 'can not be created with invalid data (no project)' do
       founder = Founder.new(valid_data_with_user)
       founder.project = nil
 
