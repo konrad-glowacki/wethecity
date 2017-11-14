@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171112104217) do
+ActiveRecord::Schema.define(version: 20171114094946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 20171112104217) do
     t.bigint "provider_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "confirmed", default: false, null: false
     t.index ["project_id", "provider_type"], name: "index_engagements_on_project_id_and_provider_type"
     t.index ["project_id", "resource_id", "provider_id", "provider_type"], name: "index_projects_resources_unique_provider", unique: true
     t.index ["project_id"], name: "index_engagements_on_project_id"
