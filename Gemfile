@@ -8,6 +8,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Bundler
+gem 'bundler', '~> 1.16'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 
@@ -45,7 +48,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # File uploads
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.2'
 gem 'mini_magick'
 
 # Amazon service library
@@ -102,6 +105,9 @@ group :development, :test do
 end
 
 group :development do
+  # Manage applications
+  gem 'foreman'
+
   # Automatically run tests
   gem 'guard'
   gem 'guard-bundler', require: false

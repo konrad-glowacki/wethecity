@@ -5,7 +5,7 @@ class Account < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
-  has_many :resources, as: :provider
+  has_many :engagements, as: :provider
   has_and_belongs_to_many :projects
   has_and_belongs_to_many :users
 
@@ -15,13 +15,6 @@ class Account < ApplicationRecord
   validates :email, presence: true
 
   def self.types
-    %w[CityOffice Company Organisation]
-  end
-
-  # Administrate STI issue
-  # https://github.com/thoughtbot/administrate/issues/703
-  def self.model_name
-    return super if self == Account
-    Account.model_name
+    %w[AdministrationOffice Company Organisation]
   end
 end

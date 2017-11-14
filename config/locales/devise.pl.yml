@@ -4,11 +4,17 @@ pl:
       new:
         sign_in: "Zaloguj się"
     passwords:
+      edit:
+        change_my_password: "Zmień hasło"
       new:
         send_me_reset_password_instructions: "Wyślij Instrukcje Zresetowania Hasła"
     unlocks:
       new:
         resend_unlock_instructions: "Wyślij ponownie instrukcje odblokowania"
+    shared:
+      links:
+        didnt_receive_unlock_instructions: "Nie otrzymałem instrukcji odblokowywania"
+
   devise:
     confirmations:
       confirmed: "Twoje konto zostało aktywowane. Zostałeś pomyślnie zalogowany."

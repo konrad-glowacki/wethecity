@@ -5,7 +5,9 @@ class Resource < ApplicationRecord
 
   enum kind: %i[skill asset]
 
-  belongs_to :provider, polymorphic: true
+  # belongs_to :provider, polymorphic: true
+  has_many :engagements
+  has_many :projects, through: :engagements
 
   validates :name, presence: true, uniqueness: true
   validates :kind, presence: true
