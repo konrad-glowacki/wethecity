@@ -6,7 +6,7 @@ class User < ApplicationRecord
   acts_as_paranoid
   mount_uploader :avatar, AvatarUploader
 
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :async, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable, :timeoutable, :omniauthable,
          omniauth_providers: [:facebook]
