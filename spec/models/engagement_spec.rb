@@ -44,6 +44,7 @@ RSpec.describe Engagement, type: :model do
       engagement.resource = nil
 
       expect(engagement.save).to eq(false)
+      expect(engagement.errors.messages[:resource].first).to eq('must exist')
     end
 
     it 'can not be created with invalid data (no project)' do
@@ -51,6 +52,7 @@ RSpec.describe Engagement, type: :model do
       engagement.project = nil
 
       expect(engagement.save).to eq(false)
+      expect(engagement.errors.messages[:project].first).to eq('must exist')
     end
 
     it 'can not be created with invalid data (no user)' do
@@ -58,6 +60,7 @@ RSpec.describe Engagement, type: :model do
       engagement.provider_id = nil
 
       expect(engagement.save).to eq(false)
+      expect(engagement.errors.messages[:provider].first).to eq('must exist')
     end
 
     it 'can not be created with invalid data (no account)' do
@@ -65,6 +68,7 @@ RSpec.describe Engagement, type: :model do
       engagement.provider_id = nil
 
       expect(engagement.save).to eq(false)
+      expect(engagement.errors.messages[:provider].first).to eq('must exist')
     end
 
     it 'can not be created twice with the same data' do
