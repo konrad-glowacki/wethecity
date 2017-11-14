@@ -6,10 +6,10 @@ RSpec.describe Engagement, type: :model do
   fixtures :projects, :resources, :users, :accounts
 
   describe 'Engagement' do
-    let!(:project) { projects(:project1) }
-    let!(:resource) { resources(:place) }
-    let!(:user) { users(:user1) }
-    let!(:account) { accounts(:fundation) }
+    let(:project) { projects(:project1) }
+    let(:resource) { resources(:place) }
+    let(:user) { users(:user1) }
+    let(:account) { accounts(:fundation) }
 
     let(:valid_data_with_user) do
       {
@@ -68,9 +68,9 @@ RSpec.describe Engagement, type: :model do
     end
 
     it 'can not be created twice with the same data' do
-      Engagement.create(valid_data_with_user)
+      Engagement.create!(valid_data_with_user)
 
-      expect { Engagement.create(valid_data_with_user) }
+      expect { Engagement.create!(valid_data_with_user) }
         .to raise_error(ActiveRecord::RecordNotUnique, /PG::UniqueViolation/)
     end
 
