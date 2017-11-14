@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :projects
     resources :users
     resources :organisations
-    resources :city_offices
+    resources :administration_offices
     resources :companies
     resources :categories
     resources :resources
