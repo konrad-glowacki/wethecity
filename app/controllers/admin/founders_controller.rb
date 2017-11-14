@@ -19,10 +19,10 @@ module Admin
 
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
     # for more information
-    def resource_params
-      permitted_attributes = dashboard.permitted_attributes
-      custom_params = params.require(:founder).permit(permitted_attributes)
-      custom_params
-    end
+    # def resource_params
+    #   permitted_attributes = dashboard.permitted_attributes
+    #   custom_params = params.require(:founder).permit(permitted_attributes)
+    #   custom_params
+    # end
   end
 end

@@ -60,10 +60,8 @@ ActiveRecord::Schema.define(version: 20171113191943) do
     t.integer "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["member_id"], name: "index_founders_on_member_id", unique: true
+    t.index ["member_id", "member_type", "project_id"], name: "index_founders_on_member_id_and_member_type_and_project_id", unique: true
     t.index ["member_type", "member_id"], name: "index_founders_on_member_type_and_member_id"
-    t.index ["member_type"], name: "index_founders_on_member_type", unique: true
-    t.index ["project_id"], name: "index_founders_on_project_id", unique: true
   end
 
   create_table "projects", force: :cascade do |t|
