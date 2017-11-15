@@ -117,6 +117,7 @@ group :development do
   gem 'guard-rspec', '~> 4.7', require: false
 
   # Testing framework
+  gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 3.7.0'
   gem 'spring-commands-rspec'
 
