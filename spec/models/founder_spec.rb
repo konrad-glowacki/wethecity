@@ -28,14 +28,6 @@ RSpec.describe Founder, type: :model do
       }
     end
 
-    it { should belong_to(:member) }
-
-    it { should belong_to(:project) }
-
-    it { is_expected.to have_db_column(:member_id).of_type(:integer) }
-
-    it { is_expected.to have_db_column(:member_type).of_type(:string) }
-
     it 'can be created with valid data using User as member' do
       founder = Founder.new(valid_data_with_user)
 
@@ -85,6 +77,16 @@ RSpec.describe Founder, type: :model do
       founder = Founder.new(valid_data_with_account)
 
       expect(founder.save).to eq(true)
+    end
+
+    it 'project will be assigned to correct user' do
+      Founder.create(valid_data_with_user)
+      expect(user.projects.first == project).to eq(true)
+    end
+
+    it 'project will be assigned to correct account' do
+      Founder.create(valid_data_with_account)
+      expect(account.projects.first == project).to eq(true)
     end
   end
 end

@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20171113191943) do
     t.integer "project_id", null: false
     t.string "member_type"
     t.bigint "member_id"
-    t.integer "role"
+    t.integer "role", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["member_id", "member_type", "project_id"], name: "index_founders_on_member_id_and_member_type_and_project_id", unique: true
