@@ -5,7 +5,7 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  resources :projects, constraints: { id: /([0-9]+)/ }
+  resources :projects, constraints: { id: /([0-9]+)/ }, only: [:show]
 
   namespace :admin do
     resources :projects
