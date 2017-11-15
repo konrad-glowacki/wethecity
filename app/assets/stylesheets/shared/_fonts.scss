@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import "variables";
 
-$font-size: 1.2rem;
-$font-family: "Montserrat", arial, sans-serif;
+html, body {
+  font: $font-size $font-family;
+}

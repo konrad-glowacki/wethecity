@@ -1,9 +1,5 @@
 /*
 *= require_tree .
 */
-@import "shared/colours";
+@import "shared/variables";
 @import "shared/fonts";
-
-html, body {
-  font: $font-size $font-family;
-}
