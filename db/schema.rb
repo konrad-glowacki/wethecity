@@ -111,7 +111,7 @@ ActiveRecord::Schema.define(version: 20171114135250) do
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_resources_on_deleted_at"
-    t.index ["name"], name: "index_resources_on_name", where: "(deleted_at IS NULL)"
+    t.index ["name"], name: "index_resources_on_name", unique: true, where: "(deleted_at IS NULL)"
   end
 
   create_table "super_admins", force: :cascade do |t|
