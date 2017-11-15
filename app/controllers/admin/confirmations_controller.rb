@@ -2,6 +2,8 @@
 
 module Admin
   class ConfirmationsController < Devise::ConfirmationsController
+    layout 'admin/devise'
+
     # GET /resource/confirmation/new
     # def new
     #   super

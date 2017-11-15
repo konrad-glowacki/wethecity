@@ -11,7 +11,7 @@ fundation:
 
 krakow_city:
   name: Krakow UMK
-  type: CityOffice
+  type: AdministrationOffice
   facebook_website: www.some-url.com/facebook
   homepage_website: www.some-url.com/homepage
   address: MyString

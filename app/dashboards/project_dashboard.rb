@@ -21,7 +21,7 @@ class ProjectDashboard < Administrate::BaseDashboard
       multiple: true,
       image_on_index: true
     ),
-    finish_on: Field::DateTime,
+    finish_on: Field::DatePicker,
     location: Field::String,
     latitude: Field::Number.with_options(decimals: 2),
     longitude: Field::Number.with_options(decimals: 2),

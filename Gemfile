@@ -58,6 +58,9 @@ gem 'fog-aws'
 gem 'devise', '~> 4.3'
 gem 'devise-i18n'
 
+# Send emails asynchronously
+gem 'devise-async'
+
 # OmniAuth authentication system
 gem 'omniauth'
 gem 'omniauth-facebook'
@@ -66,6 +69,7 @@ gem 'omniauth-linkedin'
 # Panel Admin
 gem 'administrate', '~> 0.8'
 gem 'administrate-field-carrierwave', '~> 0.2.0'
+gem 'administrate-field-date_picker', '~> 0.0.5'
 
 # Project location geocoding helper
 gem 'geocoder'
@@ -77,7 +81,7 @@ gem 'ancestry'
 gem 'paranoia', '~> 2.2'
 
 # Background jobs
-gem 'resque'
+gem 'sidekiq'
 
 # Assets
 gem 'bootstrap', '~> 4.0.0.beta2.1'

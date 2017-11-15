@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'resque/server'
+require 'sidekiq/web'
 
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
@@ -8,16 +8,20 @@ Rails.application.routes.draw do
   resources :projects, constraints: { id: /([0-9]+)/ }
 
   namespace :admin do
-    resources :users
-    resources :accounts
     resources :projects
+    resources :users
+    resources :organisations
+    resources :administration_offices
+    resources :companies
+    resources :categories
     resources :resources
+    resources :engagements
     resources :super_admins
 
     root to: 'projects#index'
 
     authenticate :super_admin do
-      mount Resque::Server, at: '/jobs'
+      mount Sidekiq::Web, at: '/sidekiq'
     end
   end
 

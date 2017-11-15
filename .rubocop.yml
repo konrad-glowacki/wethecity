@@ -8,5 +8,11 @@ AllCops:
 Metrics/LineLength:
   Max: 120
 
+Metrics/BlockLength:
+  Enabled: true
+  Exclude:
+    - spec/**/*
+    - config/environments/*
+
 Documentation:
   Enabled: false
