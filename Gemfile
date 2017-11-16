@@ -91,7 +91,9 @@ source 'https://rails-assets.org' do
 end
 
 # Markdown
-gem 'simplemde'
+gem 'redcarpet', '~> 3.4.0'
+gem 'administrate-field-simple_markdown', '~> 0.0.4'
+
 
 group :development, :test do
   # Shell for ruby

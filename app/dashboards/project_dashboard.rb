@@ -15,7 +15,7 @@ class ProjectDashboard < Administrate::BaseDashboard
     name: Field::String,
     active: Field::Boolean,
     video_url: Field::String,
-    description: Field::Text,
+    description: Field::SimpleMarkdown,
     images: Field::Carrierwave.with_options(
       image: :thumb,
       multiple: true,
@@ -30,7 +30,6 @@ class ProjectDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
-
   # COLLECTION_ATTRIBUTES
   # an array of attributes that will be displayed on the model's index page.
   #
