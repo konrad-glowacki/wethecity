@@ -66,10 +66,8 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 
-# Panel Admin
-gem 'administrate', '~> 0.8'
-gem 'administrate-field-carrierwave', '~> 0.2.0'
-gem 'administrate-field-date_picker', '~> 0.0.5'
+# Markdown
+gem 'redcarpet', '~> 3.4.0'
 
 # Project location geocoding helper
 gem 'geocoder'
@@ -89,6 +87,12 @@ gem 'bootstrap', '~> 4.0.0.beta2.1'
 source 'https://rails-assets.org' do
   gem 'rails-assets-jquery'
 end
+
+# Panel Admin
+gem 'administrate', '~> 0.8'
+gem 'administrate-field-carrierwave', '~> 0.2.0'
+gem 'administrate-field-date_picker', '~> 0.0.5'
+gem 'administrate-field-simple_markdown', '~> 0.0.4'
 
 group :development, :test do
   # Shell for ruby
