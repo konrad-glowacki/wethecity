@@ -46,6 +46,6 @@ class ResourceDashboard < Administrate::BaseDashboard
   ].freeze
 
   def display_resource(resource)
-    "Resource ##{resource.name}"
+    resource.name
   end
 end

@@ -11,11 +11,11 @@ Rails.application.routes.draw do
     resources :organisations
     resources :administration_offices
     resources :companies
+    resources :founders
+    resources :engagements
     resources :categories
     resources :resources
-    resources :engagements
     resources :super_admins
-    resources :founders
 
     root to: 'projects#index'
 

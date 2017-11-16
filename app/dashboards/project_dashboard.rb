@@ -80,7 +80,7 @@ class ProjectDashboard < Administrate::BaseDashboard
   ].freeze
 
   def display_resource(project)
-    "Project ##{project.name}"
+    project.name
   end
 
   def permitted_attributes

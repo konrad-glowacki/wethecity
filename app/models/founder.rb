@@ -7,4 +7,5 @@ class Founder < ActiveRecord::Base
   enum role: %i[leader ambassador partner]
 
   validates :role, presence: true
+  validates :project_id, uniqueness: { scope: :member }
 end
