@@ -71,14 +71,15 @@ ActiveRecord::Schema.define(version: 20171114135250) do
   end
 
   create_table "founders", force: :cascade do |t|
-    t.integer "project_id", null: false
-    t.string "member_type"
-    t.bigint "member_id"
+    t.bigint "project_id", null: false
+    t.string "member_type", null: false
+    t.bigint "member_id", null: false
     t.integer "role", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["member_id", "member_type", "project_id"], name: "index_founders_on_member_id_and_member_type_and_project_id", unique: true
     t.index ["member_type", "member_id"], name: "index_founders_on_member_type_and_member_id"
+    t.index ["project_id"], name: "index_founders_on_project_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -169,4 +170,5 @@ ActiveRecord::Schema.define(version: 20171114135250) do
 
   add_foreign_key "engagements", "projects"
   add_foreign_key "engagements", "resources"
+  add_foreign_key "founders", "projects"
 end

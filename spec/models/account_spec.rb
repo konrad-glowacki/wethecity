@@ -11,15 +11,8 @@ RSpec.describe Account, type: :model do
     project1 = projects(:project1)
     project2 = projects(:project2)
 
-    Founder.create(project: project1,
-                   role: 'leader',
-                   member_type: Account,
-                   member_id: account.id)
-
-    Founder.create(project: project2,
-                   role: 'leader',
-                   member_type: Account,
-                   member_id: account.id)
+    Founder.create!(project: project1, role: 'leader', member: account)
+    Founder.create!(project: project2, role: 'leader', member: account)
 
     expect(account.projects.count).to eq(2)
   end
