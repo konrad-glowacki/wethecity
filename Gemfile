@@ -90,6 +90,9 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-jquery'
 end
 
+# Markdown
+gem 'simplemde'
+
 group :development, :test do
   # Shell for ruby
   gem 'pry'

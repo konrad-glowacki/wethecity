@@ -14,7 +14,7 @@ class Project < ApplicationRecord
   after_validation :geocode
 
   validates :name, presence: true
-  validates :description_html, presence: true
+  validates :description, presence: true
   validates :finish_on, presence: true
   validates :location, presence: true
 end
