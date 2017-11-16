@@ -17,11 +17,6 @@ module Admin
     #   Project.find_by!(id: param)
     # end
 
-    def resource_params
-      permitted_attributes = dashboard.permitted_attributes
-      custom_params = params.require(:project).permit(permitted_attributes)
-      custom_params
-    end
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
     # for more information
   end
