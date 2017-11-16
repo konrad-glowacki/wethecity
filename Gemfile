@@ -8,6 +8,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Bundler
+gem 'bundler', '~> 1.16'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 
@@ -45,7 +48,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # File uploads
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.2'
 gem 'mini_magick'
 
 # Amazon service library
@@ -55,6 +58,9 @@ gem 'fog-aws'
 gem 'devise', '~> 4.3'
 gem 'devise-i18n'
 
+# Send emails asynchronously
+gem 'devise-async'
+
 # OmniAuth authentication system
 gem 'omniauth'
 gem 'omniauth-facebook'
@@ -63,6 +69,7 @@ gem 'omniauth-linkedin'
 # Panel Admin
 gem 'administrate', '~> 0.8'
 gem 'administrate-field-carrierwave', '~> 0.2.0'
+gem 'administrate-field-date_picker', '~> 0.0.5'
 
 # Project location geocoding helper
 gem 'geocoder'
@@ -74,10 +81,12 @@ gem 'ancestry'
 gem 'paranoia', '~> 2.2'
 
 # Background jobs
-gem 'resque'
+gem 'sidekiq'
+
+# Assets
+gem 'bootstrap', '~> 4.0.0.beta2.1'
 
 source 'https://rails-assets.org' do
-  gem 'rails-assets-bootstrap-sass'
   gem 'rails-assets-jquery'
 end
 
@@ -99,6 +108,9 @@ group :development, :test do
 end
 
 group :development do
+  # Manage applications
+  gem 'foreman'
+
   # Automatically run tests
   gem 'guard'
   gem 'guard-bundler', require: false
@@ -106,7 +118,6 @@ group :development do
 
   # Testing framework
   gem 'rspec-rails', '~> 3.7.0'
-  gem 'shoulda-matchers', '~> 3.0', require: false
   gem 'spring-commands-rspec'
 
   # Git hook manager

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Wethecity</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag 'admin/devise', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container">
+      <%= flash_messages %>
+      <%= yield %>
+    </div>
+  </body>
+</html>

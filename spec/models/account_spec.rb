@@ -4,19 +4,23 @@ require 'rails_helper'
 require 'models/concerns/member_spec'
 
 RSpec.describe Account, type: :model do
-  fixtures :accounts
+  fixtures :accounts, :projects
 
-  it_behaves_like 'member'
+  it 'Account can have multiple Projects' do
+    account = accounts(:fundation)
+    project1 = projects(:project1)
+    project2 = projects(:project2)
 
-  it 'websites json' do
-    websites = { home: 'some-home.com', additional: 'some-additional.com' }
+    Founder.create(project: project1,
+                   role: 'leader',
+                   member_type: Account,
+                   member_id: account.id)
 
-    account = Organisation.new(
-      websites: websites, name: 'test', address: 'some address 11', email: 'official@email.com'
-    )
+    Founder.create(project: project2,
+                   role: 'leader',
+                   member_type: Account,
+                   member_id: account.id)
 
-    expect(account.save).to be_truthy
-    expect(account.websites['home']).to eq(websites[:home])
-    expect(account.websites['additional']).to eq(websites[:additional])
+    expect(account.projects.count).to eq(2)
   end
 end

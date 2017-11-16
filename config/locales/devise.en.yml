@@ -6,11 +6,17 @@ en:
       new:
         sign_in: "Sign In"
     passwords:
+      edit:
+        change_my_password: "Change my password"
       new:
         send_me_reset_password_instructions: "Send Me Reset Password Instructions"
     unlocks:
       new:
         resend_unlock_instructions: "Resend Unlock Instructions"
+    shared:
+      links:
+        didnt_receive_unlock_instructions: "Didn't receive unlock instructions"
+
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."

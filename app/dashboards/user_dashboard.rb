@@ -4,6 +4,7 @@ require 'administrate/base_dashboard'
 
 class UserDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
+    id: Field::Number,
     accounts: Field::HasMany,
     email: Field::String,
     password: Field::String,
@@ -14,8 +15,6 @@ class UserDashboard < Administrate::BaseDashboard
     volunteer: Field::Boolean,
     remove_avatar: Field::Boolean,
     avatar: Field::Carrierwave.with_options(
-      image: :thumb,
-      multiple: false,
       image_on_index: true
     ),
     created_at: Field::DateTime,
@@ -30,6 +29,7 @@ class UserDashboard < Administrate::BaseDashboard
   ].freeze
 
   SHOW_PAGE_ATTRIBUTES = %i[
+    id
     avatar
     email
     first_name

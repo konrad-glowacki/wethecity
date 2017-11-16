@@ -23,10 +23,8 @@ class ResourceDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    id
     name
     kind
-    created_at
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -47,10 +45,7 @@ class ResourceDashboard < Administrate::BaseDashboard
     kind
   ].freeze
 
-  # Overwrite this method to customize how resources are displayed
-  # across all pages of the admin dashboard.
-  #
-  # def display_resource(resource)
-  #   "Resource ##{resource.id}"
-  # end
+  def display_resource(resource)
+    "Resource ##{resource.name}"
+  end
 end

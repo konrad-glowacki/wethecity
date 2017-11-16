@@ -22,7 +22,6 @@ module Admin
       custom_params = params.require(:project).permit(permitted_attributes)
       custom_params
     end
-
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
     # for more information
   end

@@ -10,17 +10,21 @@ class ProjectDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
+    categories: Field::HasMany,
     id: Field::Number,
     name: Field::String,
     active: Field::Boolean,
     video_url: Field::String,
     description_html: Field::Text,
-    images: Field::String.with_options(searchable: false),
-    finish_on: Field::DateTime,
+    images: Field::Carrierwave.with_options(
+      image: :thumb,
+      multiple: true,
+      image_on_index: true
+    ),
+    finish_on: Field::DatePicker,
     location: Field::String,
     latitude: Field::Number.with_options(decimals: 2),
     longitude: Field::Number.with_options(decimals: 2),
-    city: Field::String,
     required_budget: Field::Number.with_options(decimals: 2),
     collected_budget: Field::Number.with_options(decimals: 2),
     created_at: Field::DateTime,
@@ -34,13 +38,18 @@ class ProjectDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
+    categories
     name
+    location
+    finish_on
+    active
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
+    categories
     name
     active
     video_url
@@ -48,9 +57,6 @@ class ProjectDashboard < Administrate::BaseDashboard
     images
     finish_on
     location
-    latitude
-    longitude
-    city
     required_budget
     collected_budget
     created_at
@@ -61,6 +67,7 @@ class ProjectDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
+    categories
     name
     active
     video_url
@@ -68,14 +75,15 @@ class ProjectDashboard < Administrate::BaseDashboard
     images
     finish_on
     location
-    latitude
-    longitude
-    city
     required_budget
     collected_budget
   ].freeze
 
   def display_resource(project)
     "Project ##{project.name}"
+  end
+
+  def permitted_attributes
+    super - [:images] + [{ images: [] }]
   end
 end

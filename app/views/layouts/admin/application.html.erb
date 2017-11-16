@@ -14,28 +14,31 @@ By default, it renders:
 
 <!DOCTYPE html>
 <html lang="<%= I18n.locale %>">
-<head>
-  <meta charset="utf-8">
-  <meta name="ROBOTS" content="NOODP">
-  <meta name="viewport" content="initial-scale=1">
-  <title>
-    <%= content_for(:title) %> - <%= Rails.application.class.parent_name.titlecase %>
-  </title>
-  <%= render "stylesheet" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <%= render "icons" %>
+  <head>
+    <meta charset="utf-8">
+    <meta name="ROBOTS" content="NOODP">
+    <meta name="viewport" content="initial-scale=1">
 
-  <div class="app-container">
-    <%= render "navigation" -%>
+    <title>
+      <%= content_for(:title) %> - <%= Rails.application.class.parent_name.titlecase %>
+    </title>
 
-    <main class="main-content" role="main">
-      <%= render "flashes" -%>
-      <%= yield %>
-    </main>
-  </div>
+    <%= render "stylesheet" %>
+    <%= csrf_meta_tags %>
+  </head>
 
-  <%= render "javascript" %>
-</body>
+  <body>
+    <%= render "icons" %>
+
+    <div class="app-container">
+      <%= render "navigation" -%>
+
+      <main class="main-content" role="main">
+        <%= render "flashes" -%>
+        <%= yield %>
+      </main>
+    </div>
+
+    <%= render 'javascript' %>
+  </body>
 </html>
