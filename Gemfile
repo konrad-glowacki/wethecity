@@ -89,7 +89,7 @@ source 'https://rails-assets.org' do
 end
 
 # Panel Admin
-gem 'administrate', '~> 0.8'
+gem 'administrate', github: 'webkrak/administrate'
 gem 'administrate-field-carrierwave', '~> 0.2.0'
 gem 'administrate-field-date_picker', '~> 0.0.5'
 gem 'administrate-field-simple_markdown', '~> 0.0.4'
