@@ -37,6 +37,7 @@ class ProjectDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
+    id
     categories
     name
     location
@@ -79,7 +80,7 @@ class ProjectDashboard < Administrate::BaseDashboard
   ].freeze
 
   def display_resource(project)
-    "Project ##{project.name}"
+    project.name
   end
 
   def permitted_attributes

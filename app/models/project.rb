@@ -4,9 +4,9 @@ class Project < ApplicationRecord
   acts_as_paranoid
   mount_uploaders :images, ImageUploader
 
-  has_and_belongs_to_many :users
-  has_and_belongs_to_many :accounts
   has_and_belongs_to_many :categories
+  has_many :founders
+  has_many :members, through: :founders
   has_many :engagements
   has_many :resources, through: :engagements
 

@@ -5,9 +5,11 @@ class Account < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
+  has_many :resources, as: :provider
   has_many :engagements, as: :provider
-  has_and_belongs_to_many :projects
   has_and_belongs_to_many :users
+  has_many :founders, as: :member
+  has_many :projects, through: :founders
 
   validates :name, presence: true
   validates :type, presence: true

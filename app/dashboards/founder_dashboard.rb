@@ -2,7 +2,7 @@
 
 require 'administrate/base_dashboard'
 
-class CategoryDashboard < Administrate::BaseDashboard
+class FounderDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -10,14 +10,12 @@ class CategoryDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
+    project: Field::BelongsTo,
     id: Field::Number,
-    ancestry: Field::Select.with_options(
-      collection: Category.pluck(:id) + [nil],
-      searchable: false
-    ),
-    projects: Field::HasMany,
-    name: Field::String,
-    description: Field::Text,
+    member: Field::Polymorphic,
+    member_type: Field::String,
+    member_id: Field::Number,
+    role: Field::Select.with_options(collection: Founder.roles.keys),
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -28,34 +26,36 @@ class CategoryDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    id
-    ancestry
-    projects
-    name
+    project
+    member
+    role
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
+    project
     id
-    projects
-    name
-    description
+    member
+    role
     created_at
     updated_at
-    ancestry
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    name
-    description
-    ancestry
+    project
+    member_type
+    member_id
+    role
   ].freeze
 
-  def display_resource(category)
-    category.name
-  end
+  # Overwrite this method to customize how resources are displayed
+  # across all pages of the admin dashboard.
+  #
+  # def display_resource(resource)
+  #   "Resource ##{resource.id}"
+  # end
 end
