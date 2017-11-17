@@ -97,6 +97,12 @@ gem 'administrate-field-simple_markdown', '~> 0.0.4'
 # Create pretty URLs and work with human-friendly strings
 gem 'friendly_id', '~> 5.2.0'
 
+# Exception Notification
+gem 'exception_notification'
+
+# Slack notifier
+gem 'slack-notifier'
+
 group :development, :test do
   # Shell for ruby
   gem 'pry'

@@ -126,6 +126,9 @@ GEM
       dotenv (= 2.2.1)
       railties (>= 3.2, < 5.2)
     erubi (1.7.0)
+    exception_notification (4.2.2)
+      actionmailer (>= 4.0, < 6)
+      activesupport (>= 4.0, < 6)
     excon (0.59.0)
     execjs (2.7.0)
     faraday (0.12.2)
@@ -360,6 +363,7 @@ GEM
       connection_pool (~> 2.2, >= 2.2.0)
       rack-protection (>= 1.5.0)
       redis (>= 3.3.4, < 5)
+    slack-notifier (2.3.1)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-commands-rspec (1.0.4)
@@ -421,6 +425,7 @@ DEPENDENCIES
   devise-async
   devise-i18n
   dotenv-rails
+  exception_notification
   fog-aws
   foreman
   friendly_id (~> 5.2.0)
@@ -447,6 +452,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   selenium-webdriver
   sidekiq
+  slack-notifier
   spring
   spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
