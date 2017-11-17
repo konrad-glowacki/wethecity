@@ -113,7 +113,7 @@ ActiveRecord::Schema.define(version: 20171117160902) do
     t.string "slug"
     t.integer "sort_order"
     t.index ["deleted_at"], name: "index_projects_on_deleted_at"
-    t.index ["slug"], name: "index_projects_on_slug"
+    t.index ["slug"], name: "index_projects_on_slug", unique: true, where: "(deleted_at IS NULL)"
   end
 
   create_table "resources", force: :cascade do |t|

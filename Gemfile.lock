@@ -1,6 +1,6 @@
 GIT
-  remote: https://github.com/webkrak/administrate.git
-  revision: c804fa98be3aa32b3583ebe0a4ef72f8fce037ef
+  remote: https://github.com/thoughtbot/administrate.git
+  revision: 8329b214cea4eada8febbf1552dcbe7e3b9a9153
   specs:
     administrate (0.8.1)
       actionpack (>= 4.2, < 5.2)
@@ -151,6 +151,8 @@ GEM
     foreman (0.84.0)
       thor (~> 0.19.1)
     formatador (0.2.5)
+    friendly_id (5.2.3)
+      activerecord (>= 4.0.0)
     geocoder (1.4.4)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -421,6 +423,7 @@ DEPENDENCIES
   dotenv-rails
   fog-aws
   foreman
+  friendly_id (~> 5.2.0)
   geocoder
   guard
   guard-bundler

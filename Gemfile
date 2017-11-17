@@ -89,10 +89,13 @@ source 'https://rails-assets.org' do
 end
 
 # Panel Admin
-gem 'administrate', github: 'webkrak/administrate'
+gem 'administrate', github: 'thoughtbot/administrate'
 gem 'administrate-field-carrierwave', '~> 0.2.0'
 gem 'administrate-field-date_picker', '~> 0.0.5'
 gem 'administrate-field-simple_markdown', '~> 0.0.4'
+
+# Create pretty URLs and work with human-friendly strings
+gem 'friendly_id', '~> 5.2.0'
 
 group :development, :test do
   # Shell for ruby
