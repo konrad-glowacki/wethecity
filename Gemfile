@@ -8,9 +8,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-# Bundler
-gem 'bundler', '~> 1.16'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 
@@ -96,6 +93,12 @@ gem 'administrate-field-simple_markdown', '~> 0.0.4'
 
 # Create pretty URLs and work with human-friendly strings
 gem 'friendly_id', '~> 5.2.0'
+
+# Exception Notification
+gem 'exception_notification'
+
+# Slack notifier
+gem 'slack-notifier'
 
 group :development, :test do
   # Shell for ruby
