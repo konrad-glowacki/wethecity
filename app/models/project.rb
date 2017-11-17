@@ -17,4 +17,5 @@ class Project < ApplicationRecord
   validates :description, presence: true
   validates :finish_on, presence: true
   validates :location, presence: true
+  validates :sort_order, numericality: { greater_than: 0, allow_nil: true }
 end
