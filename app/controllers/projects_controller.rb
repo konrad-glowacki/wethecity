@@ -6,6 +6,6 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.new(name: 'MyName', description_html: 'MyDescription')
+    @project = Project.new(name: 'MyName', description: 'MyDescription')
   end
 end
