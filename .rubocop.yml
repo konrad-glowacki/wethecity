@@ -13,7 +13,6 @@ Metrics/BlockLength:
   Exclude:
     - config/**/*
     - spec/**/*
-    - config/environments/*
 
 Documentation:
   Enabled: false
