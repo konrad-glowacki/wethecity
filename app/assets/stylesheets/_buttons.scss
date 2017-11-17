@@ -1,0 +1,21 @@
+.wtc-btn {
+  border-width: 0.15rem;
+  border-radius: 0;
+  color: white;
+
+}
+
+.wtc-btn-green {
+  background: $green-highlight;
+  border-color: $green-highlight;
+}
+
+.wtc-btn-outline-green {
+  color: $green-highlight;
+  border-color: $green-highlight;
+}
+
+.wtc-btn-fb {
+  background: $blue-fb;
+  border-color: $blue-fb;
+}
