@@ -9,9 +9,6 @@ class EngagementDashboard < Administrate::BaseDashboard
   # Each different type represents an Administrate::Field object,
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
-  provider_collection =
-    User.all.map { |u| { id: u.id, type: 'User', value: u.full_name } } +
-    Account.all.map { |a| { id: a.id, type: a.class.name, value: a.name } }
 
   ATTRIBUTE_TYPES = {
     project: Field::BelongsTo,
@@ -19,7 +16,7 @@ class EngagementDashboard < Administrate::BaseDashboard
     id: Field::Number,
     description: Field::Text,
     quantity: Field::Number.with_options(decimals: 2),
-    provider: Field::Polymorphic.with_options(collection: provider_collection),
+    provider: Field::Polymorphic.with_options(classes: [User, Account]),
     provider_type: Field::String,
     provider_id: Field::Number,
     state: Field::Select.with_options(collection: Engagement.states.keys),

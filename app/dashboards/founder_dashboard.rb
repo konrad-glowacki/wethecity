@@ -12,9 +12,9 @@ class FounderDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     project: Field::BelongsTo,
     id: Field::Number,
-    member: Field::Polymorphic,
     member_type: Field::String,
     member_id: Field::Number,
+    member: Field::Polymorphic.with_options(classes: [User, Account]),
     role: Field::Select.with_options(collection: Founder.roles.keys),
     created_at: Field::DateTime,
     updated_at: Field::DateTime
@@ -47,8 +47,7 @@ class FounderDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     project
-    member_type
-    member_id
+    member
     role
   ].freeze
 
