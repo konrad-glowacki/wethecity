@@ -1,0 +1,63 @@
+// Place all the styles related to the Projects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.project-info-header {
+  margin: 2rem 2.5rem;
+
+  h1 {
+    font-weight: bolder;
+  }
+}
+
+.project-info-grid {
+  display: grid;
+  grid-template: "content sidebar";
+  grid-template-columns: 3fr 2fr;
+  grid-column-gap: 2rem;
+
+  .project-info-content {
+    grid-area: content;
+
+    .project-info-multimedia {
+      background: #C4C4C4;
+      height: 17.5rem;
+      width: 30rem;
+      margin: auto auto 2.5rem;
+    }
+  }
+
+  .project-info-sidebar {
+    grid-area: sidebar;
+
+    > *,
+    .project-statistics > * {
+      margin: 1.5rem auto;
+    }
+
+    .project-statistics {
+      .project-actions {
+        display: flex;
+        flex-flow: column nowrap;
+      }
+    }
+
+    .project-popularity {
+      font-weight: bold;
+      font-size: 1.125rem;
+
+      .popularity-highlight {
+        font-size: 2.5rem;
+        padding-right: 2%;
+      }
+    }
+
+    .progress {
+      .progress-bar {
+        background-color: $green-highlight;
+        width: 70%;
+      }
+    }
+  }
+
+}
