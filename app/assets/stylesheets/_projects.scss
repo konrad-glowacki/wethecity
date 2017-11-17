@@ -1,8 +1,6 @@
 // Place all the styles related to the Projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import "shared/variables";
-
 .project-info-header {
   margin: 2rem 2.5rem;
 
@@ -37,9 +35,11 @@
     }
 
     .project-statistics {
-      .project-actions {
-        display: flex;
-        flex-flow: column nowrap;
+    }
+
+    .project-actions {
+      > * {
+        margin: 1rem auto;
       }
     }
 
@@ -54,6 +54,7 @@
     }
 
     .progress {
+
       .progress-bar {
         background-color: $green-highlight;
         width: 70%;
