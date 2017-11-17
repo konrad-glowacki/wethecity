@@ -43,7 +43,6 @@ class ProjectDashboard < Administrate::BaseDashboard
     location
     finish_on
     active
-    sort_order
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES

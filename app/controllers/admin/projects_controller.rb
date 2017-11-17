@@ -2,11 +2,11 @@
 
 module Admin
   class ProjectsController < Admin::ApplicationController
-    before_action :set_default_sort_order
+    before_action :set_default_params
 
     private
 
-    def set_default_sort_order
+    def set_default_params
       params[:order] ||= 'sort_order'
       params[:direction] ||= 'asc'
     end
