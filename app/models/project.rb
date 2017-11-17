@@ -1,19 +1,20 @@
 # frozen_string_literal: true
 
 class Project < ApplicationRecord
-  acts_as_paranoid
-  mount_uploaders :images, ImageUploader
   extend FriendlyId
+
+  acts_as_paranoid
   friendly_id :name, use: :slugged
+  mount_uploaders :images, ImageUploader
+
+  geocoded_by :location
+  after_validation :geocode
 
   has_and_belongs_to_many :categories
   has_many :founders
   has_many :members, through: :founders
   has_many :engagements
   has_many :resources, through: :engagements
-
-  geocoded_by :location
-  after_validation :geocode
 
   validates :name, presence: true
   validates :description, presence: true
