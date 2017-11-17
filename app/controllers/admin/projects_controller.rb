@@ -2,22 +2,13 @@
 
 module Admin
   class ProjectsController < Admin::ApplicationController
-    # To customize the behavior of this controller,
-    # you can overwrite any of the RESTful actions. For example:
-    #
-    # def index
-    #   super
-    #   @resources = Project.
-    #     page(params[:page]).
-    #     per(10)
-    # end
+    before_action :set_default_sort_order
 
-    # Define a custom finder by overriding the `find_resource` method:
-    # def find_resource(param)
-    #   Project.find_by!(id: param)
-    # end
+    private
 
-    # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
-    # for more information
+    def set_default_sort_order
+      params[:order] ||= 'sort_order'
+      params[:direction] ||= 'asc'
+    end
   end
 end

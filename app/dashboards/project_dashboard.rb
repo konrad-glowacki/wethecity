@@ -27,6 +27,7 @@ class ProjectDashboard < Administrate::BaseDashboard
     longitude: Field::Number.with_options(decimals: 2),
     required_budget: Field::Number.with_options(decimals: 2),
     collected_budget: Field::Number.with_options(decimals: 2),
+    sort_order: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -42,6 +43,7 @@ class ProjectDashboard < Administrate::BaseDashboard
     location
     finish_on
     active
+    sort_order
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -58,6 +60,7 @@ class ProjectDashboard < Administrate::BaseDashboard
     location
     required_budget
     collected_budget
+    sort_order
     created_at
     updated_at
   ].freeze
@@ -76,6 +79,7 @@ class ProjectDashboard < Administrate::BaseDashboard
     location
     required_budget
     collected_budget
+    sort_order
   ].freeze
 
   def display_resource(project)
