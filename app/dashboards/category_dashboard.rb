@@ -56,6 +56,6 @@ class CategoryDashboard < Administrate::BaseDashboard
   ].freeze
 
   def display_resource(category)
-    "Category ##{category.name}"
+    category.name
   end
 end

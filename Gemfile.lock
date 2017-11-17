@@ -1,3 +1,19 @@
+GIT
+  remote: https://github.com/webkrak/administrate.git
+  revision: c804fa98be3aa32b3583ebe0a4ef72f8fce037ef
+  specs:
+    administrate (0.8.1)
+      actionpack (>= 4.2, < 5.2)
+      actionview (>= 4.2, < 5.2)
+      activerecord (>= 4.2, < 5.2)
+      autoprefixer-rails (>= 6.0)
+      datetime_picker_rails (~> 0.0.7)
+      jquery-rails (>= 4.0)
+      kaminari (>= 1.0)
+      momentjs-rails (~> 2.8)
+      sass-rails (~> 5.0)
+      selectize-rails (~> 0.6)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -41,17 +57,6 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    administrate (0.8.1)
-      actionpack (>= 4.2, < 5.2)
-      actionview (>= 4.2, < 5.2)
-      activerecord (>= 4.2, < 5.2)
-      autoprefixer-rails (>= 6.0)
-      datetime_picker_rails (~> 0.0.7)
-      jquery-rails (>= 4.0)
-      kaminari (>= 1.0)
-      momentjs-rails (~> 2.8)
-      sass-rails (~> 5.0)
-      selectize-rails (~> 0.6)
     administrate-field-carrierwave (0.2.0)
       administrate (< 1.0.0)
       rails (>= 4.2)
@@ -59,6 +64,10 @@ GEM
       administrate (< 1.0.0)
       flatpickr_rails (~> 0.0.2)
       rails (>= 4.2)
+    administrate-field-simple_markdown (0.0.4)
+      administrate (< 1.0.0)
+      rails (>= 4.2)
+      redcarpet (~> 3.3)
     ancestry (3.0.1)
       activerecord (>= 3.2.0)
     arel (8.0.0)
@@ -74,7 +83,7 @@ GEM
       sass (>= 3.5.2)
     builder (3.2.3)
     byebug (9.1.0)
-    capybara (2.15.4)
+    capybara (2.16.0)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (>= 1.3.3)
@@ -97,7 +106,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     connection_pool (2.2.1)
-    crass (1.0.2)
+    crass (1.0.3)
     datetime_picker_rails (0.0.7)
       momentjs-rails (>= 2.8.1)
     devise (4.3.0)
@@ -139,9 +148,8 @@ GEM
     fog-xml (0.1.3)
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
-    foreman (0.63.0)
-      dotenv (>= 0.7)
-      thor (>= 0.13.6)
+    foreman (0.84.0)
+      thor (~> 0.19.1)
     formatador (0.2.5)
     geocoder (1.4.4)
     globalid (0.4.1)
@@ -247,12 +255,12 @@ GEM
     parallel (1.12.0)
     paranoia (2.4.0)
       activerecord (>= 4.0, < 5.2)
-    parser (2.4.0.0)
-      ast (~> 2.2)
+    parser (2.4.0.2)
+      ast (~> 2.3)
     pg (0.21.0)
     popper_js (1.12.5)
     powerpack (0.1.1)
-    pry (0.11.2)
+    pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     public_suffix (3.0.1)
@@ -275,10 +283,6 @@ GEM
       railties (= 5.1.4)
       sprockets-rails (>= 2.0.0)
     rails-assets-jquery (3.2.1)
-    rails-controller-testing (1.0.2)
-      actionpack (~> 5.x, >= 5.0.1)
-      actionview (~> 5.x, >= 5.0.1)
-      activesupport (~> 5.x)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -292,10 +296,11 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rainbow (2.2.2)
       rake
-    rake (12.2.1)
+    rake (12.3.0)
     rb-fsevent (0.10.2)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    redcarpet (3.4.0)
     redis (4.0.1)
     ref (2.0.0)
     responders (2.4.0)
@@ -337,7 +342,7 @@ GEM
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
-    sass-rails (5.0.6)
+    sass-rails (5.0.7)
       railties (>= 4.0.0, < 6)
       sass (~> 3.1)
       sprockets (>= 2.8, < 4.0)
@@ -370,7 +375,7 @@ GEM
     therubyracer (0.12.3)
       libv8 (~> 3.16.14.15)
       ref
-    thor (0.20.0)
+    thor (0.19.4)
     thread_safe (0.3.6)
     tilt (2.0.8)
     turbolinks (5.0.1)
@@ -390,7 +395,7 @@ GEM
       railties (>= 5.0)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
-    websocket-extensions (0.1.2)
+    websocket-extensions (0.1.3)
     xpath (2.1.0)
       nokogiri (~> 1.3)
 
@@ -398,9 +403,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  administrate (~> 0.8)
+  administrate!
   administrate-field-carrierwave (~> 0.2.0)
   administrate-field-date_picker (~> 0.0.5)
+  administrate-field-simple_markdown (~> 0.0.4)
   ancestry
   awesome_print
   bootstrap (~> 4.0.0.beta2.1)
@@ -432,7 +438,7 @@ DEPENDENCIES
   puma (~> 3.7)
   rails (~> 5.1.4)
   rails-assets-jquery!
-  rails-controller-testing
+  redcarpet (~> 3.4.0)
   rspec-rails (~> 3.7.0)
   rubocop (~> 0.51.0)
   sass-rails (~> 5.0)

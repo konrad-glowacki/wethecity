@@ -4,9 +4,9 @@ class Project < ApplicationRecord
   acts_as_paranoid
   mount_uploaders :images, ImageUploader
 
-  has_and_belongs_to_many :users
-  has_and_belongs_to_many :accounts
   has_and_belongs_to_many :categories
+  has_many :founders
+  has_many :members, through: :founders
   has_many :engagements
   has_many :resources, through: :engagements
 
@@ -14,7 +14,7 @@ class Project < ApplicationRecord
   after_validation :geocode
 
   validates :name, presence: true
-  validates :description_html, presence: true
+  validates :description, presence: true
   validates :finish_on, presence: true
   validates :location, presence: true
 end

@@ -15,7 +15,7 @@ class ProjectDashboard < Administrate::BaseDashboard
     name: Field::String,
     active: Field::Boolean,
     video_url: Field::String,
-    description_html: Field::Text,
+    description: Field::SimpleMarkdown,
     images: Field::Carrierwave.with_options(
       image: :thumb,
       multiple: true,
@@ -30,13 +30,13 @@ class ProjectDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
-
   # COLLECTION_ATTRIBUTES
   # an array of attributes that will be displayed on the model's index page.
   #
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
+    id
     categories
     name
     location
@@ -52,7 +52,7 @@ class ProjectDashboard < Administrate::BaseDashboard
     name
     active
     video_url
-    description_html
+    description
     images
     finish_on
     location
@@ -70,7 +70,7 @@ class ProjectDashboard < Administrate::BaseDashboard
     name
     active
     video_url
-    description_html
+    description
     images
     finish_on
     location
@@ -79,7 +79,7 @@ class ProjectDashboard < Administrate::BaseDashboard
   ].freeze
 
   def display_resource(project)
-    "Project ##{project.name}"
+    project.name
   end
 
   def permitted_attributes

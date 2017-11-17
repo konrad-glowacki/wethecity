@@ -13,7 +13,8 @@ class User < ApplicationRecord
 
   has_many :engagements, as: :provider
   has_and_belongs_to_many :accounts
-  has_and_belongs_to_many :projects
+  has_many :founders, as: :member
+  has_many :projects, through: :founders
 
   enum role: %i[leader member ambassador]
 

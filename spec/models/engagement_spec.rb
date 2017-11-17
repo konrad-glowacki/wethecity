@@ -75,7 +75,7 @@ RSpec.describe Engagement, type: :model do
       Engagement.create!(valid_data_with_user)
 
       expect { Engagement.create!(valid_data_with_user) }
-        .to raise_error(ActiveRecord::RecordNotUnique, /PG::UniqueViolation/)
+        .to raise_error(ActiveRecord::RecordInvalid, /Validation failed: Project has already been taken/)
     end
 
     it 'can be created with valid data using Account as provider' do

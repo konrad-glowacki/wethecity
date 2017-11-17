@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171114135250) do
+ActiveRecord::Schema.define(version: 20171116202332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,13 +28,6 @@ ActiveRecord::Schema.define(version: 20171114135250) do
     t.string "facebook_website"
     t.string "homepage_website"
     t.index ["deleted_at"], name: "index_accounts_on_deleted_at"
-  end
-
-  create_table "accounts_projects", id: false, force: :cascade do |t|
-    t.integer "account_id", null: false
-    t.integer "project_id", null: false
-    t.datetime "created_at", null: false
-    t.index ["account_id", "project_id"], name: "index_accounts_projects_on_account_id_and_project_id", unique: true
   end
 
   create_table "accounts_users", id: false, force: :cascade do |t|
@@ -77,11 +70,23 @@ ActiveRecord::Schema.define(version: 20171114135250) do
     t.index ["resource_id"], name: "index_engagements_on_resource_id"
   end
 
+  create_table "founders", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.string "member_type", null: false
+    t.bigint "member_id", null: false
+    t.integer "role", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["member_id", "member_type", "project_id"], name: "index_founders_on_member_id_and_member_type_and_project_id", unique: true
+    t.index ["member_type", "member_id"], name: "index_founders_on_member_type_and_member_id"
+    t.index ["project_id"], name: "index_founders_on_project_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "name", null: false
     t.boolean "active", default: false, null: false
     t.string "video_url"
-    t.text "description_html", null: false
+    t.text "description", null: false
     t.jsonb "images"
     t.date "finish_on", null: false
     t.string "location", null: false
@@ -94,14 +99,6 @@ ActiveRecord::Schema.define(version: 20171114135250) do
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_projects_on_deleted_at"
-  end
-
-  create_table "projects_users", id: false, force: :cascade do |t|
-    t.integer "project_id", null: false
-    t.integer "user_id", null: false
-    t.string "role", null: false
-    t.datetime "created_at", null: false
-    t.index ["project_id", "user_id"], name: "index_projects_users_on_project_id_and_user_id", unique: true
   end
 
   create_table "resources", force: :cascade do |t|
@@ -173,4 +170,5 @@ ActiveRecord::Schema.define(version: 20171114135250) do
 
   add_foreign_key "engagements", "projects"
   add_foreign_key "engagements", "resources"
+  add_foreign_key "founders", "projects"
 end
