@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 class Account < ApplicationRecord
-  acts_as_paranoid
+  extend FriendlyId
 
+  acts_as_paranoid
+  friendly_id :name, use: :slugged
   mount_uploader :avatar, AvatarUploader
 
   has_many :resources, as: :provider

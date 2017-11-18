@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171118155728) do
+ActiveRecord::Schema.define(version: 20171118160215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,9 @@ ActiveRecord::Schema.define(version: 20171118155728) do
     t.datetime "deleted_at"
     t.string "facebook_website"
     t.string "homepage_website"
+    t.string "slug"
     t.index ["deleted_at"], name: "index_accounts_on_deleted_at"
+    t.index ["slug"], name: "index_accounts_on_slug", unique: true, where: "(deleted_at IS NULL)"
   end
 
   create_table "accounts_users", id: false, force: :cascade do |t|
