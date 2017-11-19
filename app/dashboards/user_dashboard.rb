@@ -17,6 +17,7 @@ class UserDashboard < Administrate::BaseDashboard
     avatar: Field::Carrierwave.with_options(
       image_on_index: true
     ),
+    slug: Administrate::Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -30,6 +31,7 @@ class UserDashboard < Administrate::BaseDashboard
 
   SHOW_PAGE_ATTRIBUTES = %i[
     id
+    slug
     avatar
     email
     first_name

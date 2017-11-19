@@ -7,9 +7,9 @@ class Account < ApplicationRecord
   friendly_id :name, use: :slugged
   mount_uploader :avatar, AvatarUploader
 
+  has_and_belongs_to_many :users
   has_many :resources, as: :provider
   has_many :engagements, as: :provider
-  has_and_belongs_to_many :users
   has_many :founders, as: :member
   has_many :projects, through: :founders
 

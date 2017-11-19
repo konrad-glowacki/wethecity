@@ -21,6 +21,7 @@ class ProjectDashboard < Administrate::BaseDashboard
       multiple: true,
       image_on_index: true
     ),
+    slug: Administrate::Field::String,
     finish_on: Field::DatePicker,
     location: Field::String,
     latitude: Field::Number.with_options(decimals: 2),
@@ -49,6 +50,7 @@ class ProjectDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
+    slug
     categories
     name
     active
