@@ -100,6 +100,9 @@ gem 'exception_notification'
 # Slack notifier
 gem 'slack-notifier'
 
+# Decorators/View-Models for Rails Applications
+gem 'draper', '~> 3.0.1'
+
 group :development, :test do
   # Shell for ruby
   gem 'pry'
