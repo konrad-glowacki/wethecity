@@ -2,8 +2,10 @@
 
 class User < ApplicationRecord
   include Users::FacebookAuth
+  extend FriendlyId
 
   acts_as_paranoid
+  friendly_id :full_name, use: :slugged
   mount_uploader :avatar, AvatarUploader
 
   devise :database_authenticatable, :async, :registerable,

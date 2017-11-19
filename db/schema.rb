@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171117160902) do
+ActiveRecord::Schema.define(version: 20171118163450) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,9 @@ ActiveRecord::Schema.define(version: 20171117160902) do
     t.datetime "deleted_at"
     t.string "facebook_website"
     t.string "homepage_website"
+    t.string "slug"
     t.index ["deleted_at"], name: "index_accounts_on_deleted_at"
+    t.index ["slug"], name: "index_accounts_on_slug", unique: true, where: "(deleted_at IS NULL)"
   end
 
   create_table "accounts_users", id: false, force: :cascade do |t|
@@ -43,9 +45,11 @@ ActiveRecord::Schema.define(version: 20171117160902) do
     t.datetime "updated_at", null: false
     t.string "ancestry"
     t.datetime "deleted_at"
+    t.string "slug"
     t.index ["ancestry"], name: "index_categories_on_ancestry"
     t.index ["deleted_at"], name: "index_categories_on_deleted_at"
     t.index ["name"], name: "index_categories_on_name", unique: true, where: "(deleted_at IS NULL)"
+    t.index ["slug"], name: "index_categories_on_slug", unique: true, where: "(deleted_at IS NULL)"
   end
 
   create_table "categories_projects", id: false, force: :cascade do |t|
@@ -176,10 +180,12 @@ ActiveRecord::Schema.define(version: 20171117160902) do
     t.string "provider"
     t.string "uid"
     t.datetime "deleted_at"
+    t.string "slug"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, where: "(deleted_at IS NULL)"
     t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true, where: "(deleted_at IS NULL)"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, where: "(deleted_at IS NULL)"
+    t.index ["slug"], name: "index_users_on_slug", unique: true, where: "(deleted_at IS NULL)"
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true, where: "(deleted_at IS NULL)"
   end
 
