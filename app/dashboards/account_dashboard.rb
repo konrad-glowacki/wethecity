@@ -5,6 +5,7 @@ require 'administrate/base_dashboard'
 class AccountDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Administrate::Field::Number,
+    resources: Field::HasMany,
     users: Administrate::Field::HasMany,
     name: Administrate::Field::String,
     email: Administrate::Field::String,
@@ -31,6 +32,7 @@ class AccountDashboard < Administrate::BaseDashboard
     name
     address
     users
+    resources
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -46,9 +48,10 @@ class AccountDashboard < Administrate::BaseDashboard
     homepage_website
     address
     phone_number
-    users
     created_at
     updated_at
+    users
+    resources
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -56,6 +59,7 @@ class AccountDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     users
+    resources
     name
     email
     address

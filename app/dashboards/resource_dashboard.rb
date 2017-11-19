@@ -13,6 +13,8 @@ class ResourceDashboard < Administrate::BaseDashboard
     id: Field::Number,
     name: Field::String,
     kind: Field::Select.with_options(collection: Resource.kinds.keys),
+    users: Field::HasMany,
+    accounts: Field::HasMany,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -25,6 +27,8 @@ class ResourceDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     name
     kind
+    users
+    accounts
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
