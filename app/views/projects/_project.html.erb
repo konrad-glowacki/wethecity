@@ -1,0 +1,11 @@
+<div class="col-md-4 mb-3">
+  <div class="card">
+    <%= image_tag project.decorate.image_src, class: 'card-img-top', alt: "#{project.name}" %>
+
+    <div class="card-body">
+      <h4 class="card-title"><%= project.name %></h4>
+      <p class="card-text"><%= project.description %></p>
+      <%= link_to 'show', project_path(project.slug), class: 'btn btn-primary' %>
+    </div>
+  </div>
+</div>

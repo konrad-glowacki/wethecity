@@ -21,4 +21,8 @@ class Project < ApplicationRecord
   validates :finish_on, presence: true
   validates :location, presence: true
   validates :sort_order, numericality: { greater_than: 0, allow_nil: true }
+
+  def self.filtered_records(q)
+    q.present? ? where('name ILIKE ?', "%#{q}%") : all
+  end
 end

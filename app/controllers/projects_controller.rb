@@ -2,10 +2,10 @@
 
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.all
+    @projects = Project.filtered_records(params[:q]).order(sort_order: :asc)
   end
 
   def show
-    @project = Project.new(name: 'MyName', description_html: 'MyDescription')
+    @project = Project.friendly.find(params[:id])
   end
 end
