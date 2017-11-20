@@ -9,7 +9,7 @@
       <!--VIDEOS/PICS-->
     </div>
     <div class="project-info-description">
-      <%= @project.description_html %>
+      <%= @project.description %>
     </div>
   </div>
   <div class="project-info-sidebar">
@@ -25,7 +25,7 @@
       </div>
       <h6><%= number_to_currency @project.collected_budget %> PLN</h6>
       <p>of <%= number_to_currency @project.required_budget %>PLN goal</p>
-      <h6><%= @project.users.count %> people backed this up</h6>
+      <h6><!--%= @project.users.count %--> 'nil' people backed this up</h6>
     </div>
     <div class="project-actions">
       <button class="btn btn-lg btn-success">BACK THIS PROJECT</button>
