@@ -1,3 +1,21 @@
+#projects-top {
+  .carousel-caption {
+    top: 20px;
+  }
+}
+
+.project-card {
+  img {
+    opacity: 0.3;
+  }
+
+  &:hover {
+    img {
+      opacity: 0.6;
+    }
+  }
+}
+
 .project-info-header {
   margin: 2rem 2.5rem;
 
