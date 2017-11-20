@@ -22,6 +22,8 @@ class Project < ApplicationRecord
   validates :location, presence: true
   validates :sort_order, numericality: { greater_than: 0, allow_nil: true }
 
+  scope :active, -> { where(active: true) }
+
   def self.search(q)
     q.present? ? where('name ILIKE ? and active = true', "%#{q}%") : order(sort_order: :asc).limit(20)
   end
