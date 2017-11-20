@@ -3,8 +3,10 @@
     <%= image_tag project.decorate.image_src, class: 'card-img-top', alt: "#{project.name}" %>
 
     <div class="card-body">
+      <p class="card-text"><%= project.finish_on %></p>
+      <p class="card-text"><%= project.required_budget %></p>
+      <p class="card-text"><%= "##{project.id}" %></p>
       <h4 class="card-title"><%= project.name %></h4>
-      <p class="card-text"><%= project.description %></p>
       <%= link_to 'show', project_path(project.slug), class: 'btn btn-primary' %>
     </div>
   </div>
