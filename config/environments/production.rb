@@ -83,6 +83,12 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
 
+  config.middleware.use ExceptionNotification::Rack, slack: {
+    webhook_url: ENV['SLACK_WEBHOOK_URL'],
+    channel: '#exceptions',
+    additional_parameters: { mrkdwn: true }
+  }
+
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true

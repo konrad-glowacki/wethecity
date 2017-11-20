@@ -81,5 +81,3 @@ test:
 production:
   <<: *default
   database: wethecity_production
-  username: wethecity
-  password: <%= ENV['WETHECITY_DATABASE_PASSWORD'] %>

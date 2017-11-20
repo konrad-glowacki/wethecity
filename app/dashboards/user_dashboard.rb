@@ -6,6 +6,7 @@ class UserDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     accounts: Field::HasMany,
+    resources: Field::HasMany,
     email: Field::String,
     password: Field::String,
     full_name: Field::String,
@@ -17,6 +18,7 @@ class UserDashboard < Administrate::BaseDashboard
     avatar: Field::Carrierwave.with_options(
       image_on_index: true
     ),
+    slug: Administrate::Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -26,10 +28,12 @@ class UserDashboard < Administrate::BaseDashboard
     full_name
     email
     accounts
+    resources
   ].freeze
 
   SHOW_PAGE_ATTRIBUTES = %i[
     id
+    slug
     avatar
     email
     first_name
@@ -39,10 +43,12 @@ class UserDashboard < Administrate::BaseDashboard
     created_at
     updated_at
     accounts
+    resources
   ].freeze
 
   FORM_ATTRIBUTES = %i[
     accounts
+    resources
     email
     password
     first_name
@@ -54,6 +60,6 @@ class UserDashboard < Administrate::BaseDashboard
   ].freeze
 
   def display_resource(user)
-    "User ##{user.full_name}"
+    user.full_name
   end
 end

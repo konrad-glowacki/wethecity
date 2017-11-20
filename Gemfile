@@ -8,9 +8,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-# Bundler
-gem 'bundler', '~> 1.16'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 
@@ -66,10 +63,8 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 
-# Panel Admin
-gem 'administrate', '~> 0.8'
-gem 'administrate-field-carrierwave', '~> 0.2.0'
-gem 'administrate-field-date_picker', '~> 0.0.5'
+# Markdown
+gem 'redcarpet', '~> 3.4.0'
 
 # Project location geocoding helper
 gem 'geocoder'
@@ -90,6 +85,24 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-jquery'
 end
 
+# Panel Admin
+gem 'administrate', github: 'thoughtbot/administrate'
+gem 'administrate-field-carrierwave', '~> 0.2.0'
+gem 'administrate-field-date_picker', '~> 0.0.5'
+gem 'administrate-field-simple_markdown', '~> 0.0.4'
+
+# Create pretty URLs and work with human-friendly strings
+gem 'friendly_id', '~> 5.2.0'
+
+# Exception Notification
+gem 'exception_notification'
+
+# Slack notifier
+gem 'slack-notifier'
+
+# Decorators/View-Models for Rails Applications
+gem 'draper', '~> 3.0.1'
+
 group :development, :test do
   # Shell for ruby
   gem 'pry'
@@ -105,6 +118,8 @@ group :development, :test do
 
   # Pretty print your Ruby objects with style
   gem 'awesome_print'
+
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -117,7 +132,6 @@ group :development do
   gem 'guard-rspec', '~> 4.7', require: false
 
   # Testing framework
-  gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 3.7.0'
   gem 'spring-commands-rspec'
 

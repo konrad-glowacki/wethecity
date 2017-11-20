@@ -1,0 +1,4 @@
+<%= form_tag search_projects_path, method: :get do %>
+  <%= text_field_tag(:q, nil, class: 'form-control form-control-lg', value: params[:q],
+    placeholder: t('.input_placeholder')) %>
+<% end %>

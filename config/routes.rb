@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks',
                                     registrations: 'users/registrations' }
 
-  resources :projects, constraints: { id: /([0-9]+)/ }, only: [:show]
+  resources :projects, only: %i[show index] do
+    get 'search', on: :collection
+  end
 
   namespace :admin do
     resources :projects
@@ -14,9 +16,10 @@ Rails.application.routes.draw do
     resources :organisations
     resources :administration_offices
     resources :companies
+    resources :founders
+    resources :engagements
     resources :categories
     resources :resources
-    resources :engagements
     resources :super_admins
 
     root to: 'projects#index'
@@ -35,5 +38,5 @@ Rails.application.routes.draw do
   }
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: 'home#index'
+  root to: 'projects#index'
 end

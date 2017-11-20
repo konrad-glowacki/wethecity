@@ -1,6 +1,5 @@
-/*
-*= require_tree .
-*/
-@import "shared/variables";
-@import "shared/fonts";
-@import "bootstrap";
+@import './variables';
+@import './fonts';
+@import 'bootstrap';
+
+@import './projects';
