@@ -2,7 +2,7 @@
 
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.order(sort_order: :asc).limit(20)
+    @projects = Project.where(active: true).order(sort_order: :asc).limit(20)
   end
 
   def search
