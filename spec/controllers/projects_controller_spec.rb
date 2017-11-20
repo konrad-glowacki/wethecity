@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe ProjectsController do
+RSpec.describe ProjectsController, type: :controller do
   fixtures :projects
 
   describe 'GET index' do
