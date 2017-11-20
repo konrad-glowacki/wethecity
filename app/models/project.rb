@@ -22,7 +22,7 @@ class Project < ApplicationRecord
   validates :location, presence: true
   validates :sort_order, numericality: { greater_than: 0, allow_nil: true }
 
-  def self.filtered_records(q)
-    q.present? ? where('name ILIKE ?', "%#{q}%") : all
+  def self.search(q)
+    q.present? ? where('name ILIKE ?', "%#{q}%") : order(sort_order: :asc).limit(20)
   end
 end
