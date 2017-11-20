@@ -1,13 +1,14 @@
-<div class="col-md-4 mb-3">
-  <div class="card">
-    <%= image_tag project.decorate.image_src, class: 'card-img-top', alt: "#{project.name}" %>
+<div class="card bg-dark text-white">
+  <div class="card-header">
+    <%= project.collected_budget %>
+    <%= project.finish_on %>
+  </div>
+  <%= image_tag project.decorate.image_src, class: 'card-img-top', alt: "#{project.name}" %>
 
-    <div class="card-body">
-      <p class="card-text"><%= project.finish_on %></p>
-      <p class="card-text"><%= project.required_budget %></p>
-      <p class="card-text"><%= "##{project.id}" %></p>
+  <div class="card-img-overlay">
+    <%= link_to project do %>
+      <p class="card-text">#<%= project.sort_order %></p>
       <h4 class="card-title"><%= project.name %></h4>
-      <%= link_to 'show', project_path(project.slug), class: 'btn btn-primary' %>
-    </div>
+    <% end %>
   </div>
 </div>
