@@ -3,7 +3,3 @@
 <% if user_signed_in? %>
   <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
 <% end %>
-
-<%= link_to 'Sign up', new_user_registration_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#user-profile-modal'}  %>
-
-<div id="user-profile-modal" class="modal fade" tabindex="-1" role="dialog"></div>

@@ -14,6 +14,11 @@ pl:
     shared:
       links:
         didnt_receive_unlock_instructions: "Nie otrzymałem instrukcji odblokowywania"
+  users:
+    registrations:
+      new:
+        sign_up: "Zapisz się"
+        close: "Zamknij"
 
   devise:
     confirmations:

@@ -2,10 +2,6 @@
 
 module Users
   class RegistrationsController < Devise::RegistrationsController
-    def new
-      respond_to do |format|
-        format.js
-      end
-    end
+    respond_to :js
   end
 end
