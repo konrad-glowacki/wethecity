@@ -118,6 +118,8 @@ group :development, :test do
 
   # Pretty print your Ruby objects with style
   gem 'awesome_print'
+
+  gem 'rails-controller-testing'
 end
 
 group :development do
