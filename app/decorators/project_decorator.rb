@@ -8,6 +8,6 @@ class ProjectDecorator < Draper::Decorator
   end
 
   def budget_completed_percentage
-    (object.collected_budget / object.required_budget * 100).round(0)
+    object.required_budget.zero? ? 0 : (object.collected_budget / object.required_budget * 100).to_i
   end
 end
