@@ -64,8 +64,6 @@ class ProjectDashboard < Administrate::BaseDashboard
     sort_order
     created_at
     updated_at
-    latitude
-    longitude
   ].freeze
 
   # FORM_ATTRIBUTES
