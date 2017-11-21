@@ -2,11 +2,11 @@
 
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.active.order(sort_order: :asc).limit(20)
+    @projects = Project.active.order(sort_order: :asc).limit(20).decorate
   end
 
   def search
-    @projects = Project.search(params[:q])
+    @projects = Project.search(params[:q]).decorate
     render :index
   end
 
