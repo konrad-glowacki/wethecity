@@ -48,14 +48,15 @@ as well as a link to its edit page.
     <% end %>
   </dl>
 
-  <div id="google-map" data-latitude data-longitude style='width: 800px; height: 400px;'></div>
+  <dt class="attribute-label" id="google-maps-attribute">
+    Map Location
+  </dt>
+
+  <dd class="attribute-data attribute-data--maps" id="google-maps" style="width: 800px; height: 400px;"
+    data-latitude="<%= page.resource.latitude %>" data-longitude="<%= page.resource.longitude %>">
 </section>
 
 <% content_for :javascript do %>
   <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_KEY']}&callback=initMap",
     defer: true, async: true %>
 <% end %>
-
-<script>
-  hideCordinates();
-</script>

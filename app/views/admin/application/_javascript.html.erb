@@ -7,9 +7,6 @@ but each page can define additional JS sources
 by providing a `content_for(:javascript)` block.
 %>
 
-<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_KEY'] }",
-  defer: true, async: true if ENV['GOOGLE_API_KEY'] %>
-
 <% Administrate::Engine.javascripts.each do |js_path| %>
   <%= javascript_include_tag js_path %>
 <% end %>

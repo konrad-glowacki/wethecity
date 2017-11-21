@@ -1,11 +1,11 @@
-if ($('#google-map').length) {
+if ($('#google-maps').length) {
   function initMap() {
     var uluru = {
       lat: 0,
       lng: 0
     };
 
-    var map = new google.maps.Map(document.getElementById('google-map'), {
+    var map = new google.maps.Map(document.getElementById('google-maps'), {
       zoom: 4,
       center: uluru
     });
