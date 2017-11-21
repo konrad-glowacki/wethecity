@@ -4,7 +4,7 @@ project1:
   name: MyString
   active: true
   video_url: MyString
-  description_html: MyText
+  description: MyText
   images:
   finish_on: 2017-11-01
   location: MyString
@@ -18,7 +18,7 @@ project2:
   name: MyString
   active: false
   video_url: MyString
-  description_html: MyText
+  description: MyText
   images:
   finish_on: 2017-11-01
   location: MyString2

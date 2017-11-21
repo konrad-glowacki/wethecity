@@ -9,15 +9,17 @@ class EngagementDashboard < Administrate::BaseDashboard
   # Each different type represents an Administrate::Field object,
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
+
   ATTRIBUTE_TYPES = {
     project: Field::BelongsTo,
     resource: Field::BelongsTo,
     id: Field::Number,
     description: Field::Text,
     quantity: Field::Number.with_options(decimals: 2),
-    provider: Field::Polymorphic,
+    provider: Field::Polymorphic.with_options(classes: [User, Account]),
     provider_type: Field::String,
     provider_id: Field::Number,
+    state: Field::Select.with_options(collection: Engagement.states.keys),
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -31,6 +33,7 @@ class EngagementDashboard < Administrate::BaseDashboard
     project
     resource
     provider
+    state
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -42,6 +45,7 @@ class EngagementDashboard < Administrate::BaseDashboard
     description
     quantity
     provider
+    state
     created_at
     updated_at
   ].freeze
@@ -54,8 +58,8 @@ class EngagementDashboard < Administrate::BaseDashboard
     resource
     description
     quantity
-    provider_type
-    provider_id
+    state
+    provider
   ].freeze
 
   # Overwrite this method to customize how engagements are displayed
@@ -64,4 +68,8 @@ class EngagementDashboard < Administrate::BaseDashboard
   # def display_resource(engagement)
   #   "Engagement ##{engagement.id}"
   # end
+
+  def permitted_attributes
+    super + %i[provider_id provider_type]
+  end
 end

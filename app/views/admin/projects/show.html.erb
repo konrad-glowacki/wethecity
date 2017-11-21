@@ -42,15 +42,19 @@ as well as a link to its edit page.
       ) %>
       </dt>
 
-      <dd class="attribute-data attribute-data--<%=attribute.html_class%>" id="<%= attribute.name %>"
-          ><%= render_field attribute %></dd>
+      <dd class="attribute-data attribute-data--<%=attribute.html_class%>" id="<%= attribute.name %>">
+        <%= render_field attribute %>
+      </dd>
     <% end %>
   </dl>
 
   <div id="google-map" data-latitude data-longitude style='width: 800px; height: 400px;'></div>
 </section>
 
-<%= javascript_include_tag "admin/form/google_map.js" %>
+<% content_for :javascript do %>
+  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_KEY']}&callback=initMap",
+    defer: true, async: true %>
+<% end %>
 
 <script>
   hideCordinates();

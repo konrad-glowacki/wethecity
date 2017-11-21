@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171112104217) do
+ActiveRecord::Schema.define(version: 20171119202023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,14 +27,15 @@ ActiveRecord::Schema.define(version: 20171112104217) do
     t.datetime "deleted_at"
     t.string "facebook_website"
     t.string "homepage_website"
+    t.string "slug"
     t.index ["deleted_at"], name: "index_accounts_on_deleted_at"
+    t.index ["slug"], name: "index_accounts_on_slug", unique: true, where: "(deleted_at IS NULL)"
   end
 
-  create_table "accounts_projects", id: false, force: :cascade do |t|
-    t.integer "account_id", null: false
-    t.integer "project_id", null: false
-    t.datetime "created_at", null: false
-    t.index ["account_id", "project_id"], name: "index_accounts_projects_on_account_id_and_project_id", unique: true
+  create_table "accounts_resources", id: false, force: :cascade do |t|
+    t.bigint "account_id", null: false
+    t.bigint "resource_id", null: false
+    t.index ["account_id", "resource_id"], name: "index_accounts_resources_on_account_id_and_resource_id", unique: true
   end
 
   create_table "accounts_users", id: false, force: :cascade do |t|
@@ -50,9 +51,11 @@ ActiveRecord::Schema.define(version: 20171112104217) do
     t.datetime "updated_at", null: false
     t.string "ancestry"
     t.datetime "deleted_at"
+    t.string "slug"
     t.index ["ancestry"], name: "index_categories_on_ancestry"
     t.index ["deleted_at"], name: "index_categories_on_deleted_at"
     t.index ["name"], name: "index_categories_on_name", unique: true, where: "(deleted_at IS NULL)"
+    t.index ["slug"], name: "index_categories_on_slug", unique: true, where: "(deleted_at IS NULL)"
   end
 
   create_table "categories_projects", id: false, force: :cascade do |t|
@@ -70,17 +73,42 @@ ActiveRecord::Schema.define(version: 20171112104217) do
     t.bigint "provider_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "state", default: 0
     t.index ["project_id", "provider_type"], name: "index_engagements_on_project_id_and_provider_type"
     t.index ["project_id", "resource_id", "provider_id", "provider_type"], name: "index_projects_resources_unique_provider", unique: true
     t.index ["project_id"], name: "index_engagements_on_project_id"
     t.index ["resource_id"], name: "index_engagements_on_resource_id"
   end
 
+  create_table "founders", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.string "member_type", null: false
+    t.bigint "member_id", null: false
+    t.integer "role", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["member_id", "member_type", "project_id"], name: "index_founders_on_member_id_and_member_type_and_project_id", unique: true
+    t.index ["member_type", "member_id"], name: "index_founders_on_member_type_and_member_id"
+    t.index ["project_id"], name: "index_founders_on_project_id"
+  end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "name", null: false
     t.boolean "active", default: false, null: false
     t.string "video_url"
-    t.text "description_html", null: false
+    t.text "description", null: false
     t.jsonb "images"
     t.date "finish_on", null: false
     t.string "location", null: false
@@ -92,15 +120,10 @@ ActiveRecord::Schema.define(version: 20171112104217) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
+    t.string "slug"
+    t.integer "sort_order"
     t.index ["deleted_at"], name: "index_projects_on_deleted_at"
-  end
-
-  create_table "projects_users", id: false, force: :cascade do |t|
-    t.integer "project_id", null: false
-    t.integer "user_id", null: false
-    t.string "role", null: false
-    t.datetime "created_at", null: false
-    t.index ["project_id", "user_id"], name: "index_projects_users_on_project_id_and_user_id", unique: true
+    t.index ["slug"], name: "index_projects_on_slug", unique: true, where: "(deleted_at IS NULL)"
   end
 
   create_table "resources", force: :cascade do |t|
@@ -111,6 +134,12 @@ ActiveRecord::Schema.define(version: 20171112104217) do
     t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_resources_on_deleted_at"
     t.index ["name"], name: "index_resources_on_name", unique: true, where: "(deleted_at IS NULL)"
+  end
+
+  create_table "resources_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "resource_id", null: false
+    t.index ["user_id", "resource_id"], name: "index_resources_users_on_user_id_and_resource_id", unique: true
   end
 
   create_table "super_admins", force: :cascade do |t|
@@ -163,13 +192,16 @@ ActiveRecord::Schema.define(version: 20171112104217) do
     t.string "provider"
     t.string "uid"
     t.datetime "deleted_at"
+    t.string "slug"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, where: "(deleted_at IS NULL)"
     t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true, where: "(deleted_at IS NULL)"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, where: "(deleted_at IS NULL)"
+    t.index ["slug"], name: "index_users_on_slug", unique: true, where: "(deleted_at IS NULL)"
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true, where: "(deleted_at IS NULL)"
   end
 
   add_foreign_key "engagements", "projects"
   add_foreign_key "engagements", "resources"
+  add_foreign_key "founders", "projects"
 end

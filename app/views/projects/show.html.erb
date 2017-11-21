@@ -1,0 +1,60 @@
+<div class="project-info-header">
+  <h1><%= @project.name %></h1>
+  <h6>CATEGORY | <%= link_to 'Location (stub)', @project.location %></h6>
+</div>
+<div class="project-info-grid">
+  <div class="project-info-content">
+    <!--LEFT SIDE CONTENT-->
+    <div class="project-info-multimedia">
+      <!--VIDEOS/PICS-->
+    </div>
+    <div class="project-info-description">
+      <%= @project.description %>
+    </div>
+  </div>
+  <div class="project-info-sidebar">
+    <!--RIGHT SIDE CONTENT-->
+    <div class="project-statistics">
+      <span class="project-popularity">
+        <span class="popularity-highlight">
+          #<%= @project.id %>
+        </span> Top Growing Project
+      </span>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar"></div>
+      </div>
+      <h6><%= number_to_currency @project.collected_budget %> PLN</h6>
+      <p>of <%= number_to_currency @project.required_budget %>PLN goal</p>
+      <h6><!--%= @project.users.count %--> 'nil' people backed this up</h6>
+    </div>
+    <div class="project-actions">
+      <button class="btn btn-lg btn-success">BACK THIS PROJECT</button>
+      <button class="btn btn-lg btn-outline-success">+ NEED: IT SKILLS</button>
+      <button class="btn btn-lg btn-outline-success">+ NEED: MEETING PLACE</button>
+      <p>
+        2 People and 1 Organisation helped with their resources.
+        <%= link_to 'What\'s that about?' %>
+      </p>
+      <section class="project-social-info">
+        <button class="btn btn-lg btn-primary">SHARE TO HELP!</button>
+        <p class="">Friend Friend and 2481 others shared or liked it</p>
+      </section>
+    </div>
+
+    <div class="project-executives">
+      <section class="project-sponsors">
+        <h5>SPONSORS</h5>
+        <button class="btn btn-lg btn-link"></button>
+      </section>
+      <section class="project-team">
+        <h5>PROJECT TEAM</h5>
+        <button class="btn btn-lg btn-link project-team-leader">Leader Megatron</button>
+        <span class="project-team-members"></span>
+      </section>
+      <section class="report-project">
+        <%= link_to 'REPORT THIS PROJECT' %>
+      </section>
+
+    </div>
+  </div>
+</div>

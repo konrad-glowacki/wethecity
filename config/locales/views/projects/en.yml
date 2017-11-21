@@ -1,0 +1,4 @@
+en:
+  projects:
+    search_form:
+      input_placeholder: 'search by resource you need'

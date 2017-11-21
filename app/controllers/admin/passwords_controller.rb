@@ -2,6 +2,8 @@
 
 module Admin
   class PasswordsController < Devise::PasswordsController
+    layout 'admin/devise'
+
     # GET /resource/password/new
     # def new
     #   super

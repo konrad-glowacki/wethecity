@@ -27,7 +27,7 @@ Rails.application.configure do
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
-  # config.assets.css_compressor = :sass
+  # config.assets.css_compressor = :yui
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
@@ -60,14 +60,34 @@ Rails.application.configure do
   # config.cache_store = :mem_cache_store
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
-  config.active_job.queue_adapter = :resque
-  config.active_job.queue_name_prefix = "wethecity_#{Rails.env}"
+  config.active_job.queue_adapter = :sidekiq
+  # config.active_job.queue_name_prefix = "wethecity_#{Rails.env}"
 
   config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
+
+  config.action_mailer.default_url_options = { host: ENV['APP_HOST'] }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              ENV['SMTP_ADDRESS'],
+    port:                 ENV['SMTP_PORT'],
+    domain:               ENV['SMTP_DOMAIN'],
+    user_name:            ENV['SMTP_USERNAME'],
+    password:             ENV['SMTP_PASSWORD'],
+    authentication:       :plain,
+    ssl:                  true,
+    tls:                  true,
+    enable_starttls_auto: true
+  }
+
+  config.middleware.use ExceptionNotification::Rack, slack: {
+    webhook_url: ENV['SLACK_WEBHOOK_URL'],
+    channel: '#exceptions',
+    additional_parameters: { mrkdwn: true }
+  }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).

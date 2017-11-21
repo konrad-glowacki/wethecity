@@ -8,9 +8,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-# Bundler
-gem 'bundler', '~> 1.16'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 
@@ -38,11 +35,6 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
-gem 'underscore-rails'
-
-# Bootstrap datepicker assets
-gem 'rails-assets-bootstrap-datepicker', source: 'https://rails-assets.org'
-
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 
@@ -63,14 +55,16 @@ gem 'fog-aws'
 gem 'devise', '~> 4.3'
 gem 'devise-i18n'
 
+# Send emails asynchronously
+gem 'devise-async'
+
 # OmniAuth authentication system
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 
-# Panel Admin
-gem 'administrate', '~> 0.8'
-gem 'administrate-field-carrierwave', '~> 0.2.0'
+# Markdown
+gem 'redcarpet', '~> 3.4.0'
 
 # Project location geocoding helper
 gem 'geocoder'
@@ -82,7 +76,7 @@ gem 'ancestry'
 gem 'paranoia', '~> 2.2'
 
 # Background jobs
-gem 'resque'
+gem 'sidekiq'
 
 # Assets
 gem 'bootstrap', '~> 4.0.0.beta2.1'
@@ -90,6 +84,24 @@ gem 'bootstrap', '~> 4.0.0.beta2.1'
 source 'https://rails-assets.org' do
   gem 'rails-assets-jquery'
 end
+
+# Panel Admin
+gem 'administrate', github: 'thoughtbot/administrate'
+gem 'administrate-field-carrierwave', '~> 0.2.0'
+gem 'administrate-field-date_picker', '~> 0.0.5'
+gem 'administrate-field-simple_markdown', '~> 0.0.4'
+
+# Create pretty URLs and work with human-friendly strings
+gem 'friendly_id', '~> 5.2.0'
+
+# Exception Notification
+gem 'exception_notification'
+
+# Slack notifier
+gem 'slack-notifier'
+
+# Decorators/View-Models for Rails Applications
+gem 'draper', '~> 3.0.1'
 
 group :development, :test do
   # Shell for ruby
@@ -106,6 +118,8 @@ group :development, :test do
 
   # Pretty print your Ruby objects with style
   gem 'awesome_print'
+
+  gem 'rails-controller-testing'
 end
 
 group :development do
