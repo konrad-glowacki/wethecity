@@ -32,17 +32,17 @@ ActiveRecord::Schema.define(version: 20171119202023) do
     t.index ["slug"], name: "index_accounts_on_slug", unique: true, where: "(deleted_at IS NULL)"
   end
 
-  create_table "accounts_resources", id: false, force: :cascade do |t|
-    t.bigint "account_id", null: false
-    t.bigint "resource_id", null: false
-    t.index ["account_id", "resource_id"], name: "index_accounts_resources_on_account_id_and_resource_id", unique: true
-  end
-
   create_table "accounts_projects", id: false, force: :cascade do |t|
     t.integer "account_id", null: false
     t.integer "project_id", null: false
     t.datetime "created_at", null: false
     t.index ["account_id", "project_id"], name: "index_accounts_projects_on_account_id_and_project_id", unique: true
+  end
+
+  create_table "accounts_resources", id: false, force: :cascade do |t|
+    t.bigint "account_id", null: false
+    t.bigint "resource_id", null: false
+    t.index ["account_id", "resource_id"], name: "index_accounts_resources_on_account_id_and_resource_id", unique: true
   end
 
   create_table "accounts_users", id: false, force: :cascade do |t|
