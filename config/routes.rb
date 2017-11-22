@@ -5,7 +5,7 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  resources :projects, only: %i[show index] do
+  resources :projects, only: %i[show index new] do
     get 'search', on: :collection
   end
 

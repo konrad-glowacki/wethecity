@@ -1,0 +1,17 @@
+<%= form_with scope: :project, local: true do |form| %>
+    <div class="new-project-cover">
+      <img src=""/>
+    </div>
+
+    <div class="new-project-title">
+      <%= form.label :title %><br>
+      <%= form.text_field :title %>
+    </div>
+
+    <div>
+      <%= form.label :description %><br>
+      <%= form.text_area :description %>
+    </div>
+
+    <%= form.submit %>
+<% end %>

@@ -13,4 +13,11 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.friendly.find(params[:id])
   end
+
+  def new;
+  end
+
+  def create
+    render plain: params[:article].inspect
+  end
 end
