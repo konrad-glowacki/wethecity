@@ -3,7 +3,7 @@
 		<img src="https://placeholdit.co//i/417x294" class="img-fluid" alt="Responsive image">
 	</div>
 	<div class="col-8">
-		<h2><%= @organisation.name %></h2>
+		<h1><%= @organisation.name %></h2>
 		</br>
 		<p>TYPE</p>
 
@@ -18,5 +18,14 @@
 			<span>Contact</span><img src="https://placeholdit.co//i/65x56" class="rounded-circle px-2">
 			<span>Organization Creator?</span>
 		</div>
+
+		<div class="organisation-description">
+			<p><%= truncate("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam commodi inventore saepe laboriosam. Est eos accusantium, eius neque, sed quisquam praesentium debitis quos delectus vitae quam dignissimos ipsa repellat iure.", length: 25) { link_to "more", "#" } %></p>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-7">
+		<h3>PROJECTS INVOLVED</h2>
 	</div>
 </div>
