@@ -12,6 +12,7 @@
       <%= @project.description %>
     </div>
   </div>
+
   <div class="project-info-sidebar">
     <!--RIGHT SIDE CONTENT-->
     <div class="project-statistics">
@@ -28,17 +29,18 @@
       <h6><!--%= @project.users.count %--> 'nil' people backed this up</h6>
     </div>
     <div class="project-actions">
-      <button class="btn btn-lg wtc-btn wtc-btn-green">BACK THIS PROJECT</button>
-      <button class="btn btn-lg wtc-btn wtc-btn-outline-green">+ NEED: IT SKILLS</button>
-      <button class="btn btn-lg wtc-btn wtc-btn-outline-green">+ NEED: MEETING PLACE</button>
+      <button class="btn btn-lg btn-success">BACK THIS PROJECT</button>
+      <button class="btn btn-lg btn-outline-success">+ NEED: IT SKILLS</button>
+      <button class="btn btn-lg btn-outline-success">+ NEED: MEETING PLACE</button>
+      <%= link_to 'And 2 more...' %>
     </div>
     <div class="project-backer-info">
       2 People and 1 Organisation helped with their resources.
       <%= link_to 'What\'s that about?' %>
     </div>
     <div class="project-social-info">
-      <button class="btn btn-lg wtc-btn wtc-btn-fb">SHARE TO HELP!</button>
-      <a class="btn btn-lg btn-link wtc-btn">Friend and 2481 others shared or liked it</a>
+      <button class="btn btn-lg">SHARE TO HELP!</button>
+      <a class="btn btn-lg btn-link">Friend and 2481 others shared or liked it</a>
     </div>
 
     <div class="project-executives">
