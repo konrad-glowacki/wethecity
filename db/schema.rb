@@ -32,13 +32,6 @@ ActiveRecord::Schema.define(version: 20171119202023) do
     t.index ["slug"], name: "index_accounts_on_slug", unique: true, where: "(deleted_at IS NULL)"
   end
 
-  create_table "accounts_projects", id: false, force: :cascade do |t|
-    t.integer "account_id", null: false
-    t.integer "project_id", null: false
-    t.datetime "created_at", null: false
-    t.index ["account_id", "project_id"], name: "index_accounts_projects_on_account_id_and_project_id", unique: true
-  end
-
   create_table "accounts_resources", id: false, force: :cascade do |t|
     t.bigint "account_id", null: false
     t.bigint "resource_id", null: false
@@ -131,14 +124,6 @@ ActiveRecord::Schema.define(version: 20171119202023) do
     t.integer "sort_order"
     t.index ["deleted_at"], name: "index_projects_on_deleted_at"
     t.index ["slug"], name: "index_projects_on_slug", unique: true, where: "(deleted_at IS NULL)"
-  end
-
-  create_table "projects_users", id: false, force: :cascade do |t|
-    t.integer "project_id", null: false
-    t.integer "user_id", null: false
-    t.string "role", null: false
-    t.datetime "created_at", null: false
-    t.index ["project_id", "user_id"], name: "index_projects_users_on_project_id_and_user_id", unique: true
   end
 
   create_table "resources", force: :cascade do |t|
