@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks',
                                     registrations: 'users/registrations' }
 
+  devise_scope :user do
+    post 'users/init', to: 'users/registrations#init', as: 'init_registration'
+  end
+
   resources :projects, only: %i[show index] do
     get 'search', on: :collection
   end

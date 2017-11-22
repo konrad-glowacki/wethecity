@@ -19,6 +19,9 @@ pl:
       new:
         sign_up: "Zapisz się"
         close: "Zamknij"
+      init:
+        edit_profile: "Edytuj profil"
+        update: "Zaktualizuj"
 
   devise:
     confirmations:
