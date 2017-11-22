@@ -100,6 +100,9 @@ gem 'exception_notification'
 # Slack notifier
 gem 'slack-notifier'
 
+# Decorators/View-Models for Rails Applications
+gem 'draper', '~> 3.0.1'
+
 group :development, :test do
   # Shell for ruby
   gem 'pry'
@@ -115,6 +118,8 @@ group :development, :test do
 
   # Pretty print your Ruby objects with style
   gem 'awesome_print'
+
+  gem 'rails-controller-testing'
 end
 
 group :development do

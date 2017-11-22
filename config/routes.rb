@@ -5,7 +5,9 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  resources :projects, constraints: { id: /([0-9]+)/ }, only: [:show, :index]
+  resources :projects, only: %i[show index] do
+    get 'search', on: :collection
+  end
 
   namespace :admin do
     resources :projects
@@ -35,5 +37,5 @@ Rails.application.routes.draw do
   }
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: 'home#index'
+  root to: 'projects#index'
 end
