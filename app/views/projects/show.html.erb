@@ -1,6 +1,8 @@
 <div class="project-info-header">
   <h1><%= @project.name %></h1>
-  <h6>CATEGORY | <%= link_to 'Location (stub)', @project.location %></h6>
+  <h6><%= for category in @project.categories %>
+        <%= link_to category.name, category %>
+    <% end %> %> | <%= link_to 'Location', @project.location %></h6>
 </div>
 <div class="project-info-grid">
   <div class="project-info-content">
@@ -36,11 +38,13 @@
     </div>
     <div class="project-backer-info">
       2 People and 1 Organisation helped with their resources.
-      <%= link_to 'What\'s that about?' %>
+      <%= link_to "What's that about?" %>
     </div>
     <div class="project-social-info">
       <button class="btn btn-lg">SHARE TO HELP!</button>
-      <a class="btn btn-lg btn-link">Friend and 2481 others shared or liked it</a>
+      <%= link_to '', {class: 'btn btn-lg btn-link'} do %>
+          Friend and <%= rand %> others shared or liked it
+      <%= end %>
     </div>
 
     <div class="project-executives">
@@ -55,7 +59,9 @@
       </section>
     </div>
     <div class="report-project">
-      <a class="btn btn-lg btn-link" href=""><img class="img-fluid"/> REPORT THIS PROJECT</a>
+      <%= link_to 'REPORT THIS PROJECT', {class: 'btn btn-lg btn-link'} do %>
+          <img class="img-fluid" src=""/>
+      <%= end %>
     </div>
   </div>
 </div>
