@@ -23,7 +23,7 @@ RSpec.describe ProjectDecorator, type: :decorators do
 
     it 'return 0 when required_budget is 0' do
       project = projects(:project_required_budget_nil).decorate
-      expect(project.budget_completed_percentage).to eq(0)
+      expect(project.budget_completed_percentage).to eq(nil)
     end
   end
 end
