@@ -8,7 +8,7 @@ class ProjectDecorator < Draper::Decorator
   end
 
   def budget_completed_percentage
-    return unless budget_completed_percentage?
+    return nil unless budget_completed_percentage?
 
     (object.collected_budget / object.required_budget * 100).to_i
   end
