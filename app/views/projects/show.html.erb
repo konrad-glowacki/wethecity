@@ -24,7 +24,7 @@
     <div class="project-statistics">
       <span class="project-popularity">
         <span class="popularity-highlight">
-          #<%= @project.id %>
+          #<%= @project.sort_order %>
         </span> Top Growing Project
       </span>
 
@@ -32,9 +32,9 @@
         <div class="progress-bar" role="progressbar"></div>
       </div>
 
-      <h6><%= number_to_currency @project.collected_budget %> PLN</h6>
-      <p>of <%= number_to_currency @project.required_budget %>PLN goal</p>
-      <h6><!--%= @project.users.count %--> 'nil' people backed this up</h6>
+      <h6><%= number_to_currency(@project.collected_budget) %> PLN</h6>
+      <p>of <%= number_to_currency(@project.required_budget) %>PLN goal</p>
+      <h6><!-- TO BE IMPLEMENTED %--> 0 people backed this up</h6>
     </div>
 
     <div class="project-actions">
@@ -71,8 +71,8 @@
     </div>
 
     <div class="report-project">
-      <%= link_to 'REPORT THIS PROJECT', { class: 'btn btn-lg btn-link' } do %>
-        <img class="img-fluid" src="" />
+      <%= link_to '#', { class: 'btn btn-lg btn-link' } do %>
+        <%= image_tag '', class: 'rounded', alt: 'image', data: { src: 'holder.js/50x50' } %>
       <% end %>
     </div>
   </div>

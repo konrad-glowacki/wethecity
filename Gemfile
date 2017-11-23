@@ -82,6 +82,7 @@ gem 'sidekiq'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 
 source 'https://rails-assets.org' do
+  gem 'rails-assets-holderjs'
   gem 'rails-assets-jquery'
 end
 
