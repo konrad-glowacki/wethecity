@@ -1,7 +1,12 @@
 <div class="project-info-header">
   <h1><%= @project.name %></h1>
-  <h6>CATEGORY | <%= link_to 'Location (stub)', @project.location %></h6>
+  <h6>
+    <%= @project.categories.each do |category| %>
+      <%= link_to category.name, category %>
+    <% end %> %> | <%= link_to 'Location', @project.location %>
+  </h6>
 </div>
+
 <div class="project-info-grid">
   <div class="project-info-content">
     <!--LEFT SIDE CONTENT-->
@@ -9,9 +14,10 @@
       <!--VIDEOS/PICS-->
     </div>
     <div class="project-info-description">
-      <%= @project.description %>
+      <%= markdown(@project.description) %>
     </div>
   </div>
+
   <div class="project-info-sidebar">
     <!--RIGHT SIDE CONTENT-->
     <div class="project-statistics">
@@ -31,14 +37,17 @@
       <button class="btn btn-lg btn-success">BACK THIS PROJECT</button>
       <button class="btn btn-lg btn-outline-success">+ NEED: IT SKILLS</button>
       <button class="btn btn-lg btn-outline-success">+ NEED: MEETING PLACE</button>
-      <p>
-        2 People and 1 Organisation helped with their resources.
-        <%= link_to 'What\'s that about?' %>
-      </p>
-      <section class="project-social-info">
-        <button class="btn btn-lg btn-primary">SHARE TO HELP!</button>
-        <p class="">Friend Friend and 2481 others shared or liked it</p>
-      </section>
+      <%= link_to 'And 2 more...' %>
+    </div>
+    <div class="project-backer-info">
+      2 People and 1 Organisation helped with their resources.
+      <%= link_to "What's that about?" %>
+    </div>
+    <div class="project-social-info">
+      <button class="btn btn-lg">SHARE TO HELP!</button>
+      <%= link_to '', { class: 'btn btn-lg btn-link' } do %>
+          Friend and <%= rand %> others shared or liked it
+      <%= end %>
     </div>
 
     <div class="project-executives">
@@ -51,10 +60,11 @@
         <button class="btn btn-lg btn-link project-team-leader">Leader Megatron</button>
         <span class="project-team-members"></span>
       </section>
-      <section class="report-project">
-        <%= link_to 'REPORT THIS PROJECT' %>
-      </section>
-
+    </div>
+    <div class="report-project">
+      <%= link_to 'REPORT THIS PROJECT', {class: 'btn btn-lg btn-link'} do %>
+          <img class="img-fluid" src=""/>
+      <%= end %>
     </div>
   </div>
 </div>

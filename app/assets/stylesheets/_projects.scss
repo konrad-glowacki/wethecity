@@ -28,50 +28,72 @@
   display: grid;
   grid-template: "content sidebar";
   grid-template-columns: 3fr 2fr;
-  grid-column-gap: 2rem;
 
   .project-info-content {
     grid-area: content;
 
     .project-info-multimedia {
-      background: #C4C4C4;
+      background: lightgrey;
       height: 17.5rem;
-      width: 30rem;
-      margin: auto auto 2.5rem;
+      width: 35rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .project-info-description {
+      margin-left: 2.5rem;
     }
   }
 
   .project-info-sidebar {
     grid-area: sidebar;
 
+    // SHARED
     > *,
     .project-statistics > * {
       margin: 1.5rem auto;
     }
 
+    .project-actions > button.wtc-btn,
+    .project-social-info > button.wtc-btn-fb {
+      width: 100%;
+    }
+
+    // INDIVIDUAL
     .project-statistics {
-      .project-actions {
-        display: flex;
-        flex-flow: column nowrap;
+    }
+
+    .project-actions {
+      > * {
+        margin: 1rem auto;
       }
     }
 
     .project-popularity {
       font-weight: bold;
-      font-size: 1.125rem;
+      font-size: 1.125em;
 
       .popularity-highlight {
-        font-size: 2.5rem;
+        font-size: 2.5em;
+        letter-spacing: .1em;
         padding-right: 2%;
       }
     }
 
     .progress {
+      border-radius: 0;
+
       .progress-bar {
-        background-color: $green-highlight;
-        width: 70%;
+        width: 42%;
+      }
+    }
+
+    .report-project {
+      a.btn > img {
+        background: lightgrey;
+        border-radius: 100%;
+        height: 2rem;
+        width: 2rem;
       }
     }
   }
-
 }
