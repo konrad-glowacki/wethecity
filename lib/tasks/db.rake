@@ -59,6 +59,11 @@ end
 namespace :db do
   desc 'Creating sample data'
   task load_sample_data: :environment do
+    unless Rails.env.development?
+      puts 'This task can be run only in development'
+      exit
+    end
+
     ActiveRecord::Base.transaction do
       puts 'Create categories'
       categories = create_categories!(20) { print '.' }

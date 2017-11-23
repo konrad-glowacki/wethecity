@@ -81,6 +81,9 @@ gem 'sidekiq'
 # Assets
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 
+# Generates fake data
+gem 'faker'
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-holderjs'
   gem 'rails-assets-jquery'
@@ -122,9 +125,6 @@ group :development, :test do
 
   # Test controller
   gem 'rails-controller-testing'
-
-  # Generates fake data
-  gem 'faker'
 end
 
 group :development do
