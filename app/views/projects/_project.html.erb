@@ -2,7 +2,7 @@
   <div class="w-100 pb-3"></div>
 <% end %>
 
-<div class="project-card card bg-dark text-white w-33">
+<%= link_to project, class: 'project-card card bg-dark text-white' do %>
   <%= image_tag project.default_image(:medium), class: 'card-img-top', alt: "#{project.name}" %>
 
   <div class="card-img-overlay">
@@ -23,7 +23,7 @@
     <span>#<%= project.sort_order %></span>
 
     <h4 class="card-title">
-      <%= link_to project.name, project %>
+      <%= project.name %>
     </h4>
   </div>
-</div>
+<% end %>
