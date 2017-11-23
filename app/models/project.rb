@@ -21,9 +21,8 @@ class Project < ApplicationRecord
   validates :finish_on, presence: true
   validates :location, presence: true
   validates :sort_order, numericality: { greater_than: 0, allow_nil: true }
-  validates :required_budget, numericality: { greater_than_or_equal_to: 0 }
-  validates :collected_budget, numericality: { greater_than_or_equal_to: 0 }
-  validates_with BudgetValidator
+  validates :required_budget, presence: { if: :collected_budget? }
+  validates :collected_budget, presence: { if: :required_budget? }
 
   scope :active, -> { where(active: true) }
 

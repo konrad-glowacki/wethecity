@@ -31,4 +31,3 @@
 
 en:
   hello: "Hello world"
-  budget_message: "You are not allowed adding 'collected budget' without inserting 'required budget'."

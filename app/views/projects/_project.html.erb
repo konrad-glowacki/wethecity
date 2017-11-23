@@ -2,7 +2,7 @@
   <%= image_tag project.image_src, class: 'card-img-top', alt: "#{project.name}" %>
 
   <div class="card-img-overlay">
-    <% unless project.budget_completed_percentage.zero? %>
+    <% if project.budget_completed_percentage? %>
       <%= render 'progress_bar', percent: project.budget_completed_percentage %>
     <% end %>
 
