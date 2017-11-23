@@ -1,5 +1,9 @@
-<div class="project-card card bg-dark text-white">
-  <%= image_tag project.image_src, class: 'card-img-top', alt: "#{project.name}" %>
+<% if project_counter % 3 === 0 %>
+  <div class="w-100 pb-3"></div>
+<% end %>
+
+<div class="project-card card bg-dark text-white w-33">
+  <%= image_tag project.default_image(:medium), class: 'card-img-top', alt: "#{project.name}" %>
 
   <div class="card-img-overlay">
     <% if project.budget_completed_percentage? %>
