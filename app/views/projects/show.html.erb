@@ -1,9 +1,12 @@
 <div class="project-info-header">
   <h1><%= @project.name %></h1>
-  <h6><%= for category in @project.categories %>
-        <%= link_to category.name, category %>
-    <% end %> %> | <%= link_to 'Location', @project.location %></h6>
+  <h6>
+    <%= @project.categories.each do |category| %>
+      <%= link_to category.name, category %>
+    <% end %> %> | <%= link_to 'Location', @project.location %>
+  </h6>
 </div>
+
 <div class="project-info-grid">
   <div class="project-info-content">
     <!--LEFT SIDE CONTENT-->
@@ -42,7 +45,7 @@
     </div>
     <div class="project-social-info">
       <button class="btn btn-lg">SHARE TO HELP!</button>
-      <%= link_to '', {class: 'btn btn-lg btn-link'} do %>
+      <%= link_to '', { class: 'btn btn-lg btn-link' } do %>
           Friend and <%= rand %> others shared or liked it
       <%= end %>
     </div>
