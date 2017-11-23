@@ -120,7 +120,11 @@ group :development, :test do
   # Pretty print your Ruby objects with style
   gem 'awesome_print'
 
+  # Test controller
   gem 'rails-controller-testing'
+
+  # Generates fake data
+  gem 'faker'
 end
 
 group :development do
