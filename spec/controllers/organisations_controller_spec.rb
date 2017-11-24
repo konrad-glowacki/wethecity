@@ -5,7 +5,7 @@ RSpec.describe OrganisationsController, type: :controller do
   describe "GET #show" do
     it "returns http success" do
       get :show
-      expect(response).to have_http_status(:success)
+      expect(response).to render_template('show')
     end
   end
 
