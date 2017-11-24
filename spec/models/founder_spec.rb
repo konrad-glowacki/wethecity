@@ -3,12 +3,10 @@
 require 'rails_helper'
 
 RSpec.describe Founder, type: :model do
-  fixtures :projects, :users, :accounts
-
   describe 'Founder' do
-    let(:project) { projects(:project1) }
-    let(:user) { users(:user1) }
-    let(:account) { accounts(:fundation) }
+    let(:project) { build(:project) }
+    let(:user) { create(:user) }
+    let(:account) { create(:account) }
 
     let(:valid_data_with_user) do
       {

@@ -3,34 +3,32 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  fixtures :users, :accounts
-
   it 'initialize' do
     user = described_class.new
     expect(user.save).to be_falsy
   end
 
   it 'User can have one Account' do
-    user = users(:user1)
-    account = accounts(:fundation)
+    user = build(:user)
+    account = build_stubbed(:account)
     user.accounts << account
 
-    expect(user.accounts.last).to eq(account)
+    expect(user.accounts.last).to eql(account)
   end
 
   it 'User can have more Accounts' do
-    user = users(:user1)
-    account1 = accounts(:fundation)
-    account2 = accounts(:krakow_city)
+    user = build_stubbed(:user)
+    account1 = build(:account)
+    account2 = build(:admininstration_office)
     user.accounts << account1 << account2
 
     expect(user.accounts.count).to eq(2)
   end
 
   it 'User can have more Accounts but not related to the same Account' do
-    user = users(:user1)
-    account1 = accounts(:fundation)
-    account2 = accounts(:krakow_city)
+    user = build_stubbed(:user)
+    account1 = build_stubbed(:account)
+    account2 = build_stubbed(:admininstration_office)
     user.accounts << account1 << account2
 
     expect { user.accounts << account1 }.to raise_error(ActiveRecord::RecordNotUnique, /PG::UniqueViolation/)
