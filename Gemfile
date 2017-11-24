@@ -155,5 +155,13 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+group :test do
+  # Factory_bot is a fixtures replacement
+  gem 'factory_bot_rails', '~> 4.0'
+
+  # Database Cleaner is a set of strategies for cleaning your database in Ruby
+  gem 'database_cleaner'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 # gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
