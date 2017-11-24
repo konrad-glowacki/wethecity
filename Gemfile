@@ -26,9 +26,6 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
 
-# Use CoffeeScript for .cofffee assets and views
-gem 'coffee-rails', '~> 4.2'
-
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 
@@ -156,6 +153,14 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :test do
+  # Factory_bot is a fixtures replacement
+  gem 'factory_bot_rails', '~> 4.0'
+
+  # Database Cleaner is a set of strategies for cleaning your database in Ruby
+  gem 'database_cleaner'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
