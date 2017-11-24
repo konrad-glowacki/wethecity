@@ -3,8 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe ProjectsController, type: :controller do
-  fixtures :projects
-
   describe 'GET index' do
     it 'renders the index template' do
       get :index
@@ -13,7 +11,7 @@ RSpec.describe ProjectsController, type: :controller do
   end
 
   describe 'GET search' do
-    before { projects(:project1) }
+    before { build_stubbed(:project) }
 
     it 'renders the search template without query string' do
       get :search, params: { q: nil }
@@ -33,7 +31,7 @@ RSpec.describe ProjectsController, type: :controller do
 
   describe 'GET show' do
     it 'renders the show template' do
-      project = projects(:project1)
+      project = create(:project)
       get :show, params: { id: project.id }
       expect(response).to render_template('show')
     end
