@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
+  resources :categories, only: %i[show index]
+
   resources :projects, only: %i[show index] do
     get 'search', on: :collection
   end

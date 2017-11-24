@@ -81,7 +81,14 @@ gem 'sidekiq'
 # Assets
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 
+# Generates fake data
+gem 'faker'
+
+# Ruby Feed RSS parser
+gem 'urss'
+
 source 'https://rails-assets.org' do
+  gem 'rails-assets-holderjs'
   gem 'rails-assets-jquery'
 end
 
@@ -119,6 +126,7 @@ group :development, :test do
   # Pretty print your Ruby objects with style
   gem 'awesome_print'
 
+  # Test controller
   gem 'rails-controller-testing'
 end
 
