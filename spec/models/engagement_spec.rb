@@ -3,8 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe Engagement, type: :model do
-  # fixtures :accounts
-
   describe 'Engagement' do
     let(:project) { build(:project) }
     let(:resource) { build(:resource) }
