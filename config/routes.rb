@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   resources :categories, only: %i[show index]
+  resources :organisations, only: %i[index show]
 
   resources :projects, only: %i[show index] do
     get 'search', on: :collection
@@ -42,5 +43,4 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'projects#index'
-  get '/organisations/:id', to: 'organisations#show'
 end
