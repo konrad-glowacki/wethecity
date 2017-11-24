@@ -3,8 +3,6 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  get 'organisations/show'
-
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   resources :categories, only: %i[show index]
