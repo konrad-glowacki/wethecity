@@ -6,7 +6,7 @@ FactoryBot.define do
     active true
     video_url 'MyString'
     description 'MyText'
-    finish_on { Date.today + 30.days }
+    finish_on { 30.days.since }
     location 'MyString'
     latitude { Faker::Address.latitude }
     longitude { Faker::Address.longitude }
