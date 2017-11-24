@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'urss'
 require 'faker'
 
 def rand_array_value(arr)
@@ -25,7 +26,7 @@ def create_users!(total)
     yield
     User.create!(
       first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email,
-      password: 'test123', biography: Faker::HowIMetYourMother.quote, avatar: Faker::Avatar.image,
+      password: 'test123', biography: Faker::HowIMetYourMother.quote, remote_avatar_url: Faker::Avatar.image,
       confirmed_at: Time.now.utc
     )
   end
@@ -37,21 +38,31 @@ def create_accounts!(total)
     Account.create!(
       name: Faker::Company.name, email: Faker::Internet.email,
       type: rand_array_value(Account.types),
-      avatar: Faker::Avatar.image, address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+      remote_avatar_url: Faker::Avatar.image, address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
       phone_number: Faker::PhoneNumber.phone_number,
       facebook_website: Faker::Internet.url, homepage_website: Faker::Internet.url
     )
   end
 end
 
+def generate_description
+  result = Faker::Markdown.headers + "\n"
+  10.times { result += Faker::Markdown.emphasis + "\n" }
+  result
+end
+
 def create_projects!(total)
+  rss = Urss.at('http://www.flickr.com/services/feeds/photos_public.gne?format=rss_200')
+  images_urls = rss.entries.map { |entry| entry.medias.collect(&:content_url) }.flatten
+
   (1..total).map do |index|
     yield
     Project.create!(
-      name: Faker::Lorem.sentence, active: true, video_url: Faker::Internet.url,
-      description: Faker::Markdown.headers + Faker::Markdown.emphasis,
-      finish_on: rand(100).days.since, location: "#{Faker::Address.street_address}, #{Faker::Address.city}",
-      required_budget: rand(10_000), collected_budget: rand(1000), sort_order: index
+      name: Faker::Commerce.unique.product_name, active: true, video_url: Faker::Internet.url,
+      description: generate_description, finish_on: rand(100).days.since,
+      location: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+      required_budget: rand(10_000), collected_budget: rand(1000), sort_order: index,
+      remote_images_urls: [images_urls[index - 1]]
     )
   end
 end
@@ -136,13 +147,21 @@ namespace :db do
 
       puts 'Create engagements'
       users_accounts = users + accounts
+
       projects.each do |project|
+        existing_resource_ids = []
+
         (1..5).to_a.sample.times do
           print '.'
+          resource = rand_array_value(resources)
+
+          next if existing_resource_ids.include?(resource.id)
           Engagement.create!(
-            project: project, resource: rand_array_value(resources), description: Faker::Hobbit.quote,
+            project: project, resource: resource, description: Faker::Hobbit.quote,
             quantity: rand(10), provider: rand_array_value(users_accounts), state: rand_array_value(Engagement.states)
           )
+
+          existing_resource_ids << resource.id
         end
       end
       puts ''

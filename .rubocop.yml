@@ -3,6 +3,7 @@ AllCops:
     - Guardfile
     - db/**
     - db/migrate/**
+    - lib/tasks/**/*
     - lib/splitter/full_name.rb
 
 Metrics/LineLength:
@@ -17,7 +18,6 @@ Metrics/BlockLength:
   Exclude:
     - config/**/*
     - spec/**/*
-    - lib/tasks/**/*
 
 Documentation:
   Enabled: false
