@@ -3,13 +3,13 @@
 require 'rails_helper'
 
 RSpec.describe Engagement, type: :model do
-  fixtures :projects, :resources, :users, :accounts
+  # fixtures :accounts
 
   describe 'Engagement' do
-    let(:project) { projects(:project1) }
-    let(:resource) { resources(:place) }
-    let(:user) { users(:user1) }
-    let(:account) { accounts(:fundation) }
+    let(:project) { build(:project) }
+    let(:resource) { build(:resource) }
+    let(:user) { create(:user) }
+    let(:account) { create(:account) }
 
     let(:valid_data_with_user) do
       {
