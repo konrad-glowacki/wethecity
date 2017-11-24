@@ -10,7 +10,7 @@ RSpec.describe OrganisationsController, type: :controller do
 
     describe "responds with organization" do 
       before do
-        organization = FactoryBot.build_stubbed!(:organization)
+        let(:organization) { FactoryBot.build_stubbed(:organization) } 
       end
 
       it "returns organisation" do 
