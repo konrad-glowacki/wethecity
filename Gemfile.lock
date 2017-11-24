@@ -101,13 +101,6 @@ GEM
     childprocess (0.8.0)
       ffi (~> 1.0, >= 1.0.11)
     coderay (1.1.2)
-    coffee-rails (4.2.2)
-      coffee-script (>= 2.2.0)
-      railties (>= 4.0.0)
-    coffee-script (2.4.1)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     connection_pool (2.2.1)
     crass (1.0.3)
@@ -416,6 +409,8 @@ GEM
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.3.0)
+    urss (0.3.0)
+      nokogiri
     warden (1.2.7)
       rack (>= 1.0)
     web-console (3.5.1)
@@ -443,7 +438,6 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   carrierwave (~> 1.2)
-  coffee-rails (~> 4.2)
   database_cleaner
   devise (~> 4.3)
   devise-async
@@ -488,6 +482,7 @@ DEPENDENCIES
   therubyracer
   turbolinks (~> 5)
   uglifier (>= 1.3.0)
+  urss
   web-console (>= 3.3.0)
 
 RUBY VERSION
