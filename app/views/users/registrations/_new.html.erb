@@ -6,7 +6,7 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), remote: true) do |f| %>
       <div class="modal-body">
         <%= devise_error_messages! %>
           <div class="form-group">
