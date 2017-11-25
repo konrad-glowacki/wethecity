@@ -11,9 +11,7 @@
   </div>
 </div>
 
-<%= link_to 'Sign up', new_user_registration_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#user-profile-modal'}  %>
-
-<div id="user-profile-modal" class="modal fade" tabindex="-1" role="dialog"></div>
+<%= link_to 'Sign up', new_user_registration_path,  { remote: true, 'data-toggle' =>  "modal", 'data-target' => '#user-profile-modal'}  %>
 
 <div class="pb-3">
   <%= render "search_form" %>
@@ -22,3 +20,5 @@
 <div class="card-deck">
   <%= render @projects %>
 </div>
+
+<div id="user-profile-modal" class="modal fade" tabindex="-1" role="dialog"></div>
