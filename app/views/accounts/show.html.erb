@@ -3,26 +3,28 @@
     <%= image_tag '', class: 'img-fluid', alt: 'organisation image', data: { src: 'holder.js/417x294' } %>
   </div>
   <div class="col-xs-12 col-md-8 ">
-    <h1><%= @organisation.name %></h2>
+    <h1><%= @account.name %></h2>
     </br>
     <p>TYPE</p>
 
     <div id="organisation-adress">
-      <p class="mb-0"><%= @organisation.address %></p>
-      <p>Phone no. <%= @organisation.phone_number %> | @email</p>
+      <p class="mb-0"><%= @account.address %></p>
+      <p>Phone no. <%= @account.phone_number %> | <%= @account.email %></p>
     </div>
 
     <div class="organisation-socials">
       <%= link_to "Facebook", "#", class: "pr-2" %>
       <%= link_to "LinkedIn", "#", class: "px-2" %>
       <%= link_to "Contact:", "#", class: "px-2" %>
-      <%= image_tag '', class: 'img-fluid rounded-circle px-2', alt: 'organisation creator image', 
-        data: { src: 'holder.js/60x56' } %>
+      <%= image_tag '', class: 'img-fluid rounded-circle px-0', alt: 'organisation creator image', 
+        data: { src: 'holder.js/80x80' } %>
       <span>Organization Creator?</span>
     </div>
 
     <div class="organisation-description">
-      <p><%= truncate("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam commodi inventore saepe laboriosam. Est eos accusantium, eius neque, sed quisquam praesentium debitis quos delectus vitae quam dignissimos ipsa repellat iure.", length: 25) { link_to "more" } %></p>
+      <p>
+        
+      </p>
     </div>
   </div>
 </div>
