@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
+  resources :users, only: %i[show]
+  resources :accounts, only: %i[index show]
   resources :categories, only: %i[show index]
 
   resources :projects, only: %i[show index] do
@@ -17,7 +19,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :projects
     resources :users
-    resources :organisations
+    resources :accounts
     resources :administration_offices
     resources :companies
     resources :founders
