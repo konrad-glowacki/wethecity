@@ -21,7 +21,7 @@ en:
       new:
         sign_up: "Sign up"
         close: "Close"
-      init:
+      edit:
         edit_profile: "Edit profile"
         update: "Update"
 
