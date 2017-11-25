@@ -14,7 +14,7 @@
 
       <li class="nav-item">
         <% if user_signed_in? %>
-          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+          <%= link_to 'Logout', destroy_user_session_path, class: 'nav-link', method: :delete %>
         <% else %>
           <%= link_to 'Sign up', new_user_registration_path,
             { class: 'nav-link', remote: true, data: { toggle: 'modal', target: '#user-profile-modal' } } %>
