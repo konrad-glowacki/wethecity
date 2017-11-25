@@ -8,8 +8,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  resources :categories, only: %i[show index]
+  resources :users, only: %i[show]
   resources :accounts, only: %i[index show]
+  resources :categories, only: %i[show index]
 
   resources :projects, only: %i[show index] do
     get 'search', on: :collection

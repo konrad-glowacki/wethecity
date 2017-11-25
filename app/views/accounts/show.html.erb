@@ -17,28 +17,19 @@
       <%= link_to "Facebook", @account.try(:linkedin_website) %><span class="px-2">|</span>
       <%= link_to "LinkedIn", "#" %>
     </div>
-    
+
     <div class="my-4">
       <h3>Members</h3>
+
       <ul class="list-unstyled d-flex flex-wrap">
-        <li class="media pt-4 pr-3">
-          <%= image_tag '', class: 'pr-1', alt: 'member image', data: { src: 'holder.js/80x80' } %>
-          <div class="media-body align-self-center">
-            <h5 class="mt-0 mb-1"> Name Surname</h5>
-          </div>
-        </li>
-        <li class="media pt-4 pr-3">
-          <%= image_tag '', class: 'pr-1', alt: 'member image', data: { src: 'holder.js/80x80' } %>
-          <div class="media-body align-self-center">
-            <h5 class="mt-0 mb-1">Name Surname</h5>
-          </div>
-        </li>
-        <li class="media pt-4 pr-3">
-          <%= image_tag '', class: 'pr-1', alt: 'member image', data: { src: 'holder.js/80x80' } %>
-          <div class="media-body align-self-center">
-            <h5 class="mt-0 mb-1">Name Surname</h5>
-          </div>
-        </li>
+        <% @account.users.each do |user| %>
+          <li class="media pt-4 pr-3">
+            <%= link_to user do %>
+              <%= image_tag user.avatar.thumb, class: 'img-thumbnail rounded-circle', alt: user.full_name %>
+              <span><%= user.full_name %></span>
+            <% end %>
+          </li>
+        <% end %>
       </ul>
     </div>
 
