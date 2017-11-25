@@ -27,7 +27,9 @@ def create_users!(total)
     User.create!(
       first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email,
       password: 'test123', biography: Faker::HowIMetYourMother.quote, remote_avatar_url: Faker::Avatar.image,
-      confirmed_at: Time.now.utc
+      confirmed_at: Time.now.utc, phone_number: Faker::PhoneNumber.phone_number,
+      facebook_url: Faker::Internet.url('facebook.com'), twitter_url: Faker::Internet.url('twitter.com'),
+      google_plus_url: Faker::Internet.url('plus.google.com')
     )
   end
 end
