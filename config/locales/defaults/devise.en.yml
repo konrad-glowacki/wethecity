@@ -16,14 +16,6 @@ en:
     shared:
       links:
         didnt_receive_unlock_instructions: "Didn't receive unlock instructions"
-  users:
-    registrations:
-      new:
-        sign_up: "Sign up"
-        close: "Close"
-      edit:
-        edit_profile: "Edit profile"
-        update: "Update"
 
   devise:
     confirmations:

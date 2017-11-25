@@ -6,7 +6,7 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <%= form_for @user, :as => :user, :url => registration_path(@user) do |f| %>
+    <%= form_for @user, :as => :user, url: registration_path(@user) do |f| %>
       <div class="modal-body">
         <%= devise_error_messages! %>
         <div class="form-group">
