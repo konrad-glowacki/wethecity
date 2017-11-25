@@ -1,30 +1,28 @@
 <div class="row my-5">
   <div class="col-xs-12 col-md-4 col-xs-1">
-    <%= image_tag '', class: 'img-fluid', alt: 'organisation image', data: { src: 'holder.js/400x300' } %>
+    <%= image_tag '', class: 'img-fluid', alt: 'account image', data: { src: 'holder.js/400x300' } %>
   </div>
   <div class="col-xs-12 col-md-8 ">
     <h1><%= @account.name %></h2>
     </br>
     <p>TYPE</p>
 
-    <div id="organisation-adress">
+    <div id="account-adress">
       <p class="mb-0"><%= @account.address %></p>
       <p>Phone no. <%= @account.phone_number %> | <%= @account.email %></p>
     </div>
 
-    <div class="organisation-socials">
+    <div class="account-socials">
       <%= link_to "Website", "#" %><span class="px-2">|</span>
       <%= link_to "Facebook", "#" %><span class="px-2">|</span>
       <%= link_to "LinkedIn", "#" %>
     </div>
 
     <div>
-      <span>Organization Creator?</span>
-      <%= image_tag '', class: 'img-fluid rounded-circle px-0', alt: 'organisation creator image', 
-        data: { src: 'holder.js/80x80' } %>
+      
     </div>
 
-    <div class="organisation-description">
+    <div class="account-description">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione consequatur fugiat molestias at mollitia a magni enim rem aliquam, aspernatur recusandae explicabo animi laudantium neque, praesentium dignissimos autem architecto maiores fugit omnis quisquam ad quo labore dolore! Quibusdam, nemo, iste.
       </p>
