@@ -13,8 +13,12 @@
       </li>
 
       <li class="nav-item">
-        <%= link_to 'Sign up', new_user_registration_path,
-          { class: 'nav-link', remote: true, data: { toggle: 'modal', target: '#user-profile-modal' } } %>
+        <% if user_signed_in? %>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to 'Sign up', new_user_registration_path,
+            { class: 'nav-link', remote: true, data: { toggle: 'modal', target: '#user-profile-modal' } } %>
+        <% end %>
       </li>
     </ul>
   </div>
