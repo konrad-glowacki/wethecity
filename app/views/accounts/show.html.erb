@@ -14,7 +14,7 @@
 
     <div class="account-socials">
       <%= link_to "Website", @account.homepage_website %><span class="px-2">|</span>
-      <%= link_to "Facebook", "#" %><span class="px-2">|</span>
+      <%= link_to "Facebook", @account.try(:linkedin_website) %><span class="px-2">|</span>
       <%= link_to "LinkedIn", "#" %>
     </div>
     
