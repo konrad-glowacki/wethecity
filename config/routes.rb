@@ -8,10 +8,6 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  devise_scope :user do
-    post 'users/init', to: 'users/registrations#init', as: 'init_registration'
-  end
-
   resources :categories, only: %i[show index]
 
   resources :projects, only: %i[show index] do
