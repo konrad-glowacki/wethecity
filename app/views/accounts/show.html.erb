@@ -13,7 +13,7 @@
     </div>
 
     <div class="account-socials">
-      <%= link_to "Website", "#" %><span class="px-2">|</span>
+      <%= link_to "Website", @account.homepage_website %><span class="px-2">|</span>
       <%= link_to "Facebook", "#" %><span class="px-2">|</span>
       <%= link_to "LinkedIn", "#" %>
     </div>
@@ -23,19 +23,19 @@
         <li class="media">
           <%= image_tag '', class: 'd-flex align-self-center mr-3', alt: 'member image', data: { src: 'holder.js/80x80' } %>
           <div class="media-body">
-            <h5 class="mt-0 mb-1"><%= %> %></h5>
+            <h5 class="mt-0 mb-1 d-flex align-self-center"> Name Surname</h5>
           </div>
         </li>
         <li class="media my-4">
           <%= image_tag '', class: 'd-flex align-self-center mr-3', alt: 'member image', data: { src: 'holder.js/80x80' } %>
           <div class="media-body">
-            <h5 class="mt-0 mb-1">List-based media object</h5>
+            <h5 class="mt-0 mb-1">Name Surname</h5>
           </div>
         </li>
         <li class="media">
           <%= image_tag '', class: 'd-flex align-self-center mr-3', alt: 'member image', data: { src: 'holder.js/80x80' } %>
           <div class="media-body">
-            <h5 class="mt-0 mb-1">List-based media object</h5>
+            <h5 class="mt-0 mb-1">Name Surname</h5>
           </div>
         </li>
       </ul>
