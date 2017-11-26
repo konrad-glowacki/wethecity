@@ -83,8 +83,22 @@
   }
 }
 
-.new-project-cover {
-  background: lightgrey;
-  height: 20rem;
-  width: 100%
+form {
+  > * {
+    margin: 1rem auto;
+  }
+
+  .new-project-details {
+    display: grid;
+    grid-template-areas: "left right";
+    grid-template-columns: 2fr 1fr;
+    grid-column-gap: 3rem;
+
+    .new-project-details-left {
+      grid-area: left;
+    }
+    .new-project-details-right {
+      grid-area: right;
+    }
+  }
 }

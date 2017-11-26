@@ -14,7 +14,8 @@ class ProjectsController < ApplicationController
     @project = Project.friendly.find(params[:id])
   end
 
-  def new;
+  def new
+    @project = Project.new
   end
 
   def create

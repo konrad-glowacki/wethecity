@@ -1,17 +1,71 @@
-<%= form_with scope: :project, local: true do |form| %>
-    <div class="new-project-cover">
-      <img src=""/>
+<%= form_for @project, url: { action: 'create', method: :post } do |form| %>
+    <div class="new-project-general-info">
+      <div class="form-group new-project-cover">
+        <!--TO BE IMPLEMENTED: CARRIERWAVE-->
+        <%= image_tag '', class: 'img-fluid', alt: 'new-project-cover', data: { src: 'holder.js/1200x600' } %>
+        <%= form.button 'Add cover', type: 'button', class: 'form-control' %>
+      </div>
+      <div class="form-group new-project-title">
+        <%= form.text_field :name, class: 'form-control', placeholder: 'Name your project' %>
+      </div>
+      <div class="form-group new-project-budget">
+        <section>
+          <%= form.label :collected_budget, 'Your budget' %>
+          <%= form.number_field :collected_budget, class: 'form-control' %>
+        </section>
+        <section>
+          <%= form.label :required_budget, 'Estimated budget' %>
+          <%= form.number_field :required_budget, class: 'form-control' %>
+        </section>
+      </div>
+
+      <div class="form-group new-project-deadline">
+        <%= form.label :finish_on, 'Project deadline' %>
+        <%= form.date_field :finish_on, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="new-project-details">
+      <div class="new-project-details-left">
+        <div class="form-group new-project-resources">
+          <%= form.label :resources, 'NEEDED RESOURCES' %>
+          <div class="new-resource-container">
+            <!--RESOURCES-->
+          </div>
+          <%= form.button '+ ADD NEED', class: 'btn btn-sm btn-link new-resource-add' %>
+        </div>
+
+        <div class="form-group new-project-description">
+          <%= form.label :description, 'PROJECT DESCRIPTION' %>
+          <%= form.text_area :description, class: 'form-control', placeholder: 'Time to describe your vision!' %>
+        </div>
+      </div>
+      <div class="new-project-details-right">
+        <div class="new-project-partners">
+          <%= form.label :partners, 'PARTNERS' %>
+          <div class="new-partner-container">
+
+          </div>
+          <%= form.button '+ add partner', class: 'btn btn-sm btn-link new-partner-add' %>
+        </div>
+        <div class="new-project-ambassadors">
+          <%= form.label :ambassadors, 'AMBASSADORS' %>
+          <div class="new-partner-container">
+
+          </div>
+          <%= form.button '+ add ambassador', class: 'btn btn-sm btn-link new-ambassador-add' %>
+        </div>
+        <div class="new-project-team">
+          <%= form.label :team, 'TEAM MEMBERS' %>
+          <div class="new-project-owner">
+
+          </div>
+          <div class="new-team-member-container">
+
+          </div>
+          <%= form.button '+ add team member', class: 'btn btn-sm btn-link new-team-member-add' %>
+        </div>
+      </div>
     </div>
 
-    <div class="new-project-title">
-      <%= form.label :title %><br>
-      <%= form.text_field :title %>
-    </div>
-
-    <div>
-      <%= form.label :description %><br>
-      <%= form.text_area :description %>
-    </div>
-
-    <%= form.submit %>
+    <%= form.submit 'READY? PUBLISH YOUR PROJECT!', class: 'btn btn-success form-control' %>
 <% end %>
