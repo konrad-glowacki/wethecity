@@ -3,7 +3,14 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations: 'users/registrations'
+  }
+
+  resources :users, only: %i[show]
+  resources :accounts, only: %i[index show]
+  resources :categories, only: %i[show index]
 
   resources :projects, only: %i[show index new] do
     get 'search', on: :collection
@@ -12,7 +19,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :projects
     resources :users
-    resources :organisations
+    resources :accounts
     resources :administration_offices
     resources :companies
     resources :founders

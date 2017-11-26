@@ -1,11 +1,14 @@
-<div class="project-card card bg-dark text-white">
-  <%= image_tag project.decorate.image_src, class: 'card-img-top', alt: "#{project.name}" %>
+<% if project_counter % 3 === 0 %>
+  <div class="w-100 pb-3"></div>
+<% end %>
+
+<%= link_to project, class: 'project-card card bg-dark text-white' do %>
+  <%= image_tag project.default_image(:medium), class: 'card-img-top', alt: "#{project.name}" %>
 
   <div class="card-img-overlay">
-    <div class="progress" style="height: 1px;">
-      <div class="progress-bar bg-success" role="progressbar" style="width: 25%;"
-        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-    </div>
+    <% if project.budget_completed_percentage? %>
+      <%= render 'projects/progress_bar', percent: project.budget_completed_percentage %>
+    <% end %>
 
     <div class="row">
       <div class="col-6 text-truncate">
@@ -20,7 +23,7 @@
     <span>#<%= project.sort_order %></span>
 
     <h4 class="card-title">
-      <%= link_to project.name, project %>
+      <%= project.name %>
     </h4>
   </div>
-</div>
+<% end %>
