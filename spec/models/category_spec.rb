@@ -3,11 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-  fixtures :categories, :projects
-
   it 'test_has_ancestry_get_parent_class' do
-    category_parent = categories(:parent)
-    category_child = described_class.find(categories(:children).id)
+    category_parent = create(:category, name: 'parent')
+    category_child = build(:category, name: 'child')
     category_child.update!(parent: category_parent)
 
     expect(category_parent).to eq(category_child.parent)
@@ -15,8 +13,8 @@ RSpec.describe Category, type: :model do
   end
 
   it 'test_relation_with_project' do
-    category = categories(:events)
-    project = projects(:project1)
+    category = build_stubbed(:category, name: 'events')
+    project = build(:project)
     category.projects.push(project)
 
     expect(category.projects.first).to eq(project)

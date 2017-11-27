@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>WeThe.City</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= csrf_meta_tags %>
+<head>
+  <title>WeThe.City</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+</head>
 
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <%= link_to 'WE, THE CITY', project_path, class: 'navbar-brand', method: :get %>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar-collapse">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="main-navbar-collapse">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <!--additional navbar buttons-->
-        </ul>
-      </div>
-    </nav>
 
-    <div class="container">
-      <%= render 'shared/flash' %>
-      <%= yield %>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <%= link_to 'WE, THE CITY', projects_path, class: 'navbar-brand' %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar-collapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="main-navbar-collapse">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <!--additional navbar buttons-->
+      </ul>
     </div>
-  </body>
+  </nav>
+
+<div class="container">
+  <%= render 'shared/flash' %>
+  <%= yield %>
+</div>
+</body>
 </html>
