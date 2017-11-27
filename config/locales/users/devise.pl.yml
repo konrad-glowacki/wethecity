@@ -1,0 +1,9 @@
+pl:
+  users:
+    registrations:
+      new:
+        sign_up: "Zapisz się"
+        close: "Zamknij"
+      edit:
+        edit_profile: "Edytuj profil"
+        update: "Zaktualizuj"

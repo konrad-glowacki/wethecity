@@ -7,7 +7,7 @@
 
   <div class="card-img-overlay">
     <% if project.budget_completed_percentage? %>
-      <%= render 'progress_bar', percent: project.budget_completed_percentage %>
+      <%= render 'projects/progress_bar', percent: project.budget_completed_percentage %>
     <% end %>
 
     <div class="row">
