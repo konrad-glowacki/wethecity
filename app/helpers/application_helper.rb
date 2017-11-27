@@ -9,6 +9,8 @@ module ApplicationHelper
   end
 
   def markdown(text)
+    return nil unless text
+
     options = {
       no_styles: true,
       filter_html: true,

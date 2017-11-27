@@ -13,9 +13,7 @@
     </div>
 
     <div class="account-socials">
-      <%= link_to "Website", @account.website_url %><span class="px-2">|</span>
-      <%= link_to "Facebook", @account.try(:facebook_url) %><span class="px-2">|</span>
-      <%= link_to "LinkedIn", "#" %>
+      <%= social_media_urls(@account) %>
     </div>
 
     <div class="my-4">
@@ -34,9 +32,7 @@
     </div>
 
     <div class="account-description">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione consequatur fugiat molestias at mollitia a magni enim rem aliquam, aspernatur recusandae explicabo animi laudantium neque, praesentium dignissimos autem architecto maiores fugit omnis quisquam ad quo labore dolore! Quibusdam, nemo, iste.
-      </p>
+      <p><%= markdown(@account.description) %></p>
     </div>
   </div>
 </div>
