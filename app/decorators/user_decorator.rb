@@ -9,23 +9,9 @@ class UserDecorator < Draper::Decorator
 
   def phone_and_email
     ''.tap do |phone_email|
-      phone_email << phone(object)
-      phone_email << separator(object)
-      phone_email << email(object)
+      phone_email << h.t('.phone_number', phone_number: object.phone_number) if object.phone_number
+      phone_email << ' | ' if object.phone_number
+      phone_email << object.email
     end
-  end
-
-  private
-
-  def phone(object)
-    object.phone_number ? h.t('.phone_number', phone_number: object.phone_number) : ''
-  end
-
-  def separator(object)
-    object.phone_number && object.email ? ' | ' : ''
-  end
-
-  def email(object)
-    object.email ? object.email : ''
   end
 end
