@@ -1,0 +1,14 @@
+<div>
+  <%= image_tag @user.avatar.url(:thumb), class: 'rounded', alt: 'image', data: { src: 'holder.js/100x100' } %>
+</div>
+
+<div><%= @user.full_name %></div>
+<div><%= @user.member_since %> <div>
+<div><%= @user.phone_and_email %></div>
+
+<% if @user.use_social_media? %>
+  <%= render 'social_media', user: @user %>
+<% end %>
+
+<%= render 'projects', name: t('.created_projects'), sources: @created_projects %>
+<%= render 'projects', name: t('.supported_projects'), sources: @supported_projects %>

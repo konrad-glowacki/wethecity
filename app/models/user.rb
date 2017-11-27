@@ -39,4 +39,17 @@ class User < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def use_social_media?
+    facebook_url.present? || twitter_url.present? || google_plus_url.present?
+  end
+
+  def engagements_with_project_and_resource
+    engagements.joins(:resource, :project).select(
+      'projects.name',
+      'projects.description',
+      :quantity,
+      'resources.name as resource_name'
+    )
+  end
 end
