@@ -9,15 +9,17 @@ class AccountDashboard < Administrate::BaseDashboard
     users: Administrate::Field::HasMany,
     name: Administrate::Field::String,
     email: Administrate::Field::String,
-    facebook_website: Administrate::Field::String.with_options(searchable: false),
-    homepage_website: Administrate::Field::String.with_options(searchable: false),
+    facebook_url: Administrate::Field::String.with_options(searchable: false),
+    website_url: Administrate::Field::String.with_options(searchable: false),
+    linkedin_url: Administrate::Field::String.with_options(searchable: false),
     address: Administrate::Field::String,
     slug: Administrate::Field::String,
     phone_number: Administrate::Field::String,
-    remove_avatar: Administrate::Field::Boolean,
-    avatar: Administrate::Field::Carrierwave.with_options(
+    remove_logo: Administrate::Field::Boolean,
+    logo: Administrate::Field::Carrierwave.with_options(
       image_on_index: true
     ),
+    description: Field::SimpleMarkdown,
     created_at: Administrate::Field::DateTime,
     updated_at: Administrate::Field::DateTime
   }.freeze
@@ -28,7 +30,7 @@ class AccountDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    avatar
+    logo
     name
     address
     users
@@ -42,12 +44,14 @@ class AccountDashboard < Administrate::BaseDashboard
     slug
     name
     address
-    avatar
+    logo
     email
-    facebook_website
-    homepage_website
+    facebook_url
+    website_url
+    linkedin_url
     address
     phone_number
+    description
     created_at
     updated_at
     users
@@ -64,10 +68,12 @@ class AccountDashboard < Administrate::BaseDashboard
     email
     address
     phone_number
-    facebook_website
-    homepage_website
-    avatar
-    remove_avatar
+    facebook_url
+    website_url
+    linkedin_url
+    logo
+    remove_logo
+    description
   ].freeze
 
   def display_resource(account)
