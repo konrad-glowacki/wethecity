@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171125092854) do
+ActiveRecord::Schema.define(version: 20171127150950) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "accounts", force: :cascade do |t|
     t.string "name", null: false
-    t.string "avatar"
+    t.string "logo"
     t.string "type", null: false
     t.string "address", null: false
     t.string "phone_number"
@@ -25,9 +25,11 @@ ActiveRecord::Schema.define(version: 20171125092854) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
-    t.string "facebook_website"
-    t.string "homepage_website"
+    t.string "facebook_url"
+    t.string "website_url"
     t.string "slug"
+    t.string "linkedin_url"
+    t.text "description"
     t.index ["deleted_at"], name: "index_accounts_on_deleted_at"
     t.index ["slug"], name: "index_accounts_on_slug", unique: true, where: "(deleted_at IS NULL)"
   end
@@ -193,6 +195,10 @@ ActiveRecord::Schema.define(version: 20171125092854) do
     t.string "uid"
     t.datetime "deleted_at"
     t.string "slug"
+    t.string "phone_number"
+    t.string "facebook_url"
+    t.string "twitter_url"
+    t.string "google_plus_url"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, where: "(deleted_at IS NULL)"
     t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true, where: "(deleted_at IS NULL)"
