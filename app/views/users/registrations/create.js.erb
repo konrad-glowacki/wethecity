@@ -1,4 +1,5 @@
 <% if resource.persisted? %>
+  <%  3.times { @user.resources.build } %>
   $('#user-profile-modal').html('<%= j render("edit") %>');
 <% else %>
   $('#user-profile-modal').html('<%= j render("new") %>');

@@ -6,7 +6,7 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <%= form_for @user, :as => :user, url: registration_path(@user) do |f| %>
+    <%= form_for @user, as: :user, url: registration_path(@user) do |f| %>
       <div class="modal-body">
         <%= devise_error_messages! %>
         <div class="form-group">
@@ -21,6 +21,22 @@
           <%= f.label :volunteer %><br />
           <%= f.select :volunteer, options_for_select([true, false]), {}, { class: 'form-control' } %>
         </div>
+        <ul>
+          <%= f.fields_for :resources do |resource_form| %>
+            <li>
+              What you can deliver: <%= resource_form.text_field :name %>
+              <%= resource_form.hidden_field :kind, value: 'skill' %>
+            </li>
+          <% end %>
+        </ul>
+        <ul>
+          <%= f.fields_for :resources do |resource_form| %>
+            <li>
+              Assets: <%= resource_form.text_field :name %>
+              <%= resource_form.hidden_field :kind, value: 'asset' %>
+            </li>
+          <% end %>
+        </ul>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= t('.close') %></button>

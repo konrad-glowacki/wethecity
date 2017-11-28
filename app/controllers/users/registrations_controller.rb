@@ -13,5 +13,11 @@ module Users
     def update_resource(resource, params)
       resource.update_without_password(params)
     end
+
+    private
+
+    def account_update_params
+      params.require(:user).permit(:first_name, :last_name, :volunteer, resources_attributes: %i[name kind])
+    end
   end
 end

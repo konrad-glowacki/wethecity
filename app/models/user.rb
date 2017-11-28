@@ -29,6 +29,9 @@ class User < ApplicationRecord
   has_and_belongs_to_many :accounts
   has_and_belongs_to_many :resources
 
+  # Nested attributes
+  accepts_nested_attributes_for :resources
+
   # Validations
   validates :email, presence: true, uniqueness: true
   validates :volunteer, inclusion: { in: [true, false] }
