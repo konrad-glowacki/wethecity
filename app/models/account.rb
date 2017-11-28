@@ -10,7 +10,7 @@ class Account < ApplicationRecord
   friendly_id :name, use: :slugged
 
   # Images
-  mount_uploader :avatar, AvatarUploader
+  mount_uploader :logo, LogoUploader
 
   # Relations
   has_many :founders, as: :member

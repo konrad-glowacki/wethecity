@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :projects
     resources :users
-    resources :accounts
+    resources :organisations
     resources :administration_offices
     resources :companies
     resources :founders
