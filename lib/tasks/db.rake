@@ -40,9 +40,10 @@ def create_accounts!(total)
     Account.create!(
       name: Faker::Company.name, email: Faker::Internet.email,
       type: rand_array_value(Account.types),
-      remote_avatar_url: Faker::Avatar.image, address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+      remote_logo_url: Faker::Avatar.image, address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
       phone_number: Faker::PhoneNumber.phone_number,
-      facebook_website: Faker::Internet.url, homepage_website: Faker::Internet.url
+      facebook_url: Faker::Internet.url('facebook.com'), website_url: Faker::Internet.url,
+      linkedin_url: Faker::Internet.url('linkedin.com'), description: generate_description
     )
   end
 end
