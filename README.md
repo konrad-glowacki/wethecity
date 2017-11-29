@@ -1,27 +1,31 @@
-# README
+# We The City
+A platform to connect project leaders with volunteers to accelerate social projects
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## What are app requirements?
+Database *Postgres* (< 9.6.6)  
+https://www.postgresql.org/
 
-Things you may want to cover:
+Ruby Version Manager  
+https://rvm.io/
 
-* Ruby version
-ruby 2.4.2
+MiniMagick  
+http://mini_magick.rubyforge.org/
 
-* System dependencies
-postgres 9.4
+---
 
-* Configuration
+## How to install app?
+```
+rvm install ruby-2.4.2
+rvm gemset create wethecity
+gem install bundler
 bundle install
-
-* Database creation
+cp .env.example .env
 rake db:create
+rake db:migrate
+rake db:load_sample_data
+```
 
-* How to run the test suite
+---
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* Run application
-`foreman start`
+## How to run app?
+`rails server`
