@@ -32,8 +32,7 @@ module ApplicationHelper
     markdown.render(text).html_safe
   end
 
-  def combine_phrases(array, seperator = true)
-    seperator ? seperator_char = ' | ' : ' '
-    array.compact.join(seperator_char)
+  def combine_phrases(array, seperator = ' | ')
+    array.compact.join(seperator)
   end
 end

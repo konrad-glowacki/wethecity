@@ -6,7 +6,7 @@
 <div><%= @user.member_since %> <div>
 
 <div>
-  <%= combine_phrases([] << (t('.phone_number', phone_number: @user.phone_number) if @user.phone_number) << @user.email) %>
+  <%= combine_phrases([@user.phone_number, @user.email]) %>
 </div>
 
 <% if @user.use_social_media? %>
