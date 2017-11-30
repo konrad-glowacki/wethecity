@@ -21,22 +21,24 @@
           <%= f.label :volunteer %><br />
           <%= f.select :volunteer, options_for_select([true, false]), {}, { class: 'form-control' } %>
         </div>
-        <ul>
-          <%= f.fields_for :resources do |resource_form| %>
-            <li>
-              What you can deliver: <%= resource_form.text_field :name %>
-              <%= resource_form.hidden_field :kind, value: 'skill' %>
-            </li>
+        <h5>What you can deliver:</h5>
+        <div id="skill-resources">
+          <%= f.fields_for :resources do |skill| %>
+            <%= render 'skill_fields', f: skill %>
           <% end %>
-        </ul>
-        <ul>
-          <%= f.fields_for :resources do |resource_form| %>
-            <li>
-              Assets: <%= resource_form.text_field :name %>
-              <%= resource_form.hidden_field :kind, value: 'asset' %>
-            </li>
+          <div class="links">
+            <%= link_to_add_association 'add skill', f, :resources, partial: 'skill_fields' %>
+          </div>
+        </div>
+        <h5>Assets:</h5>
+        <div id="asset-resources">
+          <%= f.fields_for :resources do |asset| %>
+            <%= render 'asset_fields', f: asset %>
           <% end %>
-        </ul>
+          <div class="links">
+            <%= link_to_add_association 'add asset', f, :resources, partial: 'asset_fields' %>
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= t('.close') %></button>

@@ -17,7 +17,7 @@ module Users
     private
 
     def account_update_params
-      params.require(:user).permit(:first_name, :last_name, :volunteer, resources_attributes: %i[name kind])
+      params.require(:user).permit(:first_name, :last_name, :volunteer, resources_attributes: %i[name kind _destroy])
     end
   end
 end
