@@ -1,10 +1,13 @@
 <div>
-  <%= image_tag @user.avatar.url(:thumb), class: 'rounded', alt: 'image', data: { src: 'holder.js/100x100' } %>
+  <%= image_tag @user.avatar.url(:thumb), class: 'rounded', alt: 'image' %>
 </div>
 
 <div><%= @user.full_name %></div>
 <div><%= @user.member_since %> <div>
-<div><%= @user.phone_and_email %></div>
+
+<div>
+  <%= combine_phrases([] << (t('.phone_number', phone_number: @user.phone_number) if @user.phone_number) << @user.email) %>
+</div>
 
 <% if @user.use_social_media? %>
   <%= render 'social_media', user: @user %>

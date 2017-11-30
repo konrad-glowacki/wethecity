@@ -31,4 +31,9 @@ module ApplicationHelper
     markdown = Redcarpet::Markdown.new(renderer, extensions)
     markdown.render(text).html_safe
   end
+
+  def combine_phrases(array, seperator = true)
+    seperator ? seperator_char = ' | ' : ' '
+    array.compact.join(seperator_char)
+  end
 end
