@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :accounts, only: %i[index show]
   resources :categories, only: %i[show index]
 
-  resources :projects, only: %i[show index new create] do
+  resources :projects, except: %i[destroy] do
     get 'search', on: :collection
   end
 
