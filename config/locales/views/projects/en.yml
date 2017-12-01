@@ -1,4 +1,36 @@
 en:
   projects:
     search_form:
-      input_placeholder: 'search by resource you need'
+      input_placeholder: 'search by a resource you need'
+    new:
+      title:
+        placeholder: 'Name your project'
+      cover:
+        add: 'Add cover'
+      deadline:
+        label: 'Project deadline'
+      description:
+        label: 'PROJECT DESCRIPTION'
+        placeholder: 'Time to describe your vision!'
+      resources:
+        label: 'NEEDED RESOURCES'
+        add: 'ADD NEED'
+        description:
+          placeholder: "Describe your need"
+      ambassadors:
+        label: 'AMBASSADORS'
+        add: 'add ambassador'
+      partners:
+        label: 'PARTNERS'
+        add: 'add partner'
+      team:
+        label: 'TEAM MEMBERS'
+        add: 'add team member'
+        leader:
+          label: "Project Leader"
+      publish: 'READY? PUBLISH YOUR PROJECT!'
+      budget:
+        collected:
+          label: "Your budget"
+        estimated:
+          label: "Estimated budget"
