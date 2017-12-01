@@ -16,4 +16,8 @@ class ProjectDecorator < Draper::Decorator
   def budget_completed_percentage?
     object.required_budget.present? && !object.required_budget.zero? && object.collected_budget.present?
   end
+
+  def required_budget_format
+    h.t('.need', required_budget: object.required_budget)
+  end
 end

@@ -1,0 +1,17 @@
+<div>
+  <%= image_tag @user.avatar.url(:thumb), class: 'rounded', alt: 'image' %>
+</div>
+
+<div><%= @user.full_name %></div>
+<div><%= @user.member_since %> <div>
+
+<div>
+  <%= combine_phrases([@user.phone_number, @user.email]) %>
+</div>
+
+<% if @user.use_social_media? %>
+  <%= render 'social_media', user: @user %>
+<% end %>
+
+<%= render 'projects', name: t('.created_projects'), sources: @created_projects %>
+<%= render 'projects', name: t('.supported_projects'), sources: @engaged_projects %>
