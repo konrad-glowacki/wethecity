@@ -8,12 +8,16 @@ class UserDashboard < Administrate::BaseDashboard
     accounts: Field::HasMany,
     resources: Field::HasMany,
     email: Field::String,
-    password: Field::String,
-    full_name: Field::String,
+    password: Field::String.with_options(searchable: false),
+    full_name: Field::String.with_options(searchable: false),
     first_name: Field::String,
     last_name: Field::String,
     biography: Field::String,
     volunteer: Field::Boolean,
+    phone_number: Field::String,
+    facebook_url: Field::String.with_options(searchable: false),
+    twitter_url: Field::String.with_options(searchable: false),
+    google_plus_url: Field::String.with_options(searchable: false),
     remove_avatar: Field::Boolean,
     avatar: Field::Carrierwave.with_options(
       image_on_index: true
@@ -40,6 +44,10 @@ class UserDashboard < Administrate::BaseDashboard
     last_name
     biography
     volunteer
+    phone_number
+    facebook_url
+    twitter_url
+    google_plus_url
     created_at
     updated_at
     accounts
@@ -55,6 +63,10 @@ class UserDashboard < Administrate::BaseDashboard
     last_name
     volunteer
     biography
+    phone_number
+    facebook_url
+    twitter_url
+    google_plus_url
     avatar
     remove_avatar
   ].freeze

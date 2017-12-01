@@ -37,4 +37,8 @@ class User < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def use_social_media?
+    facebook_url.present? || twitter_url.present? || google_plus_url.present?
+  end
 end

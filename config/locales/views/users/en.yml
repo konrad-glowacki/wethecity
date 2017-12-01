@@ -1,0 +1,9 @@
+en:
+  users:
+    show:
+      member_since: 'Member since %{date}'
+      phone_number: 'Phone no. %{phone_number}'
+      created_projects: 'Created projects'
+
+    projects:
+      need: 'Need $ %{required_budget}'
