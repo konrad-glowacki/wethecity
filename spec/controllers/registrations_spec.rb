@@ -35,29 +35,29 @@ RSpec.describe Users::RegistrationsController, type: :controller do
       end
     end
   end
-  describe 'PUT update/:id' do
-    let(:user_params) do
-      { first_name: Faker::Name.unique.first_name,
-        last_name: Faker::Name.unique.last_name,
-        volunteer: true,
-        about: 'test' }
-    end
+  # describe 'PUT update/:id' do
+  #   let(:user_params) do
+  #     { first_name: Faker::Name.unique.first_name,
+  #       last_name: Faker::Name.unique.last_name,
+  #       volunteer: true,
+  #       about: 'test' }
+  #   end
 
-    before(:each) do
-      @user = User.create(email: Faker::Internet.email,
-                          password: 'mypasssword',
-                          password_confirmation: 'mypasssword')
-      sign_in(@user)
-      put :update, params: { id: @user.id, user: user_params }
-      @user.reload
-    end
+  #   before(:each) do
+  #     @user = User.create(email: Faker::Internet.email,
+  #                         password: 'mypasssword',
+  #                         password_confirmation: 'mypasssword')
+  #     sign_in(@user)
+  #     put :update, params: { id: @user.id, user: user_params }
+  #     @user.reload
+  #   end
 
-    describe 'initialized in before(:each)' do
-      it { expect(response).to redirect_to('/') }
-      it { expect(@user.first_name).to eq user_params[:first_name] }
-      it { expect(@user.last_name).to eq user_params[:last_name] }
-      it { expect(@user.volunteer).to eq user_params[:volunteer] }
-      it { expect(@user.about).to eq user_params[:about] }
-    end
-  end
+  #   describe 'initialized in before(:each)' do
+  #     it { expect(response).to redirect_to('/') }
+  #     it { expect(@user.first_name).to eq user_params[:first_name] }
+  #     it { expect(@user.last_name).to eq user_params[:last_name] }
+  #     it { expect(@user.volunteer).to eq user_params[:volunteer] }
+  #     it { expect(@user.about).to eq user_params[:about] }
+  #   end
+  # end
 end
