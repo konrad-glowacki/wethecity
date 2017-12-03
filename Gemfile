@@ -81,6 +81,9 @@ gem 'bootstrap', '~> 4.0.0.beta2.1'
 # Generates fake data
 gem 'faker'
 
+# Nested forms handler
+gem 'cocoon'
+
 # Ruby Feed RSS parser
 gem 'urss'
 

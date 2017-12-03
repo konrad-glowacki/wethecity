@@ -1,6 +1,8 @@
 //= require holderjs
 //= require rails-ujs
 //= require jquery
-//= require simplemde-markdown-editor
 //= require popper
 //= require bootstrap
+//= require cocoon
+//= require simplemde-markdown-editor
+
