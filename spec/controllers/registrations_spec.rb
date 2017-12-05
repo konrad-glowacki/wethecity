@@ -14,23 +14,29 @@ RSpec.describe Users::RegistrationsController, type: :controller do
   end
   describe 'POST #create' do
     context 'with valid params' do
+      let(:user_params) do
+        {
+          email: Faker::Internet.email,
+          password: 'mypasssword',
+          password_confirmation: 'mypasssword'
+        }
+      end
       it 'should create a user' do
-        user_params = { email: Faker::Internet.email,
-                        password: 'mypasssword',
-                        password_confirmation: 'mypasssword' }
         expect { post :create, params: { user: user_params } }.to change(User, :count).by(1)
       end
     end
     context 'with invalid params' do
+      let(:user_params) do
+        {
+          password: 'mypasssword',
+          password_confirmation: 'mypasssword'
+        }
+      end
       it 'renders the new template' do
-        user_params = { password: 'mypasssword',
-                        password_confirmation: 'mypasssword' }
         post :create, params: { user: user_params }
         expect(response).to render_template('new')
       end
       it 'should not create a user' do
-        user_params = { password: 'mypasssword',
-                        password_confirmation: 'mypasssword' }
         expect { post :create, params: { user: user_params } }.to change(User, :count).by(0)
       end
     end
@@ -40,7 +46,7 @@ RSpec.describe Users::RegistrationsController, type: :controller do
   #     { first_name: Faker::Name.unique.first_name,
   #       last_name: Faker::Name.unique.last_name,
   #       volunteer: true,
-  #       about: 'test' }
+  #       biography: 'test' }
   #   end
 
   #   before(:each) do
@@ -57,7 +63,7 @@ RSpec.describe Users::RegistrationsController, type: :controller do
   #     it { expect(@user.first_name).to eq user_params[:first_name] }
   #     it { expect(@user.last_name).to eq user_params[:last_name] }
   #     it { expect(@user.volunteer).to eq user_params[:volunteer] }
-  #     it { expect(@user.about).to eq user_params[:about] }
+  #     it { expect(@user.biography).to eq user_params[:biography] }
   #   end
   # end
 end

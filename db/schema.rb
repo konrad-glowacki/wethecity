@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171130213830) do
+ActiveRecord::Schema.define(version: 20171127150950) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -195,7 +195,10 @@ ActiveRecord::Schema.define(version: 20171130213830) do
     t.string "uid"
     t.datetime "deleted_at"
     t.string "slug"
-    t.text "about"
+    t.string "phone_number"
+    t.string "facebook_url"
+    t.string "twitter_url"
+    t.string "google_plus_url"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, where: "(deleted_at IS NULL)"
     t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true, where: "(deleted_at IS NULL)"
