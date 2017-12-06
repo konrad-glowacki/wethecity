@@ -40,7 +40,8 @@
 
       <div class="form-group new-project-description">
         <%= form.label :description, t('projects.new.description.label') %>
-        <%= form.text_area :description, class: 'form-control', placeholder: t('projects.new.description.placeholder'), rows: 10 %>
+        <%= form.text_area :description, class: 'form-control', placeholder: t('projects.new.description.placeholder'),
+            rows: 10, id: 'simplemde' %>
       </div>
 
       <div class="new-project-details-right">

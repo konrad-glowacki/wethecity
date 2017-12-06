@@ -90,7 +90,6 @@ gem 'urss'
 source 'https://rails-assets.org' do
   gem 'rails-assets-holderjs'
   gem 'rails-assets-jquery'
-  gem 'rails-assets-simplemde-markdown-editor'
 end
 
 # Panel Admin

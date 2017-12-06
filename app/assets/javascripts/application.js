@@ -4,4 +4,6 @@
 //= require popper
 //= require bootstrap
 //= require cocoon
-//= require simplemde-markdown-editor
+//= require simplemde/dist/simplemde.min
+
+//= require projects

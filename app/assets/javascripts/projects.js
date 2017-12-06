@@ -1,3 +1,7 @@
+$(function() {
+  var simplemde = new SimpleMDE({ element: document.getElementById('simplemde') });
+});
+
 $(
     $('.new-resource-add').click(function () {
         $.ajax({

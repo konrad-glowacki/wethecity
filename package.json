@@ -1,5 +1,7 @@
 {
   "name": "wethecity",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "simplemde": "^1.11.2"
+  }
 }
