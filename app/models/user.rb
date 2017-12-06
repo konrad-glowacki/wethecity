@@ -27,7 +27,10 @@ class User < ApplicationRecord
   has_many :founders, as: :member
   has_many :projects, through: :founders
   has_and_belongs_to_many :accounts
-  has_and_belongs_to_many :resources
+  has_and_belongs_to_many :resources, allow_destroy: true
+
+  # Nested attributes
+  accepts_nested_attributes_for :resources
 
   # Validations
   validates :email, presence: true, uniqueness: true
