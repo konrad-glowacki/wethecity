@@ -5,4 +5,3 @@
 //= require bootstrap
 //= require cocoon
 //= require simplemde-markdown-editor
-
