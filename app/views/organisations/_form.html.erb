@@ -1,0 +1,80 @@
+<%= form_with(model: organisation, local: true) do |f| %>
+  <% if organisation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(organisation.errors.count, "error") %> prohibited this organisation from being saved:</h2>
+      <ul>
+      <% organisation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-row">
+    <div class="col-md-4">
+      <%= image_tag organisation.logo.url(:thumb) if organisation.logo? %>
+      <div class="upload-preview">
+        <img />
+      </div>
+      <%= f.file_field :logo, class: 'form-control logo' %>
+      <%= f.hidden_field :logo_cache %>
+    </div>
+    <div class="col-md-5">
+      <div class="form-group">
+        <%= f.text_field :name, placeholder: 'Oraganization name', class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :type %>
+        <%= f.select(:type, Account.types.map { |value| [ value, value ] }, { include_blank: 'Please select' }, { class: 'form-control' }) %>
+      </div>
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, class: 'form-control', placeholder: 'Description...' %>
+      </div>
+      <div class="form-group">
+        <%= f.label 'Website' %>
+        <%= f.text_field :website_url, class: 'form-control' %>
+      </div>
+        <div class="form-group">
+        <%= f.label 'Facebook' %>
+        <%= f.text_field :facebook_url, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label 'Linkedin' %>
+        <%= f.text_field :linkedin_url, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label 'Phone no.' %>
+        <%= f.text_field :phone_number, class: 'form-control' %>
+      </div>
+       <div class="form-group">
+        <%= f.label :address %>
+        <%= f.text_field :address, class: 'form-control' %>
+      </div>
+      <div class="actions">
+        <%= f.submit 'CREATE ORGANIZATION', { class: 'btn btn-success btn-block' } %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<script>
+  $(document).ready(function(){
+    var preview = $(".upload-preview img");
+
+    $(".logo").change(function(event){
+       var input = $(event.currentTarget);
+       var file = input[0].files[0];
+       var reader = new FileReader();
+       reader.onload = function(e){
+           image_base64 = e.target.result;
+           preview.attr("src", image_base64);
+       };
+       reader.readAsDataURL(file);
+       $(".upload-preview").show();
+    });
+  });
+</script>
+

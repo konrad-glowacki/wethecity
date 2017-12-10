@@ -20,6 +20,18 @@
             { class: 'nav-link', remote: true, data: { toggle: 'modal', target: '#user-profile-modal' } } %>
         <% end %>
       </li>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <div class="dropdown show">
+            <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Organization
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <%= link_to 'New', new_organisation_path, class: 'dropdown-item' %>
+            </div>
+          </div>
+        </li>
+      <% end %>
     </ul>
   </div>
 </nav>

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[show]
   resources :accounts, only: %i[index show]
   resources :categories, only: %i[show index]
+  resources :organisations
 
   resources :projects, only: %i[show index] do
     get 'search', on: :collection
