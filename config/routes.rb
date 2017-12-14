@@ -28,8 +28,6 @@ Rails.application.routes.draw do
     resources :resources
     resources :super_admins
 
-    root to: 'projects#index'
-
     authenticate :super_admin do
       mount Sidekiq::Web, at: '/sidekiq'
     end

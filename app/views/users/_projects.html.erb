@@ -1,0 +1,20 @@
+<h2><%= name %></h2>
+
+<table>
+  <% sources.each do |source| %>
+    <tr>
+      <td> ->picture<- </td>
+      <td>
+        <div><%= source.name %></div>
+        <div><%= source.description.truncate(50) %> </div>
+      </td>
+      <td>
+        <% if source.model_name == 'Project' %>
+          <%= source.required_budget_format %>
+        <% else %>
+          <%= "#{source.resource_name} / #{source.quantity}" %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

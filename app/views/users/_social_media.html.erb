@@ -1,0 +1,13 @@
+<ul>
+  <% if user.facebook_url.present? %>
+    <li><%= link_to 'fb', user.facebook_url %></li>
+  <% end %>
+
+  <% if user.twitter_url.present? %>
+    <li><%= link_to 'twitter', user.twitter_url %></li>
+  <% end %>
+
+  <% if user.google_plus_url.present? %>
+    <li><%= link_to 'google_plus', user.google_plus_url %></li>
+  <% end %>
+</ul>
