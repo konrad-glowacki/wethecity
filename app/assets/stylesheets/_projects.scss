@@ -45,7 +45,6 @@
   .project-info-sidebar {
     grid-area: sidebar;
 
-    // SHARED
     > *,
     .project-statistics > * {
       margin: 1.5rem auto;
@@ -78,6 +77,71 @@
 
       .progress-bar {
         width: 42%;
+      }
+    }
+  }
+}
+
+form {
+  > * {
+    margin: 1rem auto;
+  }
+
+  .new-project-cover {
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    button.btn {
+      width: 20%;
+      position: absolute;
+      top: 50%;
+      left: 40%;
+    }
+  }
+
+  .new-project-title {
+    input {
+      font-size: 2em;
+      text-align: center;
+      height: 8rem;
+    }
+  }
+
+  .new-project-details {
+    display: grid;
+    grid-template-areas: "left right";
+    grid-template-columns: 2fr 1fr;
+    grid-column-gap: 3rem;
+
+    .new-project-details-left {
+      grid-area: left;
+
+      .new-project-resources {
+        .new-resource-container {
+          .new-project-resource {
+            display: flex;
+            flex-flow: row wrap;
+          }
+        }
+        .new-resource-add {
+          color: $green;
+          font-weight: bolder;
+        }
+      }
+    }
+    .new-project-details-right {
+      grid-area: right;
+
+      .new-project-team {
+        .new-team-leader {
+          display: inline-flex;
+          flex-flow: row nowrap;
+
+          img {
+            margin-right: 5%;
+          }
+        }
       }
     }
   }

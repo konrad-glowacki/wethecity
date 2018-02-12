@@ -1,0 +1,80 @@
+<%= form_for @project, url: { action: 'create', method: :post } do |form| %>
+    <div class="new-project-general-info">
+      <div class="form-group new-project-cover">
+        <!--TO BE IMPLEMENTED: CARRIERWAVE-->
+        <%= image_tag '', class: 'img-fluid', alt: 'new-project-cover', data: { src: 'holder.js/1200x550' } %>
+        <%= form.button t('projects.new.cover.add'), type: 'button', class: 'form-control btn btn-light' %>
+      </div>
+      <div class="form-group new-project-title">
+        <%= form.text_field :name, class: 'form-control', placeholder: t('projects.new.title.placeholder') %>
+      </div>
+      <table class="form-group table new-project-budget">
+        <tr>
+          <td>
+            <%= form.label :collected_budget, t('projects.new.budget.collected.label') %>
+            <%= form.number_field :collected_budget, class: 'form-control' %>
+          </td>
+          <td class="form-group new-project-deadline">
+            <%= form.label :finish_on, t('projects.new.deadline.label') %>
+            <%= form.date_field :finish_on, class: 'form-control' %>
+          </td>
+          <td>
+            <%= form.label :required_budget, t('projects.new.budget.estimated.label') %>
+            <%= form.number_field :required_budget, class: 'form-control' %>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="new-project-details">
+      <div class="new-project-details-left">
+        <div class="form-group new-project-resources">
+          <%= form.label :resources, t('projects.new.resources.label') %>
+          <div class="new-resource-container">
+            <!--RESOURCES-->
+            <%= render 'resources/new' %>
+          </div>
+          <%= form.button '+ ' + t('projects.new.resources.add'), class: 'btn btn-sm btn-link new-resource-add' %>
+        </div>
+      </div>
+
+      <div class="form-group new-project-description">
+        <%= form.label :description, t('projects.new.description.label') %>
+        <%= form.text_area :description, class: 'form-control', placeholder: t('projects.new.description.placeholder'),
+            rows: 10, id: 'simplemde' %>
+      </div>
+
+      <div class="new-project-details-right">
+        <div class="new-project-partners">
+          <%= form.label :partners, t('projects.new.partners.label') %>
+          <div class="new-partner-container">
+            <!--PARTNERS-->
+          </div>
+          <%= form.button '+ ' + t('projects.new.partners.add'), class: 'btn btn-sm btn-link new-partner-add' %>
+        </div>
+        <div class="new-project-ambassadors">
+          <%= form.label :ambassadors, t('projects.new.ambassadors.label') %>
+          <div class="new-ambassador-container">
+            <!--AMBASSADORS-->
+          </div>
+          <%= form.button '+ ' + t('projects.new.ambassadors.add'), class: 'btn btn-sm btn-link new-ambassador-add' %>
+        </div>
+        <div class="new-project-team">
+          <%= form.label :team, t('projects.new.team.label') %>
+
+          <div class="new-team-member-container">
+            <div class="new-team-leader">
+              <%= image_tag '', class: 'rounded', alt: 'team-leader-icon', data: { src: 'holder.js/50x50' } %>
+              <div>
+                <%= link_to t('projects.new.team.leader.label') %>
+                <strong>YOU!</strong>
+              </div>
+            </div>
+            <!--TEAM MEMBERS-->
+          </div>
+          <%= form.button '+ ' + t('projects.new.team.add'), class: 'btn btn-sm btn-link new-team-member-add' %>
+        </div>
+      </div>
+    </div>
+    <%= form.submit t('projects.new.publish'), class: 'btn btn-success btn-lg btn-block form-control' %>
+<% end %>
